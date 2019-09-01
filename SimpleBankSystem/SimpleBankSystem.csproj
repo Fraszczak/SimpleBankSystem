@@ -35,8 +35,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,18 +76,97 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Models\DataBase.cs" />
+    <Compile Include="Views\AccountWindow.xaml.cs">
+      <DependentUpon>AccountWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateAccountWindow.xaml.cs">
+      <DependentUpon>CreateAccountWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvestmentsWindow.xaml.cs">
+      <DependentUpon>InvestmentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThreeContentInOneWindow\ThreeContentWindow.xaml.cs">
+      <DependentUpon>ThreeContentWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Extras\Effects\Loading.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Commands\BackToCommand.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\LogoutFromAccountWindowCommand.cs" />
+    <Compile Include="Commands\LogoutFromInvestmentWindowCommand.cs" />
+    <Compile Include="Commands\LogoutFromMainWindowCommand.cs" />
+    <Compile Include="Commands\ShowAccountWindowCommand.cs" />
+    <Compile Include="Commands\ShowCreateAccountWindowCommand.cs" />
+    <Compile Include="Commands\ShowInvestmentWindowCommand.cs" />
+    <Compile Include="Extras\Effects\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extras\Effects\BlurEffect.cs" />
+    <Compile Include="Helpers\MyConverter.cs" />
+    <Compile Include="ViewModels\AccesibilityWindow\AccesibilityWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\AccesibilityWindow\AccesibilityWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\AccesibilityWindow\AccesibilityWindowViewModel.cs" />
+    <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.cs" />
+    <Compile Include="ViewModels\CreateAccountWindow\CreateAccountWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\CreateAccountWindow\CreateAccountWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\CreateAccountWindow\CreateAccountWindowViewModel.cs" />
+    <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.cs" />
+    <Compile Include="ViewModels\LegalInfoWindow\LegalInfoWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\LegalInfoWindow\LegalInfoWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\LegalInfoWindow\LegalInfoWindowViewModel.cs" />
+    <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.Commands.cs" />
+    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\SeciurityWindow\SeciurityWindowViewModel.Binding.cs" />
+    <Compile Include="ViewModels\SeciurityWindow\SeciurityWindowViewModel.Command.cs" />
+    <Compile Include="ViewModels\SeciurityWindow\SeciurityWindowViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Page Include="Views\AccountWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreateAccountWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InvestmentsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThreeContentInOneWindow\ThreeContentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +186,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +195,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
