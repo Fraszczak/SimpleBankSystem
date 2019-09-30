@@ -37,7 +37,7 @@
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
                                 Width="25" Height="25" Margin="5,5" VerticalAlignment="Center" HorizontalAlignment="Right"
                                 Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"
-                                Command="{Binding ShowCreateAccountCommand}">
+                                Command="{Binding ShowCreateAccountWindowCommand}">
                             <materialDesign:PackIcon  Kind="Account" Height="20" Width="20" />
                         </Button>
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
@@ -147,9 +147,9 @@
                 <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="20" Foreground="WhiteSmoke">
                     You have no account yet?
                 </TextBlock>
-                    <Button Command="{Binding ShowCreateAccountCommand}"  
+                    <Button Command="{Binding ShowCreateAccountWindowCommand}"  
                              Background="{x:Null}" BorderBrush="{x:Null}" >
-                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"  Background="{x:Null}" Foreground="Purple">
+                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"  Background="{x:Null}" Foreground="Purple" >
                     Create it!
                 </TextBlock>
                     </Button>

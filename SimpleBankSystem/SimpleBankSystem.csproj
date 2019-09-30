@@ -76,8 +76,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\BackToLoginWindowCommand.cs" />
+    <Compile Include="Commands\LogoutFromThreeWindowCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Commands\ShowAccountWindowCommand.cs" />
+    <Compile Include="Commands\ShowThreeWindowCommand.cs" />
+    <Compile Include="Models\AccountTransferActions.cs" />
     <Compile Include="Models\DataBase.cs" />
+    <Compile Include="Models\AccountTransfersState.cs" />
+    <Compile Include="Models\IAccountTransferActions.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
     </Compile>
@@ -93,7 +100,7 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThreeContentInOneWindow\ThreeContentWindow.xaml.cs">
+    <Compile Include="Views\ThreeContentWindow.xaml.cs">
       <DependentUpon>ThreeContentWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Extras\Effects\Loading.xaml">
@@ -110,7 +117,7 @@
     <Compile Include="Commands\LogoutFromAccountWindowCommand.cs" />
     <Compile Include="Commands\LogoutFromInvestmentWindowCommand.cs" />
     <Compile Include="Commands\LogoutFromMainWindowCommand.cs" />
-    <Compile Include="Commands\ShowAccountWindowCommand.cs" />
+    <Compile Include="Commands\ShowMainWindowCommand.cs" />
     <Compile Include="Commands\ShowCreateAccountWindowCommand.cs" />
     <Compile Include="Commands\ShowInvestmentWindowCommand.cs" />
     <Compile Include="Extras\Effects\Loading.xaml.cs">
@@ -118,9 +125,9 @@
     </Compile>
     <Compile Include="Extras\Effects\BlurEffect.cs" />
     <Compile Include="Helpers\MyConverter.cs" />
-    <Compile Include="ViewModels\AccesibilityWindow\AccesibilityWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\AccesibilityWindow\AccesibilityWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\AccesibilityWindow\AccesibilityWindowViewModel.cs" />
+    <Compile Include="ViewModels\ThreeWindowContent\ThreeWindowContentViewModel.Binding.cs" />
+    <Compile Include="ViewModels\ThreeWindowContent\ThreeWindowContentViewModel.Command.cs" />
+    <Compile Include="ViewModels\ThreeWindowContent\ThreeWindowContentViewModel.cs" />
     <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Binding.cs" />
     <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Command.cs" />
     <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.cs" />
@@ -130,18 +137,12 @@
     <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.Binding.cs" />
     <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.Command.cs" />
     <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.cs" />
-    <Compile Include="ViewModels\LegalInfoWindow\LegalInfoWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\LegalInfoWindow\LegalInfoWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\LegalInfoWindow\LegalInfoWindowViewModel.cs" />
     <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.Binding.cs" />
     <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.Command.cs" />
     <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.Binding.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.Commands.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\SeciurityWindow\SeciurityWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\SeciurityWindow\SeciurityWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\SeciurityWindow\SeciurityWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="Views\AccountWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -163,7 +164,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ThreeContentInOneWindow\ThreeContentWindow.xaml">
+    <Page Include="Views\ThreeContentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -186,7 +187,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

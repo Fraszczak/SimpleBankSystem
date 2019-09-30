@@ -1,9 +1,9 @@
-﻿<Window x:Class="SimpleBankSystem.Views.AccesibilityWindow"
+﻿<Window x:Class="SimpleBankSystem.Views.ThreeContentWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SimpleBankSystem.Views"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
         mc:Ignorable="d"
@@ -30,9 +30,9 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="300"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="45"/>
@@ -103,7 +103,7 @@
 
         <!-- SECOND ROW OF GRID STRUCTURE-->
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="0"/>
-        <Label Background="#2e2f41" Grid.Row="1" Grid.Column="1" >
+        <Grid Background="#2e2f41" Grid.Row="1" Grid.Column="1" >
 
             <StackPanel Width="107" Margin="-50,0">
                 <StackPanel.Resources>
@@ -119,23 +119,26 @@
                     </Style>
 
                 </StackPanel.Resources>
-                <ToggleButton Style="{StaticResource OnOffButton}" x:Name="ButtonMenu" IsChecked="{Binding ElementName=MenuList , Path=IsOpen}"
-                        Background="{x:Null}" BorderBrush="{x:Null}">
+                <ToggleButton 
+                    Style="{StaticResource OnOffButton}" x:Name="ButtonMenu" 
+                    IsChecked="{Binding ElementName=MenuList , Path=IsOpen}"
+                    Background="{x:Null}" BorderBrush="{x:Null}"
+                    Content="{materialDesign:PackIcon Kind=Menu, Size=30}" />
 
-                    <materialDesign:PackIcon  Kind="Menu" Height="25" Width="25"/>
-
-
-                </ToggleButton>
-                <Popup x:Name="MenuList" AllowsTransparency="True" PlacementTarget="{Binding ElementName=ButtonMenu}" HorizontalAlignment="Left" Width="107">
+                <Popup x:Name="MenuList" AllowsTransparency="True" 
+                       PlacementTarget="{Binding ElementName=ButtonMenu}" 
+                       HorizontalAlignment="Left" Width="107"
+                       StaysOpen="False">
                     <StackPanel  Background="#2e2f41">
-                        <Button Command="{Binding AccountCommand}" BorderBrush="{x:Null}" Content="Account"  />
-                        <Button Command="{Binding InvestmentWindowCommand}" BorderBrush="{x:Null}" Content="Inwestment"/>
-                        <Button Command="{Binding LogoutCommand}" BorderBrush="{x:Null}" Content="Logout" />
+                        <Button Command="{Binding BackCommand}" BorderBrush="{x:Null}" Content="Main" />
+                        <Button Command="{Binding ShowAccountWindowCommand}" BorderBrush="{x:Null}" Content="Account"  />
+                        <Button Command="{Binding ShowInvestmentWindowCommand}" BorderBrush="{x:Null}" Content="Inwestment"/>
+                        <Button Command="{Binding LogoutFromThreeWindowCommand}" BorderBrush="{x:Null}" Content="Logout" />
+
                     </StackPanel>
                 </Popup>
             </StackPanel>
-
-        </Label>
+        </Grid>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                    Background="#2e2f41"  Content="SimpleBankSystem"
@@ -172,32 +175,72 @@
 
         <!-- THIRTH ROW OF GRID STRUCTURE-->
         <Label Background="#262732"  Grid.Row="3" Grid.Column="0"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="1"
-               Content="Account Options"
-                   Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
-                    VerticalContentAlignment="Center"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="3"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="4"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="5">
-            <WrapPanel HorizontalAlignment="Right" Margin="125,0,0,0">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                    BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
-                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                    >
+        <Canvas Background="#262732"  Grid.Row="3" Grid.Column="1" >
+            <Label 
+               Content="Legal Info"
+               Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
+               VerticalContentAlignment="Center" Canvas.Top="29" />
 
-                    <materialDesign:PackIcon  Kind="AccountArrowRightOutline" Height="25" Width="25" />
+        </Canvas>
+        <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
+        <Canvas Background="#262732"  Grid.Row="3" Grid.Column="3">
+            <Label Background="#262732"  Grid.Row="3" Grid.Column="1"
+               Content="Seciurity"
+               Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
+               VerticalContentAlignment="Center" Canvas.Top="29"/>
+        </Canvas>
+        <Label Background="#262732"  Grid.Row="3" Grid.Column="4"/>
+        <Canvas Background="#262732"  Grid.Row="3" Grid.Column="5">
+            <Label Background="#262732"  Grid.Row="3" Grid.Column="1"
+               Content="Acessibility"
+               Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
+               VerticalContentAlignment="Center" Canvas.Left="4" Canvas.Top="29"/>
+            <WrapPanel HorizontalAlignment="Right" Margin="165,0,0,0">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                        BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
+                        VerticalAlignment="Center" HorizontalAlignment="Right" 
+                        Command="{Binding BackCommand, Mode=OneWay}">
+                        <materialDesign:PackIcon  Kind="AccountArrowRightOutline" Height="25" Width="25" />
                 </Button>
             </WrapPanel>
 
-        </Label>
+        </Canvas>
         <Label Background="#FF272833"  Grid.Row="3" Grid.Column="6"/>
 
         <!-- -->
+        <Label Background="#FF0D7C79"  Grid.Row="4" Grid.Column="1"/>
+        <Label Background="#FF417CC2"  Grid.Row="4" Grid.Column="3"/>
+        <Label Background="#FFCB4E64"  Grid.Row="4" Grid.Column="5"/>
 
-
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="3" Background="#2e2f41">
-
+        <StackPanel Grid.Column="1"  Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
+            <TextBlock Height="350" TextWrapping="Wrap" Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="13" FontStyle="Italic" Padding="15"> 
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="3"  Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
+            <TextBlock Height="350" TextWrapping="Wrap" Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="13" FontStyle="Italic" Padding="15"> 
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
+            <TextBlock Height="350" TextWrapping="Wrap" Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="13" FontStyle="Italic" Padding="15"> 
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>

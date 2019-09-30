@@ -1,16 +1,13 @@
-﻿using SimpleBankSystem.ViewModels;
+﻿
 using SimpleBankSystem.Views;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace SimpleBankSystem
+namespace SimpleBankSystem.Commands
 {
-    public class BackToCommand : ICommand
+    public class LogoutFromThreeWindowCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {
@@ -25,19 +22,14 @@ namespace SimpleBankSystem
 
         public void Execute(object parameter)
         {
-            MainWindow mainWindow = new MainWindow();
+            LoginWindow loginWindow = new LoginWindow();
 
-            foreach (Window window in Application.Current.Windows.OfType<Window>())
+            foreach (Window window in Application.Current.Windows.OfType<ThreeContentWindow>())
             {
-                if (window.GetType() == typeof(MainWindow))
-                {
-                    mainWindow.Show();
-                }
-                else
-                    window.Close();
+                ((ThreeContentWindow)window).Close();
             }
 
-
+            loginWindow.Show();
         }
     }
 }

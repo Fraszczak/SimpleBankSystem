@@ -4,11 +4,11 @@ using System.Windows;
 namespace SimpleBankSystem.Views
 {
     /// <summary>
-    /// Interaction logic for AccesibilityWindow.xaml
+    /// Interaction logic for ThreeContentWindow.xaml
     /// </summary>
-    public partial class AccesibilityWindow : Window
+    public partial class ThreeContentWindow : Window
     {
-        public AccesibilityWindow()
+        public ThreeContentWindow()
         {
             InitializeComponent();
         }

@@ -25,18 +25,18 @@ namespace SimpleBankSystem.Commands
 
         public void Execute(object parameter)
         {
+            CreateAccountWindow createAccountWindow = new CreateAccountWindow();
+
             BlurEffectOwn blurEffectOwn = new BlurEffectOwn(Application.Current.MainWindow);
             blurEffectOwn.LoadingEffect();
-
-
-            CreateAccountWindow createAccountWindow = new CreateAccountWindow();
-            createAccountWindow.Show();
-
+            
             foreach (Window window in Application.Current.Windows.OfType<LoginWindow>())
             {
                 ((LoginWindow)window).Close();
             }
 
+            
+            createAccountWindow.Show();
         }
     }
 }

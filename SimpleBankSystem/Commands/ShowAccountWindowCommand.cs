@@ -23,9 +23,7 @@ namespace SimpleBankSystem.Commands
 
         public void Execute(object parameter)
         {
-
             AccountWindow accountWindow = new AccountWindow();
-            accountWindow.Show();
 
             foreach (Window window in Application.Current.Windows)
             {
@@ -38,6 +36,8 @@ namespace SimpleBankSystem.Commands
                     window.Close();
                 }
             }
+            
+            accountWindow.Show();
         }
     }
 }

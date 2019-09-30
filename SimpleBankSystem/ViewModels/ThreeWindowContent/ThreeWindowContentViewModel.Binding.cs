@@ -1,7 +1,6 @@
-﻿
-namespace SimpleBankSystem.ViewModels.LoginWindow
+﻿namespace SimpleBankSystem.ViewModels
 {
-    public sealed partial class AccesibilityWindow
+    public sealed partial class ThreeWindowContent
     {
         private string accesibilityWindowTitle = "SimpleBankSystem - Accesibility Info";
         public string AccesibilityWindowTitle

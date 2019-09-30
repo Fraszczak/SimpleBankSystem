@@ -46,7 +46,7 @@
         <Label Background="#2e2f41" Grid.Row="0" Grid.Column="3"/>
         <Label Background="#2e2f41" Grid.Row="0" Grid.Column="4"/>
         <Label Background="#2e2f41" Grid.Row="0" Grid.Column="5"/>
-        <Label Background="#2e2f41" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="125,0,0,-3">
+        <Grid Background="#2e2f41" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="125,0,0,-3">
             
             <!-- border buttons -->
             <WrapPanel >
@@ -69,11 +69,11 @@
                     <materialDesign:PackIcon  Kind="Power" Height="20" Width="20" />
                 </Button>
             </WrapPanel>
-        </Label>
+        </Grid>
 
         <!-- SECOND ROW OF GRID STRUCTURE-->
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="0"/>
-        <Label Background="#2e2f41" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Width="210" >
+        <Grid Background="#2e2f41" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Width="210" >
             
             <!-- menu button-->
             <StackPanel Width="107" Margin="-50,0">
@@ -102,11 +102,11 @@
                     <StackPanel  Background="#2e2f41">
                         <Button  BorderBrush="{x:Null}" Content="Legal Info"  />
                         <Button  BorderBrush="{x:Null}" Content="Accesibility"/>
-                        <Button  BorderBrush="{x:Null}" Content="Exit" />
+                        <Button  BorderBrush="{x:Null}" Content="Exit" Command="{Binding ExitCommand}" />
                     </StackPanel>
                 </Popup>
             </StackPanel>
-        </Label>
+        </Grid>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                    Background="#2e2f41" Content="{Binding CreateAccountWindowWindowTitle}"
@@ -149,16 +149,16 @@
         <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
         <Label Background="#262732"  Grid.Row="3" Grid.Column="3"/>
         <Label Background="#262732"  Grid.Row="3" Grid.Column="4"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="5">
+        <Grid Background="#262732"  Grid.Row="3" Grid.Column="5">
             <!-- GetBackToMainWindow button-->
             <WrapPanel HorizontalAlignment="Right" Margin="125,0,0,0">
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
                         BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
                         VerticalAlignment="Center" HorizontalAlignment="Right"
                         Content="{materialDesign:PackIcon Kind=AccountArrowRightOutline, Size=30}" 
-                        Command="{Binding BackToMainWindowCommand}"/>
+                        Command="{Binding BackCommand}"/>
             </WrapPanel>
-        </Label>
+        </Grid>
         <Label Background="#FF272833"  Grid.Row="3" Grid.Column="6"/>
         
         <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="3" Background="#2e2f41">

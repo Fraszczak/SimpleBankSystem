@@ -25,12 +25,13 @@ namespace SimpleBankSystem.Commands
         public void Execute(object parameter)
         {
             LoginWindow mainWindow = new LoginWindow();
-            mainWindow.Show();
 
             foreach (Window window in Application.Current.Windows.OfType<MainWindow>())
             {
                 ((MainWindow)window).Close();
             }
+            
+            mainWindow.Show();
         }
     }
 }

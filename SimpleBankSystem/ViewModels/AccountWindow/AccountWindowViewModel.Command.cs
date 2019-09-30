@@ -7,9 +7,10 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
     public sealed partial class AccountWindowViewModel
     {
         private ICommand exitCommand;
-        private ICommand backToMainWindowCommand;
+        private ICommand showMainWindowCommand;
         private ICommand showInvestmentWindowCommand;
         private ICommand logoutFromAccountWindowCommand;
+        private ICommand showAccoundWindowCommand;
 
         public ICommand ExitCommand
         {
@@ -25,10 +26,10 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
         {
             get
             {
-                if (this.backToMainWindowCommand == null)
-                    this.backToMainWindowCommand = new BackToCommand();
+                if (this.showMainWindowCommand == null)
+                    this.showMainWindowCommand = new BackToCommand();
 
-                return this.backToMainWindowCommand;
+                return this.showMainWindowCommand;
             } 
         }
         public ICommand ShowInvestmentWindowCommand
@@ -55,5 +56,16 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
                 return this.logoutFromAccountWindowCommand;
             }
         }
+        public ICommand ShowAccoundWindowCommand
+        {
+            get
+            {
+                if (showAccoundWindowCommand == null)
+                    showAccoundWindowCommand = new ShowAccountWindowCommand();
+
+                return showAccoundWindowCommand;
+            }
+        }
     }
+
 }

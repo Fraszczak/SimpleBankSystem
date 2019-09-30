@@ -23,7 +23,11 @@ namespace SimpleBankSystem.ViewModels
             }
         }
 
+
+
         #region Total Values
+
+
         private decimal _currentAccountTotal = DataBase.Instance.DecimalExecuteQuery("SELECT SUM(SpendPrices) FROM CurrentAccountSpendsTable");
         public Decimal CurrentAccountTotal
         {

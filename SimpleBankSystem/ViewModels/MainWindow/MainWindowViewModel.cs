@@ -7,6 +7,7 @@ namespace SimpleBankSystem.ViewModels
     {
         public MainWindowViewModel()
         {
+           
         }
     }
 }

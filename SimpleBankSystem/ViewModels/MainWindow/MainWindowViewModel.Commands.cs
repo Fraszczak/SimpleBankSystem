@@ -10,6 +10,7 @@
         private ICommand showInvestmentWindowCommand;
         private ICommand showAccoundWindowCommand;
         private ICommand backCommand;
+        private ICommand showThreeWindowCommand;
  
 
         public ICommand ExitCommand
@@ -60,6 +61,15 @@
                     this.backCommand = new BackToCommand();
 
                 return this.backCommand;
+            }
+        }
+        public ICommand ShowThreeWindowCommand
+        {
+            get
+            {
+                if (showThreeWindowCommand == null)
+                    showThreeWindowCommand = new ShowThreeWindowCommand();
+                return this.showThreeWindowCommand;
             }
         }
        

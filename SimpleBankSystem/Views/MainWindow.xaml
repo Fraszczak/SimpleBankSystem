@@ -34,7 +34,7 @@
             <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="35"/>
             <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="58"/>
         </Grid.ColumnDefinitions>
 
         <!--  GRID ROW DEFINITION 0-7  -->
@@ -48,7 +48,7 @@
             <RowDefinition Height="200"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="80" />
-            <RowDefinition Height="45"/>
+            <RowDefinition Height="50"/>
 
         </Grid.RowDefinitions>
 
@@ -59,10 +59,10 @@
         <Label Background="#2e2f41" Grid.Row="0" Grid.Column="3"/>
         <Label Background="#2e2f41" Grid.Row="0" Grid.Column="4"/>
         <Label Background="#2e2f41" Grid.Row="0" Grid.Column="5"/>
-        <Label Background="#2e2f41" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="140,0,0,-3">
+        <Grid Background="#2e2f41" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="140,0,0,-3">
             <!-- Border menu-->
             <StackPanel Orientation="Horizontal" >
-                <Button Command="{Binding AccountCommand}" 
+                <Button Command="{Binding ShowAccountWindowCommand}" 
                         Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
                         BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
                         VerticalAlignment="Center" HorizontalAlignment="Right" >
@@ -98,11 +98,11 @@
                     <materialDesign:PackIcon  Kind="Power" Height="20" Width="20" />
                 </Button>
             </StackPanel>
-        </Label>
+        </Grid>
 
         <!-- SECOND ROW OF GRID STRUCTURE-->
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="0"/>
-        <Label Background="#2e2f41" Grid.Row="1" Grid.Column="1" >
+        <Grid Background="#2e2f41" Grid.Row="1" Grid.Column="1" >
             <!-- Menu button -->
             <StackPanel Width="107" Margin="-50,0">
                 <StackPanel.Resources>
@@ -137,7 +137,7 @@
                     </StackPanel>
                 </Popup>
             </StackPanel>
-        </Label>
+        </Grid>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                    Background="#2e2f41"  Content="{Binding MainWindowTitle}"
@@ -179,18 +179,18 @@
         <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
         <Label Background="#262732"  Grid.Row="3" Grid.Column="3"/>
         <Label Background="#262732"  Grid.Row="3" Grid.Column="4"/>
-        <Label Background="#262732"  Grid.Row="3" Grid.Column="5">
+        <Grid Background="#262732"  Grid.Row="3" Grid.Column="5">
             <WrapPanel HorizontalAlignment="Right" Margin="125,0,0,0">
                 <Button 
                     Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                    Command="{Binding LogoutFromMainWindowCommand}"
+                    Command="{Binding BackCommand}"
                     BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
                     VerticalAlignment="Center" HorizontalAlignment="Right" >
                     <materialDesign:PackIcon  
                         Kind="AccountArrowRightOutline" Height="25" Width="25" />
                 </Button>
             </WrapPanel>
-        </Label>
+        </Grid>
         <Label Background="#FF272833"  Grid.Row="3" Grid.Column="6"/>
 
         <!-- FOURTH ROW OF GRID STRUCTURE-->
@@ -204,33 +204,40 @@
 
         <!-- FIVETH ROW OF GRID STRUCTURE-->
         <Label Background="#262732"  Grid.Row="5" Grid.Column="0"/>
-        <Label Background="#393a4d"  Grid.Row="5" Grid.Column="1">
+        <Grid Background="#393a4d"  Grid.Row="5" Grid.Column="1">
             <WrapPanel>
                 <TextBox BorderBrush="{x:Null}" FontWeight="Bold"
-                     FontSize="16" Foreground="WhiteSmoke" 
-                     HorizontalAlignment="Center" VerticalAlignment="Center" Text="Current Account" Height="44" Width="185"/>
-                <Label FontSize="20" Content="{Binding CurrentAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                     FontSize="20" Foreground="WhiteSmoke" Padding="5,0"
+                     HorizontalAlignment="Center" VerticalContentAlignment="Center" Text="Current" Height="44" Width="185"/>
+                <Label Content="{materialDesign:PackIcon Kind=Dollar, Size=28}" Foreground="White" />
+                <Label FontSize="20" Content="{Binding CurrentAccountTotal, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                       Foreground="White" FontWeight="DemiBold"/>
+
             </WrapPanel>
 
-        </Label>
+        </Grid>
         <Label Background="#262732"  Grid.Row="5" Grid.Column="2"/>
-        <Label Background="#393a4d"  Grid.Row="5" Grid.Column="3">
+        <Grid Background="#393a4d"  Grid.Row="5" Grid.Column="3">
             <WrapPanel>
                 <TextBox BorderBrush="{x:Null}" FontWeight="Bold"
-                     FontSize="20" Foreground="WhiteSmoke" 
-                     HorizontalAlignment="Center" VerticalAlignment="Center" Text="Saving Account" Height="44" Width="185"/>
-                <Label FontSize="20" Content="{Binding SavingAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                     FontSize="20" Foreground="WhiteSmoke" Padding="5,0"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" Text="Saving Account" Height="44" Width="186"/>
+                <Label Content="{materialDesign:PackIcon Kind=Dollar, Size=28}" Foreground="White" />
+                <Label FontSize="20" Content="{Binding SavingAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                       Foreground="White" FontWeight="DemiBold"/>
             </WrapPanel>
-        </Label>
+        </Grid>
         <Label Background="#262732"  Grid.Row="5" Grid.Column="4"/>
-        <Label Background="#393a4d"  Grid.Row="5" Grid.Column="5" >
+        <Grid Background="#393a4d"  Grid.Row="5" Grid.Column="5" >
             <WrapPanel>
                 <TextBox BorderBrush="{x:Null}" FontWeight="Bold"
-                     FontSize="20" Foreground="WhiteSmoke"
-                     HorizontalAlignment="Center" VerticalAlignment="Center" Text="Credit Card Account" Height="44" Width="185"/>
-                <Label FontSize="20" Content="{Binding CreditCardAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                     FontSize="20" Foreground="WhiteSmoke" Padding="5,0"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" Text="Credit Card" Height="44" Width="185"/>
+                <Label Content="{materialDesign:PackIcon Kind=Dollar, Size=28}" Foreground="White" />
+                <Label FontSize="20" Content="{Binding CreditCardAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                       Foreground="White" FontWeight="DemiBold"/>
             </WrapPanel>
-        </Label>
+        </Grid>
         <Label Background="#262732"  Grid.Row="5" Grid.Column="6"/>
 
         <!-- SIXTH ROW OF GRID STRUCTURE-->
@@ -239,7 +246,7 @@
 
 
         <Label Background="#262732"  Grid.Row="6" Grid.Column="2"/>
-        <Label Background="#f5f5f5"  Grid.Row="6" Grid.Column="3">
+        <Grid Background="#f5f5f5"  Grid.Row="6" Grid.Column="3">
 
             <!-- Saving Account-->
             <WrapPanel>
@@ -276,10 +283,10 @@
                     <Button FontSize="10" Content="All transaction" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
                 </Canvas>
             </WrapPanel>
-        </Label>
+        </Grid>
 
         <Label Background="#262732"  Grid.Row="6" Grid.Column="4"/>
-        <Label Background="#f5f5f5"  Grid.Row="6" Grid.Column="5">
+        <Grid Background="#f5f5f5"  Grid.Row="6" Grid.Column="5">
 
             <!-- Credit Card Account-->
             <WrapPanel>
@@ -316,7 +323,7 @@
                     <Button FontSize="10" Content="All transaction" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
                 </Canvas>
             </WrapPanel>
-        </Label>
+        </Grid>
         <Label Background="#262732"  Grid.Row="6" Grid.Column="6"/>
 
         <!-- SEVENTH ROW OF GRID STRUCTURE-->
@@ -330,42 +337,28 @@
 
         <!-- EIGHT ROW OF GRID STRUCTURE-->
         <Label Background="#262732"  Grid.Row="8" Grid.Column="0"/>
-        <Label Background="#262732"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5">
+        <Grid Background="WhiteSmoke"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5">
             <WrapPanel>
                 <Grid Background="WhiteSmoke" Width="190" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="I want to transfer..." FontWeight="Bold" Width="150" FontSize="12"/>
-                    <TextBox Margin="0,18" Width="150" Text="Enter Amount" FontSize="12" FontStyle="Italic" FontWeight="Bold" Focusable="False"/>
-                    <TextBox Margin="0,35,1,19" Width="150" Text="{Binding TextProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Focusable="True" >
-                        <TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Opacity"
-                          Value="1" />
-                                <Style.Triggers>
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="IsFocused" Value="False" />
-                                            <Condition Property="Text" Value="" />
-                                        </MultiTrigger.Conditions>
-                                        <Setter Property="Opacity" Value="0" />
-                                    </MultiTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>
-                    </TextBox>
+                    <TextBox Margin="0,35,1,19" Width="150" Text="{Binding AmoundToTransaction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
 
                 </Grid>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="From this account..." FontWeight="Bold" Width="150" FontSize="12"/>
                     <ComboBox Margin="0,8" Width="150">
                         <ComboBoxItem>Saving Account</ComboBoxItem>
+                        <ComboBoxItem>Current Account</ComboBoxItem>
                         <ComboBoxItem IsSelected="True">Credit Card</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="To this account" FontWeight="Bold" Width="150" FontSize="12"/>
                     <ComboBox Margin="0,8" Width="150">
-                        <ComboBoxItem>Saving Account</ComboBoxItem>
-                        <ComboBoxItem IsSelected="True">Credit Card</ComboBoxItem>
+                        <ComboBoxItem Content="Saving Account" />
+                        <ComboBoxItem Content="Current Account" />
+                        <ComboBoxItem Content="Credit Card"  IsSelected="True" />
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="110" MaxWidth="110" Height="80" MaxHeight="80" HorizontalAlignment="Center">
@@ -373,7 +366,7 @@
                 </StackPanel>
             </WrapPanel>
 
-        </Label>
+        </Grid>
         <Label Background="#262732"  Grid.Row="8" Grid.Column="6"/>
 
 
@@ -382,23 +375,39 @@
         <Label Background="#20212a"  Grid.Row="9" Grid.Column="0"/>
         <Label Background="#20212a"  Grid.Row="9" Grid.Column="1"/>
         <Label Background="#20212a"  Grid.Row="9" Grid.Column="2"/>
-        <!-- Separate this 3 options, create conections with proper windows-->
-        <Label Background="#20212a"  Grid.Row="9" Grid.Column="3"
-                   Content="Legal info  |  Seciurity  | Acessibility"
-                   FontSize="12" Foreground="WhiteSmoke"
-                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Background="#20212a"  Grid.Row="9" Grid.Column="4"/>
+        <!-- Separate this 3 options, create conections with proper windows-->
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#20212a"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3">
+
+            <Button Margin="0,5" Background="{x:Null}" Command="{Binding ShowThreeWindowCommand, Mode=OneWay}" Content="Legal info"
+                    FontSize="12" Foreground="WhiteSmoke"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Margin="0,5" Background="{x:Null}" Command="{Binding ShowThreeWindowCommand, Mode=OneWay}" Content="Seciurity"
+                    FontSize="12" Foreground="WhiteSmoke"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Margin="0,5" Background="{x:Null}" Command="{Binding ShowThreeWindowCommand, Mode=OneWay}" Content="Acessibility"
+                    FontSize="12" Foreground="WhiteSmoke"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        </WrapPanel>
+
         <Label Background="#20212a"  Grid.Row="9" Grid.Column="5"/>
         <Label Background="#20212a"  Grid.Row="9" Grid.Column="6"/>
         <Label Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="45,0,5,0">
 
         </Label>
-        <Label Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="51,0,5,0">
-            
+        <Grid Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="51,0,5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+
             <!-- Current Account-->
-            <WrapPanel>
+            <WrapPanel Grid.ColumnSpan="2">
 
                 <Canvas>
+                    <Label Content="{Binding CurrentAccountFirstValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                           FontSize="10" FontWeight="Black" Canvas.Top="20" />
                     <Label Content="{Binding CurrentAccountFirstValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                            FontSize="10" FontWeight="Black" Canvas.Top="20"/>
                     <Label Content="{Binding CurrentAccountFirstValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
@@ -430,7 +439,7 @@
                     <Button FontSize="10" Content="All savings" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
                 </Canvas>
             </WrapPanel>
-        </Label>
+        </Grid>
 
     </Grid>
 </Window>

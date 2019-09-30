@@ -1,17 +1,15 @@
-﻿using SimpleBankSystem.ViewModels;
-using SimpleBankSystem.Views;
+﻿using SimpleBankSystem.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace SimpleBankSystem
+namespace SimpleBankSystem.Commands
 {
-    public class BackToCommand : ICommand
+
+
+    public class ShowThreeWindowCommand : ICommand
     {
+
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -25,19 +23,21 @@ namespace SimpleBankSystem
 
         public void Execute(object parameter)
         {
-            MainWindow mainWindow = new MainWindow();
+            ThreeContentWindow accountWindow = new ThreeContentWindow();
 
-            foreach (Window window in Application.Current.Windows.OfType<Window>())
+            foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(MainWindow))
                 {
-                    mainWindow.Show();
-                }
-                else
                     window.Close();
+                }
+                if (window.GetType() == typeof(InvestmentWindow))
+                {
+                    window.Close();
+                }
             }
-
-
+            
+            accountWindow.Show();
         }
     }
 }
