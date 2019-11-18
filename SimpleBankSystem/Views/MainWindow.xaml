@@ -273,13 +273,14 @@
                 <Canvas>
                     <Label Content="{Binding CurrentAccountFirstDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="34"/>
-                    <Label Content="{Binding CurrentAccountSecondtDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                    <Label Content="{Binding CurrentAccountSecondDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="74"/>
                     <Label Content="{Binding CurrentAccountThirdDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="116"/>
                 </Canvas>
 
                 <Canvas>
+                    <!-- zeby to mialo sens, musi sie zmienic widok calego okna, moze uzyc trigera, albo calkiem zmienic widok -->
                     <Button FontSize="10" Content="All transaction" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
                 </Canvas>
             </WrapPanel>
@@ -313,13 +314,14 @@
                 <Canvas>
                     <Label Content="{Binding CurrentAccountFirstDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="34"/>
-                    <Label Content="{Binding CurrentAccountSecondtDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                    <Label Content="{Binding CurrentAccountSecondDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="74"/>
                     <Label Content="{Binding CurrentAccountThirdDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="116"/>
                 </Canvas>
 
                 <Canvas>
+                    <!-- zeby to mialo sens, musi sie zmienic widok calego okna, moze uzyc trigera, albo calkiem zmienic widok -->
                     <Button FontSize="10" Content="All transaction" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
                 </Canvas>
             </WrapPanel>
@@ -341,13 +343,13 @@
             <WrapPanel>
                 <Grid Background="WhiteSmoke" Width="190" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="I want to transfer..." FontWeight="Bold" Width="150" FontSize="12"/>
-                    <TextBox Margin="0,35,1,19" Width="150" Text="{Binding AmoundToTransaction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Margin="0,35,1,19" Width="150" Text="{Binding OperationAmount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 
                 </Grid>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="From this account..." FontWeight="Bold" Width="150" FontSize="12"/>
-                    <ComboBox Margin="0,8" Width="150">
+                    <ComboBox Margin="0,8" Width="150" Name="ComboBox1" >
                         <ComboBoxItem>Saving Account</ComboBoxItem>
                         <ComboBoxItem>Current Account</ComboBoxItem>
                         <ComboBoxItem IsSelected="True">Credit Card</ComboBoxItem>
@@ -355,14 +357,14 @@
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="To this account" FontWeight="Bold" Width="150" FontSize="12"/>
-                    <ComboBox Margin="0,8" Width="150">
+                    <ComboBox Margin="0,8" Width="150" Name="ComboBox2">
                         <ComboBoxItem Content="Saving Account" />
                         <ComboBoxItem Content="Current Account" />
                         <ComboBoxItem Content="Credit Card"  IsSelected="True" />
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="110" MaxWidth="110" Height="80" MaxHeight="80" HorizontalAlignment="Center">
-                    <Button Content="Transfer Funds" Margin="0,30" FontSize="10"/>
+                    <Button Content="Transfer Funds" Margin="0,30" FontSize="10" Command="{Binding TransferFoundsCommand}"/>
                 </StackPanel>
             </WrapPanel>
 
@@ -396,6 +398,7 @@
         <Label Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="45,0,5,0">
 
         </Label>
+        
         <Grid Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="51,0,5,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="13*"/>
@@ -403,6 +406,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Current Account-->
+           
             <WrapPanel Grid.ColumnSpan="2">
 
                 <Canvas>
@@ -429,17 +433,19 @@
                 <Canvas>
                     <Label Content="{Binding CurrentAccountFirstDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="34"/>
-                    <Label Content="{Binding CurrentAccountSecondtDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                    <Label Content="{Binding CurrentAccountSecondDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="74"/>
                     <Label Content="{Binding CurrentAccountThirdDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                            FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="116"/>
                 </Canvas>
 
                 <Canvas>
+                    <!-- zeby to mialo sens, musi sie zmienic widok calego okna, moze uzyc trigera, albo calkiem zmienic widok -->
                     <Button FontSize="10" Content="All savings" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
                 </Canvas>
             </WrapPanel>
+        
         </Grid>
-
+       
     </Grid>
 </Window>

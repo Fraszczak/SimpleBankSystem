@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:SimpleBankSystem.Views.Effects"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels.LoginWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:helpers="clr-namespace:SimpleBankSystem.Helpers"
         mc:Ignorable="d"
         Title="{Binding CreateAccountWindowWindowTitle}" 
         Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
@@ -162,6 +163,62 @@
         <Label Background="#FF272833"  Grid.Row="3" Grid.Column="6"/>
         
         <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="3" Background="#2e2f41">
+
+            <StackPanel>
+                <TextBlock Height="30" Text="Registry form" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <WrapPanel HorizontalAlignment="Center" Width="540">
+                    <TextBlock Text="Forename: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                             Height="30" Width="200" Name="Forename" />
+
+                    <TextBlock Text="Lastname: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="Lastname" />
+
+                    <Label Height="30" Width="540" />
+
+                    <TextBlock Text="Phone no.: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="Phone" />
+
+                    <TextBlock Text="City: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="City" />
+                    <Label Height="30" Width="540" />
+
+                    <TextBlock Text="Login: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="Login" />
+
+                    <TextBlock Text="Password: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="Password" />
+
+                </WrapPanel>
+                <Label Height="30" Width="540" />
+
+                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel.Resources>
+                        <helpers:MyConverter x:Key="myConverter" />
+                    </StackPanel.Resources>
+
+                    <Button  Height="30" Width="200" Content="Registry" Command="{Binding RegistryCommand}" >
+
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource myConverter}">
+                                <Binding Path="" ElementName="Forename"/>
+                                <Binding Path="" ElementName="Lastname"/>
+                                <Binding Path="" ElementName="Phone"/>
+                                <Binding Path="" ElementName="City"/>
+                                <Binding Path="" ElementName="Login"/>
+                                <Binding Path="" ElementName="Password"/>
+                            </MultiBinding>
+                    </Button.CommandParameter>
+                    </Button>
+
+                </StackPanel>
+            </StackPanel>
+
             <!-- footer-->
         </StackPanel>
     </Grid>

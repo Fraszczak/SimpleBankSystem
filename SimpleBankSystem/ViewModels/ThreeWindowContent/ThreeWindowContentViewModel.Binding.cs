@@ -1,4 +1,10 @@
-﻿namespace SimpleBankSystem.ViewModels
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media.Animation;
+using SimpleBankSystem.Models;
+
+namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class ThreeWindowContent
     {
@@ -15,6 +21,8 @@
                 this.OnPropertyChanged();
             }
         }
+
+
 
     }
 }

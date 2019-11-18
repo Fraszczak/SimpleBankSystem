@@ -11,6 +11,7 @@
         private ICommand showAccoundWindowCommand;
         private ICommand backCommand;
         private ICommand showThreeWindowCommand;
+        private ICommand transferFoundsCommand;
  
 
         public ICommand ExitCommand
@@ -70,6 +71,16 @@
                 if (showThreeWindowCommand == null)
                     showThreeWindowCommand = new ShowThreeWindowCommand();
                 return this.showThreeWindowCommand;
+            }
+        }
+
+        public ICommand TransferFoundsCommand
+        {
+            get
+            {
+                if (transferFoundsCommand == null)
+                    transferFoundsCommand = new TranserFounds();
+                return this.transferFoundsCommand;
             }
         }
        

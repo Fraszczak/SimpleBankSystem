@@ -38,6 +38,12 @@
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -54,6 +60,7 @@
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -78,13 +85,39 @@
     </ApplicationDefinition>
     <Compile Include="Commands\BackToLoginWindowCommand.cs" />
     <Compile Include="Commands\LogoutFromThreeWindowCommand.cs" />
+    <Compile Include="Commands\RegistryCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\ShowAccountWindowCommand.cs" />
     <Compile Include="Commands\ShowThreeWindowCommand.cs" />
-    <Compile Include="Models\AccountTransferActions.cs" />
-    <Compile Include="Models\DataBase.cs" />
-    <Compile Include="Models\AccountTransfersState.cs" />
-    <Compile Include="Models\IAccountTransferActions.cs" />
+    <Compile Include="Commands\TranserFounds.cs" />
+    <Compile Include="Migrations\201911171441502_InitialComponents.cs" />
+    <Compile Include="Migrations\201911171441502_InitialComponents.Designer.cs">
+      <DependentUpon>201911171441502_InitialComponents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Triggers\RegFillTrigger.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\CreditCardTableConfiguration\CreditCardTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\CurrenciesTableConfiguration\CurrenciesTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\CurrentAccountTableConfiguration\CurrentAccountTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\InvestmentTableConfiguration\InvestmentTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\JobTableConfigration\JobTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\LocationsTableConfiguration\LocationsTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\LoginToConfiguration\LoginToTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\RegTableConfiguration\RegTableConfiguration.cs" />
+    <Compile Include="Models\Database\EntityConfiguratioin\SaveAccountTableConfiguration\SaveAccountTableConfiguration.cs" />
+    <Compile Include="Models\Database\Tables\CreditCardTable\CreditCardTable.cs" />
+    <Compile Include="Models\Database\Tables\CurrenciesTable\CurrenciesTable.cs" />
+    <Compile Include="Models\Database\Tables\CurrentAccountTable\CurrentAccountTable.cs" />
+    <Compile Include="Models\Database\DataBase.cs" />
+    <Compile Include="Models\Database\Tables\InvestmentTable\InvestmentTable.cs" />
+    <Compile Include="Models\Database\Tables\JobTable\JobTable.cs" />
+    <Compile Include="Models\Database\Tables\LocationsTable\LocationsTable.cs" />
+    <Compile Include="Models\Database\Tables\LoginToTable\LoginToTable.cs" />
+    <Compile Include="Models\Database\Money.cs" />
+    <Compile Include="Models\Database\PlutoContext.cs" />
+    <Compile Include="Models\Database\Tables\RegTable\RegTable.cs" />
+    <Compile Include="Models\Database\Tables\SaveAccountTable\SaveAccountTable.cs" />
+    <Compile Include="Models\Database\TypeOfUsers.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
     </Compile>
@@ -183,6 +216,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201911171441502_InitialComponents.resx">
+      <DependentUpon>201911171441502_InitialComponents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

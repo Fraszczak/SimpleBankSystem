@@ -8,6 +8,8 @@ using System.Windows.Data;
 
 namespace SimpleBankSystem.Helpers
 {
+    // Ta klasa pomaga ustawic obiekt na wystapienie elementu, w tym wypadku pomaga przejac dane z pol formularza 
+
     class MyConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)

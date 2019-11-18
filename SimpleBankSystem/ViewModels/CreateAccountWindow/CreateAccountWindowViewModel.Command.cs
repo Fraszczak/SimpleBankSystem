@@ -8,6 +8,7 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
     {
         private ICommand exitCommand;
         private ICommand backCommand;
+        private ICommand registryCommand;
 
         public ICommand ExitCommand
         {
@@ -18,10 +19,7 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
 
                 return this.exitCommand;
             }
-            private set
-            {
-                this.exitCommand = value;
-            }
+            private set => ExitCommand = value;
         }
         public ICommand BackCommand
         {
@@ -32,10 +30,19 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
 
                 return this.backCommand;
             }
-            private set
+            private set => BackCommand = value;
+        }
+
+        public ICommand RegistryCommand
+        {
+            get
             {
-                BackCommand = value;
+                if (this.registryCommand == null)
+                    this.registryCommand = new RegistryCommand();
+
+                return this.registryCommand;
             }
+            private set => RegistryCommand = value;
         }
     }
 }

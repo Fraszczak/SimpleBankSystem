@@ -31,24 +31,26 @@ namespace SimpleBankSystem.Commands
             var passwordBox = values[1] as PasswordBox;
             var password = passwordBox.Password;
 
-            DataBase dataBase = new DataBase();
+            // weryfikacja uzytkownika po wpisanym loginie
 
-            dataBase.LoginToApp(ref login, ref password);
+            //DataBase dataBase = new DataBase();
 
-            bool desactiveLoginWindow = false;
+            //dataBase.LoginToApp(ref login, ref password);
 
-            foreach (Window window in Application.Current.Windows.OfType<MainWindow>())
-            {
-                desactiveLoginWindow = window.IsActive;
-            }
+            //bool desactiveLoginWindow = false;
 
-            if (desactiveLoginWindow)
-            {
-                foreach (Window window in Application.Current.Windows.OfType<LoginWindow>())
-                {
-                    ((LoginWindow)window).Close();
-                }
-            }
+            //foreach (Window window in Application.Current.Windows.OfType<MainWindow>())
+            //{
+            //    desactiveLoginWindow = window.IsActive;
+            //}
+
+            //if (desactiveLoginWindow)
+            //{
+            //    foreach (Window window in Application.Current.Windows.OfType<LoginWindow>())
+            //    {
+            //        ((LoginWindow)window).Close();
+            //    }
+            //}
         }
     }
 }
