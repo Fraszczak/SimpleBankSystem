@@ -123,8 +123,6 @@ namespace SimpleBankSystem.Migrations
                 .Index(t => t.LocationsID)
                 .Index(t => t.JobsID);
             
-
-            Sql(if))
         }
         
         

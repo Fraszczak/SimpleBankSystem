@@ -14,6 +14,8 @@ namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfigura
             ToTable("LoginToTable");
 
             HasKey(c => c.ID); // ustawia primary key ?
+            Property(a => a.ID)
+                .IsRequired();
 
             Property(c => c.Login)
                 .IsRequired() // sprawia ze nie moze byc nullem

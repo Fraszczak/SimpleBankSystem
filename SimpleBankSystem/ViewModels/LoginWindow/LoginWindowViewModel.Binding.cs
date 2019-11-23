@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimpleBankSystem.Models;
 
 namespace SimpleBankSystem.ViewModels.LoginWindow
 {
@@ -21,7 +22,7 @@ namespace SimpleBankSystem.ViewModels.LoginWindow
                 this.OnPropertyChanged();
             }
         }
-
+       
 
     }
 }

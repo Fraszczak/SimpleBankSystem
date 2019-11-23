@@ -1,7 +1,6 @@
 ﻿using SimpleBankSystem.Models;
 using SimpleBankSystem.Views;
 using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -33,24 +32,33 @@ namespace SimpleBankSystem.Commands
 
             // weryfikacja uzytkownika po wpisanym loginie
 
-            //DataBase dataBase = new DataBase();
+            try
+            {
+                if (DataBase.Instance.LoginToApp(login, password))
+                { 
 
-            //dataBase.LoginToApp(ref login, ref password);
+                    var mainWindow = new MainWindow();
 
-            //bool desactiveLoginWindow = false;
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() == typeof(LoginWindow))
+                            window.Close();
 
-            //foreach (Window window in Application.Current.Windows.OfType<MainWindow>())
-            //{
-            //    desactiveLoginWindow = window.IsActive;
-            //}
+                        if (window.GetType() == typeof(MainWindow))
+                            window.Show();
 
-            //if (desactiveLoginWindow)
-            //{
-            //    foreach (Window window in Application.Current.Windows.OfType<LoginWindow>())
-            //    {
-            //        ((LoginWindow)window).Close();
-            //    }
-            //}
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+                //bardzo ogolny zapis, sprecyzuj
+                MessageBox.Show(ex.Message);
+            }
+            
+           
+
         }
     }
 }

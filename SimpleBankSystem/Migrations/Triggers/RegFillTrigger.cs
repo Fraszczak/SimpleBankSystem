@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleBankSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace SimpleBankSystem.Migrations.Triggers
     {
         public void Filler()
         {
-
+            var context = new PlutoContext();
         }
     }
 }

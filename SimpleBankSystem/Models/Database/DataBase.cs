@@ -8,6 +8,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Microsoft.Win32.SafeHandles;
 
 namespace SimpleBankSystem.Models
@@ -39,14 +40,27 @@ namespace SimpleBankSystem.Models
             }
         }
 
-        //public void Execute(int )
-        //{
+       public bool LoginToApp(string login, string password)
+        {
+            using (var context = new PlutoContext())
+            {
+                MessageBox.Show("Jestem tutaj");
+                var query = from p in context.LoginDbSet
+                            where p.Login == login && p.Password == password
+                            select p;
 
-        //    using (var context = new PlutoContext())
-        //    {
-        //       // context.RegDbSet.AsNoTracking().Select( a => (new ))
-        //    }
-        //}
+                
+                if (query.Any())
+                    return true;
+                else
+                {
+                    MessageBox.Show("Podales zle pasy");
+                    return false;
+                }
+
+                
+            }
+        }
     }
 
 }
