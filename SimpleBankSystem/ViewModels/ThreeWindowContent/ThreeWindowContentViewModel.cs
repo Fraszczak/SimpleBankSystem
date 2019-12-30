@@ -1,6 +1,6 @@
 ﻿namespace SimpleBankSystem.ViewModels
 {
-    public sealed partial class ThreeWindowContent : ViewModelBase
+    public sealed partial class ThreeWindowContentViewModel : ViewModelBase
     {
     }
 }

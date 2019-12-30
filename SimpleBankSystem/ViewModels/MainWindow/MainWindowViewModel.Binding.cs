@@ -1,10 +1,4 @@
-﻿
-using SimpleBankSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SimpleBankSystem.ViewModels
+﻿namespace SimpleBankSystem.ViewModels
 {
 
     public sealed partial class MainWindowViewModel

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SimpleBankSystem.Models;
 
-namespace SimpleBankSystem.ViewModels.LoginWindow
+namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class LoginWindowViewModel
     {

@@ -16,7 +16,7 @@ namespace SimpleBankSystem.Persistance.Repository
         }
         public string GetData(string whatKindOf)
         {
-            return PlutoContext.RegDbSet.Where(a => a.Name == whatKindOf).Select(a => a.Name).ToString();
+            return PlutoContext.RegDbSet.Where(a => a.Name == whatKindOf).Select(a => a.Description).ToString();
         }
     }
 }

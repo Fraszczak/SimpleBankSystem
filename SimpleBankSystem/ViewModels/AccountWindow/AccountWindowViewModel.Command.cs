@@ -2,7 +2,7 @@
 using SimpleBankSystem.Commands;
 using System.Windows.Input;
 
-namespace SimpleBankSystem.ViewModels.LoginWindow
+namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class AccountWindowViewModel
     {

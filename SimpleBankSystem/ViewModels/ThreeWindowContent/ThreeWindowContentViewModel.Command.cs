@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace SimpleBankSystem.ViewModels
 {
-    public sealed partial class ThreeWindowContent
+    public sealed partial class ThreeWindowContentViewModel
     {
         private ICommand exitCommand;
         private ICommand backCommand;

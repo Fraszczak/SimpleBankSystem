@@ -3,22 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
-        xmlns:Domain="clr-namespace:SimpleBankSystem.Core.Domain"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-       Title="{Binding Title}" Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsTabStop="True" Topmost="True" WindowStyle="None"
+       Title="{Binding AccesibilityWindowTitle}" Height="600" Width="800" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        IsTabStop="True" Topmost="True" WindowStyle="None"
          WindowState="Normal" >
 
     <Window.DataContext>
-        <vm:MainWindowViewModel />
+        <vm:ThreeWindowContentViewModel/>
     </Window.DataContext>
-
-    <Window.Resources>
+    <!--<Window.Resources>
         
         <DynamicResource x:Key="regViewSource" 
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid Background="#262732"  DataContext="regViewSource">
 
         <!--  GRID COLUMN DEFINITION 0-6  -->
@@ -148,7 +147,7 @@
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                    Background="#2e2f41"  Content="{Binding AccesibilityWindowTitle}"
-                   FontSize="21" FontWeight="Bold" FontFamily="Arial" Foreground="WhiteSmoke"
+                   FontSize="11" FontWeight="Bold" FontFamily="Arial" Foreground="WhiteSmoke"
                    Grid.Row="1" Grid.Column="3"/>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="4"/>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="5"/>
@@ -181,13 +180,12 @@
 
         <!-- THIRTH ROW OF GRID STRUCTURE-->
         <Label Background="#262732"  Grid.Row="3" Grid.Column="0"/>
-        <Canvas Background="#262732"  Grid.Row="3" Grid.Column="1" >
-            <Label 
-               Content="{Binding Name}"
-               Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
-               VerticalContentAlignment="Center" Canvas.Top="29" />
 
-        </Canvas>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   Background="#262732"  Content="{Binding FirstFromDataBase }"
+                   FontSize="11" FontWeight="Bold" FontFamily="Arial" Foreground="WhiteSmoke"
+                   Grid.Row="3" Grid.Column="1"  />
+
         <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
         <Canvas Background="#262732"  Grid.Row="3" Grid.Column="3">
             <Label Background="#262732"  Grid.Row="3" Grid.Column="1"
@@ -219,7 +217,7 @@
         <Label Background="#FFCB4E64"  Grid.Row="4" Grid.Column="5"/>
 
         <StackPanel Grid.Column="1"  Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
-            <Label Content="{Binding Description}" />
+            <Label Content=""  Height="360"/>
         </StackPanel>
         <StackPanel Grid.Column="3"  Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
             <TextBlock Height="350" TextWrapping="Wrap" Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="13" FontStyle="Italic" Padding="15"> 
