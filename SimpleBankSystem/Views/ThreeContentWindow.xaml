@@ -6,6 +6,7 @@
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
+        xmlns:Domain="clr-namespace:SimpleBankSystem.Core.Domain"
         mc:Ignorable="d"
        Title="{Binding Title}" Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsTabStop="True" Topmost="True" WindowStyle="None"
          WindowState="Normal" >
@@ -13,7 +14,12 @@
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    <Grid Background="#262732">
+
+    <Window.Resources>
+        
+        <DynamicResource x:Key="regViewSource" 
+    </Window.Resources>
+    <Grid Background="#262732"  DataContext="regViewSource">
 
         <!--  GRID COLUMN DEFINITION 0-6  -->
         <Grid.ColumnDefinitions>
@@ -177,7 +183,7 @@
         <Label Background="#262732"  Grid.Row="3" Grid.Column="0"/>
         <Canvas Background="#262732"  Grid.Row="3" Grid.Column="1" >
             <Label 
-               Content="Legal Info"
+               Content="{Binding Name}"
                Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
                VerticalContentAlignment="Center" Canvas.Top="29" />
 
@@ -213,9 +219,7 @@
         <Label Background="#FFCB4E64"  Grid.Row="4" Grid.Column="5"/>
 
         <StackPanel Grid.Column="1"  Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
-            <Label Height="350"  Foreground="WhiteSmoke" FontFamily="Times New Roman" 
-                   FontSize="13" FontStyle="Italic" Padding="15"
-                   Content="{Binding FillLegalInfo, Mode=OneWay}" />
+            <Label Content="{Binding Description}" />
         </StackPanel>
         <StackPanel Grid.Column="3"  Grid.Row="5" Grid.RowSpan="2" Background="#2e2f41">
             <TextBlock Height="350" TextWrapping="Wrap" Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="13" FontStyle="Italic" Padding="15"> 

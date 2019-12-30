@@ -90,34 +90,50 @@
     <Compile Include="Commands\ShowAccountWindowCommand.cs" />
     <Compile Include="Commands\ShowThreeWindowCommand.cs" />
     <Compile Include="Commands\TranserFounds.cs" />
-    <Compile Include="Migrations\201911171441502_InitialComponents.cs" />
-    <Compile Include="Migrations\201911171441502_InitialComponents.Designer.cs">
-      <DependentUpon>201911171441502_InitialComponents.cs</DependentUpon>
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\ICreditCardRepository.cs" />
+    <Compile Include="Core\Repositories\ICurrentAccountRepository.cs" />
+    <Compile Include="Core\Repositories\ICurrienciesRepository.cs" />
+    <Compile Include="Core\Repositories\IInvestmentRepository.cs" />
+    <Compile Include="Core\Repositories\ILoginToRepository.cs" />
+    <Compile Include="Core\Repositories\IRegRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\ISaveAccountRepository.cs" />
+    <Compile Include="Migrations\201912261851480_InitialComponent.cs" />
+    <Compile Include="Migrations\201912261851480_InitialComponent.Designer.cs">
+      <DependentUpon>201912261851480_InitialComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Triggers\RegFillTrigger.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\CreditCardTableConfiguration\CreditCardTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\CurrenciesTableConfiguration\CurrenciesTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\CurrentAccountTableConfiguration\CurrentAccountTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\InvestmentTableConfiguration\InvestmentTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\JobTableConfigration\JobTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\LocationsTableConfiguration\LocationsTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\LoginToConfiguration\LoginToTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\RegTableConfiguration\RegTableConfiguration.cs" />
-    <Compile Include="Models\Database\EntityConfiguratioin\SaveAccountTableConfiguration\SaveAccountTableConfiguration.cs" />
-    <Compile Include="Models\Database\Tables\CreditCardTable\CreditCardTable.cs" />
-    <Compile Include="Models\Database\Tables\CurrenciesTable\CurrenciesTable.cs" />
-    <Compile Include="Models\Database\Tables\CurrentAccountTable\CurrentAccountTable.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\CreditCardTableConfiguration\CreditCardTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\CurrenciesTableConfiguration\CurrenciesTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\CurrentAccountTableConfiguration\CurrentAccountTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\InvestmentTableConfiguration\InvestmentTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\JobTableConfigration\JobTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\LocationsTableConfiguration\LocationsTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\LoginToConfiguration\LoginToTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\RegTableConfiguration\RegTableConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfiguratioin\SaveAccountTableConfiguration\SaveAccountTableConfiguration.cs" />
+    <Compile Include="Core\Domain\CreditCardTable\CreditCardTable.cs" />
+    <Compile Include="Core\Domain\CurrenciesTable\CurrenciesTable.cs" />
+    <Compile Include="Core\Domain\CurrentAccountTable\CurrentAccountTable.cs" />
     <Compile Include="Models\Database\DataBase.cs" />
-    <Compile Include="Models\Database\Tables\InvestmentTable\InvestmentTable.cs" />
-    <Compile Include="Models\Database\Tables\JobTable\JobTable.cs" />
-    <Compile Include="Models\Database\Tables\LocationsTable\LocationsTable.cs" />
-    <Compile Include="Models\Database\Tables\LoginToTable\LoginToTable.cs" />
-    <Compile Include="Models\Database\Money.cs" />
-    <Compile Include="Models\Database\PlutoContext.cs" />
-    <Compile Include="Models\Database\Tables\RegTable\RegTable.cs" />
-    <Compile Include="Models\Database\Tables\SaveAccountTable\SaveAccountTable.cs" />
-    <Compile Include="Models\Database\TypeOfUsers.cs" />
+    <Compile Include="Core\Domain\InvestmentTable\InvestmentTable.cs" />
+    <Compile Include="Core\Domain\JobTable\JobTable.cs" />
+    <Compile Include="Core\Domain\LocationsTable\LocationsTable.cs" />
+    <Compile Include="Core\Domain\LoginToTable\LoginToTable.cs" />
+    <Compile Include="Persistance\PlutoContext.cs" />
+    <Compile Include="Core\Domain\RegTable\RegTable.cs" />
+    <Compile Include="Core\Domain\SaveAccountTable\SaveAccountTable.cs" />
+    <Compile Include="Core\Domain\TypeOfUsers.cs" />
+    <Compile Include="Persistance\Repository\CreditCardRepository.cs" />
+    <Compile Include="Persistance\Repository\CurrentAccountRepository.cs" />
+    <Compile Include="Persistance\Repository\CurrienciesRepository.cs" />
+    <Compile Include="Persistance\Repository\InvestmentRepository.cs" />
+    <Compile Include="Persistance\Repository\LoginToRepository.cs" />
+    <Compile Include="Persistance\Repository\RegRepository.cs" />
+    <Compile Include="Persistance\Repository\Repository.cs" />
+    <Compile Include="Persistance\Repository\SaveAccountRepository.cs" />
+    <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
     </Compile>
@@ -216,8 +232,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201911171441502_InitialComponents.resx">
-      <DependentUpon>201911171441502_InitialComponents.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912261851480_InitialComponent.resx">
+      <DependentUpon>201912261851480_InitialComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

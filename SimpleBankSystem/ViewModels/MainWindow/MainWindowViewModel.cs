@@ -1,5 +1,7 @@
 ﻿
 
+using System.Windows;
+
 namespace SimpleBankSystem.ViewModels
 {
    
@@ -7,7 +9,9 @@ namespace SimpleBankSystem.ViewModels
     {
         public MainWindowViewModel()
         {
-           
+            WindowState = WindowState.Minimized;
         }
+
+        public WindowState WindowState { get; }
     }
 }

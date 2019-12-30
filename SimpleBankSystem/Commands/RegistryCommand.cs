@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SimpleBankSystem.Models;
+using SimpleBankSystem.Persistance;
+using SimpleBankSystem.Persistance.Repository;
 using SimpleBankSystem.Views;
 using SimpleBankSystem.Views.Effects;
 
@@ -45,28 +47,12 @@ namespace SimpleBankSystem.Commands
             var Password = values[5] as TextBox;
             var password = Password.Text;
 
+            var a = new UnitOfWork(new PlutoContext());
+            a.LoginTo.CreateUser(login, password);
 
-
-
-            //string query = "INSERT INTO LoginTable VALUES(@ID, @Login, @Password)";
-            
-            //MessageBox.Show(query);
-            //DataBase.Instance.CreateTable(query, login, password);
-            //MessageBox.Show(query);
-            //bool desactiveLoginWindow = false;
-
-            //foreach (Window window in Application.Current.Windows.OfType<LoginWindow>())
-            //{
-            //    desactiveLoginWindow = window.IsActive;
-            //}
-
-            //if (desactiveLoginWindow)
-            //{
-            //    foreach (Window window in Application.Current.Windows.OfType<CreateAccountWindow>())
-            //    {
-            //        ((CreateAccountWindow)window).Close();
-            //    }
-            //}
+            new BackToCommand().Execute(parameter);
+         
+           
 
 
         }

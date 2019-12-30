@@ -39,28 +39,54 @@ namespace SimpleBankSystem.Models
                 }
             }
         }
+        //public void CreateUser(string login, string password)
+        //{
+        //    using (var context = new PlutoContext())
+        //    {
+        //        var table = new LoginToTable
+        //        {
+        //            ID = Guid.NewGuid(),
+        //            Login = login,
+        //            Password = password
+        //        };
 
-       public bool LoginToApp(string login, string password)
-        {
-            using (var context = new PlutoContext())
-            {
-                MessageBox.Show("Jestem tutaj");
-                var query = from p in context.LoginDbSet
-                            where p.Login == login && p.Password == password
-                            select p;
+        //        context.LoginDbSet.Add(table);
+        //        context.SaveChanges();
+                   
+        //    }
+        //}
+        //public bool LoginToApp(string login, string password)
+        //{
+        //    using (var context = new PlutoContext())
+        //    {
+        //        var query = from p in context.LoginDbSet
+        //                    where p.Login == login && p.Password == password
+        //                    select p;
 
                 
-                if (query.Any())
-                    return true;
-                else
-                {
-                    MessageBox.Show("Podales zle pasy");
-                    return false;
-                }
+        //        if (query.Any())
+        //            return true;
+        //        else
+        //        {
+        //            MessageBox.Show("Incorrect login or password");
+        //            return false;
+        //        }
+        //        //SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM [Table] WHERE ([user] = @user)", conn);
+        //        //check_User_Name.Parameters.AddWithValue("@user", txtBox_UserName.Text);
+        //        //int UserExist = (int)check_User_Name.ExecuteScalar();
 
-                
-            }
-        }
+        //        //if (UserExist > 0)
+        //        //{
+        //        //    //Username exist
+        //        //}
+        //        //else
+        //        //{
+        //        //    //Username doesn't exist.
+        //        //}
+
+        //    }
+        //}
+       
     }
 
 }

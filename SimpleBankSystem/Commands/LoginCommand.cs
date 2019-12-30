@@ -1,4 +1,5 @@
 ﻿using SimpleBankSystem.Models;
+using SimpleBankSystem.Persistance;
 using SimpleBankSystem.Views;
 using System;
 using System.Windows;
@@ -34,7 +35,7 @@ namespace SimpleBankSystem.Commands
 
             try
             {
-                if (DataBase.Instance.LoginToApp(login, password))
+                if (new UnitOfWork(new PlutoContext()).LoginTo.LoginToApp(login, password))
                 { 
 
                     var mainWindow = new MainWindow();

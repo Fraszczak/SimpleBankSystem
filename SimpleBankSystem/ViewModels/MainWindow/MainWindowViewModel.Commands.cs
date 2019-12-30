@@ -12,7 +12,7 @@
         private ICommand backCommand;
         private ICommand showThreeWindowCommand;
         private ICommand transferFoundsCommand;
- 
+     
 
         public ICommand ExitCommand
         {
@@ -83,6 +83,6 @@
                 return this.transferFoundsCommand;
             }
         }
-       
+      
     }
 }
