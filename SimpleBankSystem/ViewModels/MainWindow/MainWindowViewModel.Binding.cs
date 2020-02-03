@@ -3,16 +3,16 @@
 
     public sealed partial class MainWindowViewModel
     {
-        private string mainWindowTitle = "SimpleBankSystem";
+        private string _mainWindowTitle = "SimpleBankSystem";
         public string MainWindowTitle
         {
             get
             {
-                return this.mainWindowTitle;
+                return this._mainWindowTitle;
             }
             set
             {
-                this.mainWindowTitle = value;
+                this._mainWindowTitle = value;
                 this.OnPropertyChanged();
             }
         }

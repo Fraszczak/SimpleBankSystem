@@ -26,7 +26,7 @@ namespace SimpleBankSystem.ViewModels
             get
             {
                 if (this.backCommand == null)
-                    this.backCommand = new BackToLoginWindowCommand();
+                    this.backCommand = new LogoutCommand();
 
                 return this.backCommand;
             }

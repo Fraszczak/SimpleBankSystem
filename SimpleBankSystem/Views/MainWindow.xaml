@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+       xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding MainWindowWindowTitle}" 
+        Title="{Binding MainWindowTitle}" 
         Height="600" Width="800" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" 
         IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" >
     <Window.Resources>
@@ -133,7 +134,7 @@
                                 BorderBrush="{x:Null}" Content="Account"  />
                         <Button Command="{Binding ShowInvestmentWindowCommand}" 
                                 BorderBrush="{x:Null}" Content="Investment"/>
-                        <Button Command="{Binding LogoutFromMainWindowCommand}" 
+                        <Button Command="{Binding LogoutCommand}" 
                                 BorderBrush="{x:Null}" Content="Logout" />
                     </StackPanel>
                 </Popup>
@@ -184,7 +185,7 @@
             <WrapPanel HorizontalAlignment="Right" Margin="125,0,0,0">
                 <Button 
                     Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                    Command="{Binding BackCommand}"
+                    Command="{Binding LogoutCommand}"
                     BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
                     VerticalAlignment="Center" HorizontalAlignment="Right" >
                     <materialDesign:PackIcon  
@@ -388,7 +389,7 @@
             <Button Margin="0,5" Background="{x:Null}" Command="{Binding ShowThreeWindowCommand, Mode=OneWay}" Content="Seciurity"
                     FontSize="12" Foreground="WhiteSmoke"
                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <Button Margin="0,5" Background="{x:Null}" Command="{Binding ShowThreeWindowCommand, Mode=OneWay}" Content="Acessibility"
+            <Button Margin="0,5" Background="{x:Null}" Command="{Binding ShowInfoWindowCommand, Mode=OneWay}" Content="Acessibility"
                     FontSize="12" Foreground="WhiteSmoke"
                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 

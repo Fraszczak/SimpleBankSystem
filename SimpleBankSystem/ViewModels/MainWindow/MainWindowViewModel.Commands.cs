@@ -6,11 +6,11 @@
     public sealed partial class MainWindowViewModel
     {
         private ICommand exitCommand;
-        private ICommand logoutFromMainWindowCommand;
+        private ICommand logoutCommand;
         private ICommand showInvestmentWindowCommand;
         private ICommand showAccoundWindowCommand;
         private ICommand backCommand;
-        private ICommand showThreeWindowCommand;
+        private ICommand showInfoWindowCommand;
         private ICommand transferFoundsCommand;
      
 
@@ -24,14 +24,14 @@
                 return this.exitCommand;
             }
         }
-        public ICommand LogoutFromMainWindowCommand
+        public ICommand LogoutCommand
         {
             get
             {
-                if (this.logoutFromMainWindowCommand == null)
-                    this.logoutFromMainWindowCommand = new LogoutFromMainWindowCommand();
+                if (this.logoutCommand == null)
+                    this.logoutCommand = new LogoutCommand();
 
-                return this.logoutFromMainWindowCommand;
+                return this.logoutCommand;
             }
         }
         public ICommand ShowInvestmentWindowCommand
@@ -64,13 +64,13 @@
                 return this.backCommand;
             }
         }
-        public ICommand ShowThreeWindowCommand
+        public ICommand ShowInfoWindowCommand
         {
             get
             {
-                if (showThreeWindowCommand == null)
-                    showThreeWindowCommand = new ShowThreeWindowCommand();
-                return this.showThreeWindowCommand;
+                if (showInfoWindowCommand == null)
+                    showInfoWindowCommand = new ShowInfoWindowCommand();
+                return this.showInfoWindowCommand;
             }
         }
 

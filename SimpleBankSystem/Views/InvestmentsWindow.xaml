@@ -122,11 +122,9 @@
                        HorizontalAlignment="Left" Width="107"
                        StaysOpen="False">
                     <StackPanel  Background="#2e2f41">
-                        <Button Command="{Binding ShowMainWindowCommand}" 
-                                BorderBrush="{x:Null}" Content="Main"  />
                         <Button Command="{Binding ShowAccountWindowCommand}" 
                                 BorderBrush="{x:Null}" Content="Account"  />
-                        <Button Command="{Binding LogoutFromInvestmentWindowCommand}" 
+                        <Button Command="{Binding LogoutCommand}" 
                                 BorderBrush="{x:Null}" Content="Logout"/>
                     </StackPanel>
                 </Popup>
@@ -180,7 +178,7 @@
                         BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
                         VerticalAlignment="Center" HorizontalAlignment="Right"
                         Content="{materialDesign:PackIcon Kind=AccountArrowRightOutline, Size=30}" 
-                        Command="{Binding ShowMainWindowCommand}"/>
+                        Command="{Binding BackToCommand}"/>
             </WrapPanel>
         </Grid>
         <Label Background="#FF272833"  Grid.Row="3" Grid.Column="6"/>

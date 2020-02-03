@@ -1,15 +1,15 @@
-﻿
-using SimpleBankSystem.Commands;
+﻿using SimpleBankSystem.Commands;
 using System.Windows.Input;
 
 namespace SimpleBankSystem.ViewModels
 {
-    public sealed partial class InvestmentsWindowViewModel
+    public sealed partial class InfoViewModel
     {
         private ICommand exitCommand;
         private ICommand backToCommand;
         private ICommand logoutCommand;
         private ICommand showAccoundWindowCommand;
+        private ICommand showInvestmentWindowCommand;
 
         public ICommand ExitCommand
         {
@@ -31,13 +31,21 @@ namespace SimpleBankSystem.ViewModels
                 return this.backToCommand;
             }
         }
+        public ICommand ShowInvestmentWindowCommand
+        {
+            get
+            {
+                if (showInvestmentWindowCommand == null)
+                    showInvestmentWindowCommand = new ShowInvestmentWindowCommand();
+                return this.showInvestmentWindowCommand;
+            }
+        }
         public ICommand ShowAccountWindowCommand
         {
             get
             {
-                if (this.showAccoundWindowCommand == null)
-                    this.showAccoundWindowCommand = new ShowAccountWindowCommand();
-
+                if (showAccoundWindowCommand == null)
+                    showAccoundWindowCommand = new ShowAccountWindowCommand();
                 return this.showAccoundWindowCommand;
             }
         }
@@ -45,8 +53,8 @@ namespace SimpleBankSystem.ViewModels
         {
             get
             {
-                if (this.logoutCommand == null)
-                    this.logoutCommand = new LogoutCommand();
+                if (logoutCommand == null)
+                    logoutCommand = new LogoutCommand();
 
                 return this.logoutCommand;
             }

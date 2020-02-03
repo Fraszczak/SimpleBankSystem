@@ -34,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
@@ -83,57 +84,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\BackToLoginWindowCommand.cs" />
-    <Compile Include="Commands\LogoutFromThreeWindowCommand.cs" />
-    <Compile Include="Commands\RegistryCommand.cs" />
-    <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Commands\ShowAccountWindowCommand.cs" />
-    <Compile Include="Commands\ShowThreeWindowCommand.cs" />
-    <Compile Include="Commands\TranserFounds.cs" />
-    <Compile Include="Core\IUnitOfWork.cs" />
-    <Compile Include="Core\Repositories\ICreditCardRepository.cs" />
-    <Compile Include="Core\Repositories\ICurrentAccountRepository.cs" />
-    <Compile Include="Core\Repositories\ICurrienciesRepository.cs" />
-    <Compile Include="Core\Repositories\IInvestmentRepository.cs" />
-    <Compile Include="Core\Repositories\ILoginToRepository.cs" />
-    <Compile Include="Core\Repositories\IRegRepository.cs" />
-    <Compile Include="Core\Repositories\IRepository.cs" />
-    <Compile Include="Core\Repositories\ISaveAccountRepository.cs" />
-    <Compile Include="Migrations\201912261851480_InitialComponent.cs" />
-    <Compile Include="Migrations\201912261851480_InitialComponent.Designer.cs">
-      <DependentUpon>201912261851480_InitialComponent.cs</DependentUpon>
+    <Compile Include="Migrations\202002031951424_InitialComponent.cs" />
+    <Compile Include="Migrations\202002031951424_InitialComponent.Designer.cs">
+      <DependentUpon>202002031951424_InitialComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Commands\LogoutCommand.cs" />
+    <Compile Include="Models\Commands\RegistryCommand.cs" />
+    <Compile Include="Models\Commands\ShowAccountWindowCommand.cs" />
+    <Compile Include="Models\Commands\ShowInfoWindowCommand.cs" />
+    <Compile Include="Models\Commands\TranserFounds.cs" />
+    <Compile Include="Models\Database\Core\IUnitOfWork.cs" />
+    <Compile Include="Models\Database\Core\Repositories\ICreditCardRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\ICurrentAccountRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\IInvestmentRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\ILoginToRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\IInfoRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\IRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\ISaveAccountRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\CreditCardTableConfiguration\CreditCardTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\CurrenciesTableConfiguration\CurrenciesTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\CurrentAccountTableConfiguration\CurrentAccountTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\InvestmentTableConfiguration\InvestmentTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\JobTableConfigration\JobTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\LocationsTableConfiguration\LocationsTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\LoginToConfiguration\LoginToTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\RegTableConfiguration\RegTableConfiguration.cs" />
-    <Compile Include="Persistance\EntityConfiguratioin\SaveAccountTableConfiguration\SaveAccountTableConfiguration.cs" />
-    <Compile Include="Core\Domain\CreditCardTable\CreditCardTable.cs" />
-    <Compile Include="Core\Domain\CurrenciesTable\CurrenciesTable.cs" />
-    <Compile Include="Core\Domain\CurrentAccountTable\CurrentAccountTable.cs" />
-    <Compile Include="Models\Database\DataBase.cs" />
-    <Compile Include="Core\Domain\InvestmentTable\InvestmentTable.cs" />
-    <Compile Include="Core\Domain\JobTable\JobTable.cs" />
-    <Compile Include="Core\Domain\LocationsTable\LocationsTable.cs" />
-    <Compile Include="Core\Domain\LoginToTable\LoginToTable.cs" />
-    <Compile Include="Persistance\PlutoContext.cs" />
-    <Compile Include="Core\Domain\RegTable\RegTable.cs" />
-    <Compile Include="Core\Domain\SaveAccountTable\SaveAccountTable.cs" />
-    <Compile Include="Core\Domain\TypeOfUsers.cs" />
-    <Compile Include="Persistance\Repository\CreditCardRepository.cs" />
-    <Compile Include="Persistance\Repository\CurrentAccountRepository.cs" />
-    <Compile Include="Persistance\Repository\CurrienciesRepository.cs" />
-    <Compile Include="Persistance\Repository\InvestmentRepository.cs" />
-    <Compile Include="Persistance\Repository\LoginToRepository.cs" />
-    <Compile Include="Persistance\Repository\RegRepository.cs" />
-    <Compile Include="Persistance\Repository\Repository.cs" />
-    <Compile Include="Persistance\Repository\SaveAccountRepository.cs" />
-    <Compile Include="Persistance\UnitOfWork.cs" />
+    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\CreditCardTableConfiguration\CreditCardTableConfiguration.cs" />
+    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\CurrentAccountTableConfiguration\CurrentAccountTableConfiguration.cs" />
+    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\InvestmentTableConfiguration\InvestmentTableConfiguration.cs" />
+    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\LoginToConfiguration\LoginToTableConfiguration.cs" />
+    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\RegTableConfiguration\RegTableConfiguration.cs" />
+    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\SaveAccountTableConfiguration\SaveAccountTableConfiguration.cs" />
+    <Compile Include="Models\Database\Core\Domain\CreditCardTable\CreditCardTable.cs" />
+    <Compile Include="Models\Database\Core\Domain\CurrentAccountTable\CurrentAccountTable.cs" />
+    <Compile Include="Models\Database\Core\Domain\InvestmentTable\InvestmentTable.cs" />
+    <Compile Include="Models\Database\Core\Domain\LoginToTable\LoginToTable.cs" />
+    <Compile Include="Models\Database\Persistance\PlutoContext.cs" />
+    <Compile Include="Models\Database\Core\Domain\InfoTable\InfoTable.cs" />
+    <Compile Include="Models\Database\Core\Domain\SaveAccountTable\SaveAccountTable.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\CreditCardRepository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\CurrentAccountRepository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\InvestmentRepository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\LoginToRepository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\InfoRepository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\Repository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\SaveAccountRepository.cs" />
+    <Compile Include="Models\Database\Persistance\UnitOfWork.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
     </Compile>
@@ -149,10 +138,10 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThreeContentWindow.xaml.cs">
-      <DependentUpon>ThreeContentWindow.xaml</DependentUpon>
+    <Compile Include="Views\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Extras\Effects\Loading.xaml">
+    <Page Include="Models\Extras\Effects\Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,23 +149,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\BackToCommand.cs" />
-    <Compile Include="Commands\ExitCommand.cs" />
-    <Compile Include="Commands\LoginCommand.cs" />
-    <Compile Include="Commands\LogoutFromAccountWindowCommand.cs" />
-    <Compile Include="Commands\LogoutFromInvestmentWindowCommand.cs" />
-    <Compile Include="Commands\LogoutFromMainWindowCommand.cs" />
-    <Compile Include="Commands\ShowMainWindowCommand.cs" />
-    <Compile Include="Commands\ShowCreateAccountWindowCommand.cs" />
-    <Compile Include="Commands\ShowInvestmentWindowCommand.cs" />
-    <Compile Include="Extras\Effects\Loading.xaml.cs">
+    <Compile Include="Models\Commands\BackToCommand.cs" />
+    <Compile Include="Models\Commands\ExitCommand.cs" />
+    <Compile Include="Models\Commands\LoginCommand.cs" />
+    <Compile Include="Models\Commands\ShowCreateAccountWindowCommand.cs" />
+    <Compile Include="Models\Commands\ShowInvestmentWindowCommand.cs" />
+    <Compile Include="Models\Extras\Effects\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extras\Effects\BlurEffect.cs" />
-    <Compile Include="Helpers\MyConverter.cs" />
-    <Compile Include="ViewModels\ThreeWindowContent\ThreeWindowContentViewModel.Binding.cs" />
-    <Compile Include="ViewModels\ThreeWindowContent\ThreeWindowContentViewModel.Command.cs" />
-    <Compile Include="ViewModels\ThreeWindowContent\ThreeWindowContentViewModel.cs" />
+    <Compile Include="Models\Extras\Effects\BlurEffect.cs" />
+    <Compile Include="Models\Helpers\MyConverter.cs" />
+    <Compile Include="ViewModels\InfoViewModel\InfoViewModel.Binding.cs" />
+    <Compile Include="ViewModels\InfoViewModel\InfoViewModel.Command.cs" />
+    <Compile Include="ViewModels\InfoViewModel\InfoViewModel.cs" />
     <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Binding.cs" />
     <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Command.cs" />
     <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.cs" />
@@ -213,7 +198,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ThreeContentWindow.xaml">
+    <Page Include="Views\InfoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -232,8 +217,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201912261851480_InitialComponent.resx">
-      <DependentUpon>201912261851480_InitialComponent.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002031951424_InitialComponent.resx">
+      <DependentUpon>202002031951424_InitialComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
