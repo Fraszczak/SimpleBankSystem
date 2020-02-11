@@ -5,10 +5,13 @@ namespace SimpleBankSystem.ViewModels
     public sealed partial class InfoViewModel
     {
         private string accesibilityWindowTitle = "SimpleBankSystem - Info";
-        private string _accessibility = new InfoRepository(new PlutoContext()).GetData("Accessibility");
-        private string _seciurity = new InfoRepository(new PlutoContext()).GetData("Seciurity");
-        private string _legalInfo = new InfoRepository(new PlutoContext()).GetData("Legal Info");
 
+        private static UnitOfWork unitOfWork = new UnitOfWork(new PlutoContext());
+        private string _accessibility = unitOfWork.Info.GetData("Accessibility");
+        private string _seciurity = unitOfWork.Info.GetData("Seciurity");
+        private string _legalInfo = unitOfWork.Info.GetData("Legal Info");
+
+        
 
         public string AccesibilityWindowTitle
         {
@@ -32,6 +35,7 @@ namespace SimpleBankSystem.ViewModels
             set
             {
                 this._accessibility = value;
+                unitOfWork.Complete();
                 this.OnPropertyChanged();
             }
         }

@@ -11,20 +11,20 @@ namespace SimpleBankSystem.Commands.Tests
     [TestClass()]
     public class LogoutFromAccountWindowCommandTests
     {
-        [TestMethod()]
-        public void CanExecuteTest_CanExecute_ReturnTrue()
-        {
-            var value = new LogoutFromAccountWindowCommand();
+      //  [TestMethod()]
+    //    public void CanExecuteTest_CanExecute_ReturnTrue()
+    //    {
+    //        var value = new LogoutFromAccountWindowCommand();
 
-            var result = value.CanExecute(value);
+    //        var result = value.CanExecute(value);
 
-            Assert.IsTrue(result);
-        }
+    //        Assert.IsTrue(result);
+    //    }
 
-        [TestMethod()]
-        public void ExecuteTest()
-        {
+    //    [TestMethod()]
+    //    public void ExecuteTest()
+    //    {
 
-        }
+    //    }
     }
 }

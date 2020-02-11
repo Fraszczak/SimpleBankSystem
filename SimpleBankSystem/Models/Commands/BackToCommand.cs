@@ -26,43 +26,37 @@ namespace SimpleBankSystem
 
         public void Execute(object parameter)
         {
-            MainWindow mainWindow = new MainWindow();
+            Window newWindow = null;
 
             foreach (Window window in Application.Current.Windows)
             {
 
-                if (window.GetType() == typeof(InfoWindow))
+                if (   window.GetType() == typeof(InfoWindow) 
+                    || window.GetType() == typeof(InvestmentWindow)
+                    || window.GetType() == typeof(AccountWindow)
+                    )
                 {
-                    window.Close();
-                    mainWindow.Show();
+                    newWindow = SwapWindow(window, new MainWindow());
+                    newWindow.Show();
+                    break;
                 }
-                else if (window.GetType() == typeof(InvestmentWindow))
+                else if (  window.GetType() == typeof(CreateAccountWindow)
+                        || window.GetType() == typeof(MainWindow))
                 {
-                    window.Close();
-                    mainWindow.Show();
-                }
-                else if (window.GetType() == typeof(AccountWindow))
-                {
-                    window.Close();
-                    mainWindow.Show();
-                }
-                else if (window.GetType() == typeof(CreateAccountWindow))
-                {
-                    window.Close();
-                    mainWindow = null;
-                    LoginWindow loginWindow = new LoginWindow();
-                    loginWindow.Show();
-                }
-                else if (window.GetType() == typeof(MainWindow))
-                {
-                    window.Close();
-                    mainWindow = null;
-                    LoginWindow loginWindow = new LoginWindow();
-                    loginWindow.Show();
+                    newWindow = SwapWindow(window, new LoginWindow());
+                    newWindow.Show();
+                    break;
                 }
             }
+        }
 
-            
+        private Window SwapWindow(Window oldWindow, Window newWindow)
+        {
+            oldWindow = null;
+            Window _newWindow = newWindow;
+
+            return _newWindow;
+
         }
     }
 }

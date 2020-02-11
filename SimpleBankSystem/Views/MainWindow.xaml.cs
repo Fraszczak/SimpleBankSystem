@@ -1,4 +1,5 @@
 ﻿
+using SimpleBankSystem.Persistance;
 using System.Windows;
 
 namespace SimpleBankSystem.Views
@@ -11,9 +12,24 @@ namespace SimpleBankSystem.Views
         public MainWindow()
         {
             InitializeComponent();
-            
         }
-        
+
+        private PlutoContext _context = new PlutoContext();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource currentAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("currentAccountViewSource")));
+
+            currentAccountViewSource.Source = _context.CurrentAccountDbSet.Local;
+          
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            _context.Dispose();
+        }
 
     }
 }

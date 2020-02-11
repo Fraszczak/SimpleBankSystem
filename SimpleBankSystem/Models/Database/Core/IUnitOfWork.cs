@@ -9,6 +9,7 @@ namespace SimpleBankSystem.Core
         ICurrentAccountRepository CurrentAccount { get; }
         ILoginToRepository LoginTo { get; }
         ISaveAccountRepository SaveAccount { get; }
+        IInfoRepository Info { get; }
         int Complete();
     }
 }

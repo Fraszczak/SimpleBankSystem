@@ -227,6 +227,12 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.CreditCardTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.CurrentAccountTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.InfoTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.InvestmentTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.LoginToTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.SaveAccountTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

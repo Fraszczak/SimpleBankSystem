@@ -47,7 +47,7 @@ namespace SimpleBankSystem.Persistance.Repository
            
                 _entities.ToList();
                 //_entities.Where();
-                _entities.SingleOrDefault();
+               // _entities.SingleOrDefault();
 
             return _entities;
         }

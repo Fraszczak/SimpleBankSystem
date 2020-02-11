@@ -8,9 +8,9 @@ namespace SimpleBankSystem.Persistance.Repository
 {
    public class LoginToRepository : Repository<LoginToTable>, ILoginToRepository
     {
-        public LoginToRepository(PlutoContext context) : base(context)
+        public LoginToRepository(PlutoContext context) 
+            : base(context)
         {
-
         }
         public PlutoContext PlutoContext
         {
@@ -47,18 +47,7 @@ namespace SimpleBankSystem.Persistance.Repository
                 MessageBox.Show("Incorrect login or password");
                 return false;
             }
-            //SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM [Table] WHERE ([user] = @user)", conn);
-            //check_User_Name.Parameters.AddWithValue("@user", txtBox_UserName.Text);
-            //int UserExist = (int)check_User_Name.ExecuteScalar();
-
-            //if (UserExist > 0)
-            //{
-            //    //Username exist
-            //}
-            //else
-            //{
-            //    //Username doesn't exist.
-            //}
+            
 
         }
     }
