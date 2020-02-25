@@ -1,6 +1,5 @@
 ﻿using SimpleBankSystem.Core.Domain;
 using SimpleBankSystem.Core.IRepositories;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,24 +16,21 @@ namespace SimpleBankSystem.Persistance.Repository
             get { return Context as PlutoContext; }
         }
 
-        public IEnumerable<SaveAccountTable> GetBallance()
+        public decimal GetBallance()
         {
-            throw new NotImplementedException();
+            var query = from a in PlutoContext.SaveAccountDbSet
+                        select a.Value;
+            var sum = 0M;
+
+            foreach (var a in query)
+                sum += a;
+
+            return sum;
         }
 
-        public IEnumerable<SaveAccountTable> GetNames(int count)
+        public IEnumerable<SaveAccountTable> GetSaveAccountTable()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<SaveAccountTable> GetTimes(int count)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<SaveAccountTable> GetValues(int count)
-        { 
-            throw new NotImplementedException();
+            return PlutoContext.SaveAccountDbSet.ToList();
         }
     }
 }

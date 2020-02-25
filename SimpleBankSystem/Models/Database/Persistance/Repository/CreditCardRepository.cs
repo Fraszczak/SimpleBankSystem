@@ -1,6 +1,5 @@
 ﻿using SimpleBankSystem.Core.Domain;
 using SimpleBankSystem.Core.IRepositories;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,24 +17,21 @@ namespace SimpleBankSystem.Persistance.Repository
             get { return Context as PlutoContext; }
         }
 
-        public IEnumerable<CreditCardTable> GetBallance()
+        public decimal GetBallance()
         {
-            throw new NotImplementedException();
+            var query = from a in PlutoContext.CreditCardDbSet
+                        select a.Value;
+            var sum = 0M;
+
+            foreach (var a in query)
+                sum += a;
+
+            return sum;
         }
 
-        public IEnumerable<CreditCardTable> GetNames()
+        public IEnumerable<CreditCardTable> GetSaveAccountTable()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<CreditCardTable> GetTimes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<CreditCardTable> GetValues()
-        {
-            throw new NotImplementedException();
+            return PlutoContext.CreditCardDbSet.ToList();
         }
     }
 }

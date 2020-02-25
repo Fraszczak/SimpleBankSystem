@@ -1,5 +1,4 @@
-﻿
-using MVVM_WPF_BankApp.Models;
+﻿using MVVM_WPF_BankApp.Models;
 using SimpleBankSystem.Views;
 using SimpleBankSystem.Views.Effects;
 using System;

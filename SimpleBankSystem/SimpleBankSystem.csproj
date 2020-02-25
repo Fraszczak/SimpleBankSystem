@@ -123,6 +123,7 @@
     <Compile Include="Models\Database\Persistance\Repository\Repository.cs" />
     <Compile Include="Models\Database\Persistance\Repository\SaveAccountRepository.cs" />
     <Compile Include="Models\Database\Persistance\UnitOfWork.cs" />
+    <Compile Include="Models\Helpers\IEnumerableToObservableCollectionClass.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
     </Compile>

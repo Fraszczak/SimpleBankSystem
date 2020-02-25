@@ -1,11 +1,11 @@
+using SimpleBankSystem.Core.Domain;
+using SimpleBankSystem.Persistance;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+
 namespace SimpleBankSystem.Migrations
 {
-    using SimpleBankSystem.Core.Domain;
-    using SimpleBankSystem.Persistance;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity.Migrations;
-
     internal sealed class Configuration : DbMigrationsConfiguration<PlutoContext>
     {
         public Configuration()
@@ -32,17 +32,6 @@ namespace SimpleBankSystem.Migrations
             foreach (var info in infos.Values)
                 context.InfoDBSet.AddOrUpdate(t => t.ID, info);
             #endregion
-
-            //#region Add Login Table
-            //var logins = new Dictionary<string, LoginToTable>
-            //{
-            //    {"Admin", new LoginToTable{ID = Guid.NewGuid(), Login = "Admin", Password = "Pass" } },
-            //};
-
-
-            //foreach (var login in logins.Values)
-            //    context.LoginDbSet.AddOrUpdate(t => t.ID, login);
-            //#endregion
 
             #region Add CurrentAccount Table
             var currentAccountValues = new Dictionary<string, CurrentAccountTable>

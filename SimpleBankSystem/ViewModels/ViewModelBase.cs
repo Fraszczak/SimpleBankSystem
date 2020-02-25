@@ -1,11 +1,8 @@
 ﻿namespace SimpleBankSystem.ViewModels
 {
-    using System;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Runtime.CompilerServices;
-    using System.Windows;
-    using System.Windows.Controls.Primitives;
 
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
@@ -31,7 +28,7 @@
                 Debug.Fail(msg);
             }
         }
-
+       
     }
 }
 

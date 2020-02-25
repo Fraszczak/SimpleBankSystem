@@ -1,5 +1,6 @@
 ﻿using SimpleBankSystem.Persistance;
 using SimpleBankSystem.Persistance.Repository;
+
 namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class InfoViewModel

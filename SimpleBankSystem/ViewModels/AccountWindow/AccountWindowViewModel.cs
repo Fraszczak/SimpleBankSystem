@@ -1,6 +1,4 @@
-﻿
-
-namespace SimpleBankSystem.ViewModels
+﻿namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class AccountWindowViewModel : ViewModelBase
     {

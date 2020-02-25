@@ -9,8 +9,9 @@
         mc:Ignorable="d"
         Title="{Binding MainWindowTitle}" 
         Height="600" Width="800" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" 
-        IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" 
-        Loaded="Window_Loaded">
+        IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" >
+    <!--Loaded="Window_Loaded">-->
+    
     <Window.Resources>
 
         <Style TargetType="{x:Type ToggleButton}" x:Key="OnOffButton">
@@ -25,7 +26,7 @@
 
 
         <CollectionViewSource x:Key="currentAccountViewSource" d:DesignSource="{d:DesignInstance {x:Type Domain:CurrentAccountTable}, CreateList=True}"/>
-
+        
     </Window.Resources>
 
     <Window.DataContext>
@@ -217,7 +218,7 @@
                      FontSize="20" Foreground="WhiteSmoke" Padding="5,0"
                      HorizontalAlignment="Center" VerticalContentAlignment="Center" Text="Current" Height="44" Width="185"/>
                 <Label Content="{materialDesign:PackIcon Kind=Dollar, Size=28}" Foreground="White" />
-                <Label FontSize="20" Content="{Binding CurrentAccountTotal, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                <Label FontSize="20" Content="{Binding CurrentAccountBallance, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
                        Foreground="White" FontWeight="DemiBold"/>
 
             </WrapPanel>
@@ -230,7 +231,7 @@
                      FontSize="20" Foreground="WhiteSmoke" Padding="5,0"
                      HorizontalAlignment="Center" VerticalAlignment="Center" Text="Saving Account" Height="44" Width="186"/>
                 <Label Content="{materialDesign:PackIcon Kind=Dollar, Size=28}" Foreground="White" />
-                <Label FontSize="20" Content="{Binding SavingAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                <Label FontSize="20" Content="{Binding SaveAccountBalance, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                        Foreground="White" FontWeight="DemiBold"/>
             </WrapPanel>
         </Grid>
@@ -241,7 +242,7 @@
                      FontSize="20" Foreground="WhiteSmoke" Padding="5,0"
                      HorizontalAlignment="Center" VerticalAlignment="Center" Text="Credit Card" Height="44" Width="185"/>
                 <Label Content="{materialDesign:PackIcon Kind=Dollar, Size=28}" Foreground="White" />
-                <Label FontSize="20" Content="{Binding CreditCardAccountTotal, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                <Label FontSize="20" Content="{Binding CreditCardAccountBallance, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
                        Foreground="White" FontWeight="DemiBold"/>
             </WrapPanel>
         </Grid>
@@ -256,84 +257,30 @@
         <Grid Background="#f5f5f5"  Grid.Row="6" Grid.Column="3">
 
             <!-- Saving Account-->
-            <WrapPanel>
-
-                <Canvas>
-                    <Label Content="{Binding SaveAccountFirstValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Top="20"/>
-                    <Label Content="{Binding SaveAccountFirstValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="144" Canvas.Top="20"/>
-                    <Label Content="{Binding SaveAccountFirstValueDatatime, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="24" Canvas.Top="30" />
-                </Canvas>
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountSecondValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Top="60"/>
-                    <Label Content="{Binding CurrentAccountSecondValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="146" Canvas.Top="60"/>
-                </Canvas>
-                <Canvas Margin="0,0,00,0" Width="140">
-                    <Label Content="{Binding CurrentAccountThirdValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Left="2" Canvas.Top="100" RenderTransformOrigin="0.595,0.894"/>
-                    <Label Content="{Binding CurrentAccountThirdValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="150" Canvas.Top="100"/>
-                </Canvas>
-
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountFirstDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="34"/>
-                    <Label Content="{Binding CurrentAccountSecondDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="74"/>
-                    <Label Content="{Binding CurrentAccountThirdDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="116"/>
-                </Canvas>
-
-                <Canvas>
-                    <!-- zeby to mialo sens, musi sie zmienic widok calego okna, moze uzyc trigera, albo calkiem zmienic widok -->
-                    <Button FontSize="10" Content="All transaction" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
-                </Canvas>
-            </WrapPanel>
+            <DataGrid x:Name="SaveAccountTable" AutoGenerateColumns="False" EnableRowVirtualization="True"
+                               RowDetailsVisibilityMode="VisibleWhenSelected"
+                              ItemsSource="{Binding SaveAccountTable}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="SaveAccountNameColumn" Binding="{Binding Name}" Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="SaveAccountDateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="auto" />
+                    <DataGridTextColumn x:Name="SaveAccountValueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
 
         <Label Background="#262732"  Grid.Row="6" Grid.Column="4"/>
         <Grid Background="#f5f5f5"  Grid.Row="6" Grid.Column="5">
 
             <!-- Credit Card Account-->
-            <WrapPanel>
-
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountFirstValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Top="20"/>
-                    <Label Content="{Binding CurrentAccountFirstValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="144" Canvas.Top="20"/>
-                </Canvas>
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountSecondValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Top="60"/>
-                    <Label Content="{Binding CurrentAccountSecondValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="146" Canvas.Top="60"/>
-                </Canvas>
-                <Canvas Margin="0,0,00,0" Width="140">
-                    <Label Content="{Binding CurrentAccountThirdValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Left="2" Canvas.Top="100" RenderTransformOrigin="0.595,0.894"/>
-                    <Label Content="{Binding CurrentAccountThirdValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="150" Canvas.Top="100"/>
-                </Canvas>
-
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountFirstDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="34"/>
-                    <Label Content="{Binding CurrentAccountSecondDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="74"/>
-                    <Label Content="{Binding CurrentAccountThirdDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="116"/>
-                </Canvas>
-
-                <Canvas>
-                    <!-- zeby to mialo sens, musi sie zmienic widok calego okna, moze uzyc trigera, albo calkiem zmienic widok -->
-                    <Button FontSize="10" Content="All transaction" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
-                </Canvas>
-            </WrapPanel>
+            <DataGrid x:Name="CreditAccountTable" AutoGenerateColumns="False" EnableRowVirtualization="True"
+                               RowDetailsVisibilityMode="VisibleWhenSelected"
+                              ItemsSource="{Binding CreditAccountTable}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="CreditAccountNameColumn" Binding="{Binding Name}" Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="CreditAccountDateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="auto" />
+                    <DataGridTextColumn x:Name="CreditAccountValueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Label Background="#262732"  Grid.Row="6" Grid.Column="6"/>
 
@@ -359,9 +306,9 @@
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="From this account..." FontWeight="Bold" Width="150" FontSize="12"/>
                     <ComboBox Margin="0,8" Width="150" Name="ComboBox1" >
-                        <ComboBoxItem>Saving Account</ComboBoxItem>
-                        <ComboBoxItem>Current Account</ComboBoxItem>
-                        <ComboBoxItem IsSelected="True">Credit Card</ComboBoxItem>
+                        <ComboBoxItem Content="Saving Account"></ComboBoxItem>
+                        <ComboBoxItem Content="Current Account"></ComboBoxItem>
+                        <ComboBoxItem IsSelected="True" Content="Credit Card"></ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
@@ -407,58 +354,19 @@
         <Label Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="45,0,5,0">
 
         </Label>
-        
+
         <Grid Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="51,0,5,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="13*"/>
-                <ColumnDefinition Width="20*"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Current Account-->
            
-            <WrapPanel Grid.ColumnSpan="2" >
-                <WrapPanel.Resources>
-                   
-                </WrapPanel.Resources>
-                <Grid DataContext="{StaticResource currentAccountViewSource}">
-                    <DataGrid x:Name="currentAccountDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True"
-                               RowDetailsVisibilityMode="VisibleWhenSelected">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="60"/>
-                            <DataGridTextColumn x:Name="dateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="60" />
-                            <DataGridTextColumn x:Name="valueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountSecondValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Top="60"/>
-                    <Label Content="{Binding CurrentAccountSecondValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="146" Canvas.Top="60"/>
-                </Canvas>
-                <Canvas Margin="0,0,00,0" Width="140">
-                    <Label Content="{Binding CurrentAccountThirdValueName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
-                           FontSize="10" FontWeight="Black" Canvas.Left="2" Canvas.Top="100" RenderTransformOrigin="0.595,0.894"/>
-                    <Label Content="{Binding CurrentAccountThirdValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
-                       FontSize="10" FontWeight="Black" Canvas.Left="150" Canvas.Top="100"/>
-                </Canvas>
-
-                <Canvas>
-                    <Label Content="{Binding CurrentAccountFirstDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="34"/>
-                    <Label Content="{Binding CurrentAccountSecondDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="74"/>
-                    <Label Content="{Binding CurrentAccountThirdDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                           FontSize="8" FontWeight="DemiBold" Canvas.Left="-138" Canvas.Top="116"/>
-                </Canvas>
-
-                <Canvas>
-                    <!-- zeby to mialo sens, musi sie zmienic widok calego okna, moze uzyc trigera, albo calkiem zmienic widok -->
-                    <Button FontSize="10" Content="All savings" Canvas.Left="-101" Canvas.Top="163" Height="20" Width="100" />
-                </Canvas>
-            </WrapPanel>
-        
+            <!-- Current Account-->
+            <DataGrid x:Name="CurrentAccountTable" AutoGenerateColumns="False" EnableRowVirtualization="True"
+                               RowDetailsVisibilityMode="VisibleWhenSelected"
+                              ItemsSource="{Binding CurrentAccountTable}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="CurrentAccountNameColumn" Binding="{Binding Name}" Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="CurrentAccountDateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="auto" />
+                    <DataGridTextColumn x:Name="CurrentAccountValueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
-       
     </Grid>
 </Window>

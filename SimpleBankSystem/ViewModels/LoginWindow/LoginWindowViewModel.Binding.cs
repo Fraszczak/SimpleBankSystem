@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SimpleBankSystem.Models;
-
-namespace SimpleBankSystem.ViewModels
+﻿namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class LoginWindowViewModel
     {

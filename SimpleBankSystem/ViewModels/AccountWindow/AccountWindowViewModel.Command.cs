@@ -1,5 +1,4 @@
-﻿
-using SimpleBankSystem.Commands;
+﻿using SimpleBankSystem.Commands;
 using System.Windows.Input;
 
 namespace SimpleBankSystem.ViewModels

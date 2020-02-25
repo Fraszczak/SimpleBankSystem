@@ -1,8 +1,8 @@
 ﻿using MVVM_WPF_BankApp.Models;
-using SimpleBankSystem.Models;
 using SimpleBankSystem.Persistance;
 using SimpleBankSystem.Views;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -23,7 +23,7 @@ namespace SimpleBankSystem.Commands
             return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
             var values = (object[])parameter;
 
@@ -32,17 +32,26 @@ namespace SimpleBankSystem.Commands
             var passwordBox = values[1] as PasswordBox;
             var password = passwordBox.Password;
 
-            // weryfikacja uzytkownika po wpisanym loginie
 
+            BlurEffectOwn blurEffectOwn = new BlurEffectOwn(Application.Current.MainWindow);
+            blurEffectOwn.LoadingEffect();
+            await LoginTo(login, password);
+
+            
+            
+           
+
+        }
+
+        private async Task LoginTo(string login, string password)
+        {
             try
             {
-                
+
                 if (new UnitOfWork(new PlutoContext()).LoginTo.LoginToApp(login, password))
                 {
-                    BlurEffectOwn blurEffectOwn = new BlurEffectOwn(Application.Current.MainWindow);
-                    blurEffectOwn.LoadingEffect();
                     var mainWindow = new MainWindow();
-                   
+
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(LoginWindow))
@@ -56,15 +65,12 @@ namespace SimpleBankSystem.Commands
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
                 MessageBox.Show("Incorrect login or password.");
                 //MessageBox.Show(ex.Message);
             }
-            
-           
-
         }
     }
 }

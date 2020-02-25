@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using SimpleBankSystem.Models;
 using SimpleBankSystem.Persistance;
-using SimpleBankSystem.Persistance.Repository;
-using SimpleBankSystem.Views;
-using SimpleBankSystem.Views.Effects;
 
 namespace SimpleBankSystem.Commands
 {

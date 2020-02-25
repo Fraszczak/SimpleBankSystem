@@ -1,7 +1,9 @@
-﻿namespace SimpleBankSystem.ViewModels
+﻿using SimpleBankSystem.Commands;
+using System.Windows.Input;
+
+namespace SimpleBankSystem.ViewModels
 {
-    using SimpleBankSystem.Commands;
-    using System.Windows.Input;
+   
 
     public sealed partial class MainWindowViewModel
     {
