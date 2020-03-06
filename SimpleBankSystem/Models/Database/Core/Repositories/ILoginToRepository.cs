@@ -1,4 +1,4 @@
-﻿using SimpleBankSystem.Core.Domain;
+﻿using SimpleBankSystem.Models.Database.Core.Domain;
 
 namespace SimpleBankSystem.Core.IRepositories
 {

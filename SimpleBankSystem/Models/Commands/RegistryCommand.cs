@@ -38,7 +38,7 @@ namespace SimpleBankSystem.Commands
             var Password = values[5] as TextBox;
             var password = Password.Text;
 
-            var a = new UnitOfWork(new PlutoContext());
+            var a = new UnitOfWork(new SBSDatabaseContext());
             a.LoginTo.CreateUser(login, password);
 
             new BackToCommand().Execute(parameter);

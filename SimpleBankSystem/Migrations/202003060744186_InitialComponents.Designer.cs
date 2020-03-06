@@ -7,13 +7,13 @@ namespace SimpleBankSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialComponent : IMigrationMetadata
+    public sealed partial class InitialComponents : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialComponent));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialComponents));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002031951424_InitialComponent"; }
+            get { return "202003060744186_InitialComponents"; }
         }
         
         string IMigrationMetadata.Source

@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding AccountWindowWindowTitle}" Height="600" Width="800" ResizeMode="NoResize"
+        Title="{Binding AccountWindowTitle}" Height="600" Width="800" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" IsTabStop="True" Topmost="True" WindowStyle="None"
         WindowState="Normal" >
 
@@ -132,7 +132,7 @@
         </Grid>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                   Background="#2e2f41"  Content="{Binding AccountWindowWindowTitle}"
+                   Background="#2e2f41"  Content="{Binding AccountWindowTitle}"
                    FontSize="11" FontWeight="Bold" FontFamily="Arial" Foreground="WhiteSmoke"
                    Grid.Row="1" Grid.Column="3"/>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="4"/>

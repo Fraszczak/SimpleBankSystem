@@ -9,8 +9,6 @@ namespace SimpleBankSystem.Models.Helpers
 {
     public static class IEnumerableToObservableCollectionClass
     {
-     ]
-
         public static ObservableCollection<dynamic> IEnumerableToObservableCollection(IEnumerable source)
         {
             ObservableCollection<dynamic> SourceCollection = new ObservableCollection<dynamic>();

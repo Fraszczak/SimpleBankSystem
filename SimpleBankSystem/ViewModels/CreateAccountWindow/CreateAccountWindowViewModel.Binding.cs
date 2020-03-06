@@ -1,20 +1,18 @@
 ﻿
+using SimpleBankSystem.Persistance;
+
 namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class CreateAccountWindowViewModel
     {
-        private string createAccountWindowWindowTitle = "SimpleBankSystem - Create Account";
-        public string CreateAccountWindowWindowTitle
+        private static readonly UnitOfWork unitOfWork = new UnitOfWork(new SBSDatabaseContext());
+
+        private string _createAccountWindowTitle = unitOfWork.Info.GetData("CreateAccountWindowTitle");
+        
+        public string CreateAccountWindowTitle
         {
-            get
-            {
-                return this.createAccountWindowWindowTitle;
-            }
-            set
-            {
-                this.createAccountWindowWindowTitle = value;
-                this.OnPropertyChanged();
-            }
+            get => _createAccountWindowTitle;
+            private set => OnPropertyChanged();
         }
     }
 }

@@ -1,20 +1,16 @@
-﻿namespace SimpleBankSystem.ViewModels
+﻿using SimpleBankSystem.Persistance;
+
+namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class InvestmentsWindowViewModel
     {
-        private string investmentsWindowWindowTitle = "SimpleBankSystem - Investments";
-        public string InvestmentsWindowWindowTitle
+        private readonly static UnitOfWork unitOfWork = new UnitOfWork(new SBSDatabaseContext());
+        private string _investmentWindowTitle = unitOfWork.Info.GetData("InvestmentWindowTitle");
+        public string InvestmentsWindowitle
         {
-            get
-            {
-                return this.investmentsWindowWindowTitle;
-            }
-            set
-            {
-                this.investmentsWindowWindowTitle = value;
-                this.OnPropertyChanged();
-            }
-        }
-
+            get => _investmentWindowTitle;
+            private set => OnPropertyChanged();
+        } 
+        
     }
 }

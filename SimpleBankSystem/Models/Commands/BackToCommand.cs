@@ -27,8 +27,8 @@ namespace SimpleBankSystem
             {
 
                 if (   window.GetType() == typeof(InfoWindow) 
-                    || window.GetType() == typeof(InvestmentWindow)
-                    || window.GetType() == typeof(AccountWindow)
+                        || window.GetType() == typeof(InvestmentWindow)
+                            || window.GetType() == typeof(AccountWindow)
                     )
                 {
                     newWindow = SwapWindow(window, new MainWindow());
@@ -36,7 +36,7 @@ namespace SimpleBankSystem
                     break;
                 }
                 else if (  window.GetType() == typeof(CreateAccountWindow)
-                        || window.GetType() == typeof(MainWindow))
+                            || window.GetType() == typeof(MainWindow))
                 {
                     newWindow = SwapWindow(window, new LoginWindow());
                     newWindow.Show();

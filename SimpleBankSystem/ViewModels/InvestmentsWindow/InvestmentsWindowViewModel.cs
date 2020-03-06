@@ -2,5 +2,6 @@
 {
     public sealed partial class InvestmentsWindowViewModel : ViewModelBase
     {
+
     }
 }

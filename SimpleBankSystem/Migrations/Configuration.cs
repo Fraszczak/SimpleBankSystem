@@ -1,70 +1,56 @@
-using SimpleBankSystem.Core.Domain;
-using SimpleBankSystem.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-
 namespace SimpleBankSystem.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<PlutoContext>
+    using SimpleBankSystem.Models.Database.Core.Domain;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<SimpleBankSystem.Persistance.SBSDatabaseContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(PlutoContext context)
+        protected override void Seed(SimpleBankSystem.Persistance.SBSDatabaseContext context)
         {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
 
             #region Add Info Table
             var infos = new Dictionary<string, InfoTable>
-            {
-                {"Legal Info1", new InfoTable{ID = Guid.NewGuid(), Name = "Legal Info", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
-                {"Seciurity2", new InfoTable{ID = Guid.NewGuid(), Name = "Seciurity", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
-                {"Accessibility3", new InfoTable{ID = Guid.NewGuid(), Name = "Accessibility", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book." } }
-            };
+                        {
+                            {"Legal Info", new InfoTable{Id = Guid.NewGuid(), Name = "Legal Info", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
+                            {"Seciurity", new InfoTable{Id = Guid.NewGuid(), Name = "Seciurity", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
+                            {"Accessibility", new InfoTable{Id = Guid.NewGuid(), Name = "Accessibility", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
+                            {"AccountWindowTitle", new InfoTable{Id = Guid.NewGuid(), Name = "AccountWindowTitle", Description = "SimpleBankSystem - Account"} },
+                             {"CreateWindowTitle", new InfoTable{Id = Guid.NewGuid(), Name = "CreateAccountWindowTitle", Description = "SimpleBankSystem - Create Account"} },
+                             {"InfoWindowTitle", new InfoTable{Id = Guid.NewGuid(), Name = "InfoWindowTitle", Description = "SimpleBankSystem - Info"} },
+                             {"InvestmentWindowTitle", new InfoTable{Id = Guid.NewGuid(), Name = "InvestmentWindowTitle", Description = "SimpleBankSystem - Investment"} },
+                             {"MainWindowTitle", new InfoTable{Id = Guid.NewGuid(), Name = "MainWindowTitle", Description = "SimpleBankSystem"} }
+                        };
             foreach (var info in infos.Values)
-                context.InfoDBSet.AddOrUpdate(t => t.ID, info);
+                context.InfoTableDbSet.AddOrUpdate(t => t.Id, info);
             #endregion
 
-            #region Add CurrentAccount Table
-            var currentAccountValues = new Dictionary<string, CurrentAccountTable>
-            {
-                {"Value_1", new CurrentAccountTable{ID = Guid.NewGuid(), Name = "Food", DataTime = DateTime.Today, Value = 124.19M  } },
-                { "Value_2", new CurrentAccountTable { ID = Guid.NewGuid(), Name = "Home insurance", DataTime = DateTime.Today, Value = 79.99M, }}
-            };
-            
-            foreach (var currentAccountValue in currentAccountValues.Values)
-                context.CurrentAccountDbSet.AddOrUpdate(t => t.ID, currentAccountValue);
-            #endregion
-
-            #region Add SaveAccount Table
-            var saveAccountValues = new Dictionary<string, SaveAccountTable>
-            {
-                {"Value_1", new SaveAccountTable{ID = Guid.NewGuid(), Name = "New car", DataTime = DateTime.Today, Value = 1000,  } },
-                { "Value_2", new SaveAccountTable { ID = Guid.NewGuid(), Name = "Insurance bill", DataTime = DateTime.Today, Value = 500, }}
-            };
-
-            foreach (var saveAccountValue in saveAccountValues.Values)
-                context.SaveAccountDbSet.AddOrUpdate(t => t.ID, saveAccountValue);
-            #endregion
-
-            #region Add CreditCardAccount Table
-            var creditCardAccountValues = new Dictionary<string, CreditCardTable>
-            {
-                {"Value_1", new CreditCardTable{ID = Guid.NewGuid(), Name = "New thires", DataTime = DateTime.Today, Value = 699.99M,  } },
-                { "Value_2", new CreditCardTable { ID = Guid.NewGuid(), Name = "Girft for mother", DataTime = DateTime.Today, Value = 199M, }}
-            };
-
-            foreach (var creditCardAccountValue in creditCardAccountValues.Values)
-                context.CreditCardDbSet.AddOrUpdate(t => t.ID, creditCardAccountValue);
-            #endregion
         }
     }
 }

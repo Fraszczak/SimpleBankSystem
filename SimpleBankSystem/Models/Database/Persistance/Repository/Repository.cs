@@ -33,7 +33,7 @@ namespace SimpleBankSystem.Persistance.Repository
 
         public TEntity Get(int id)
         {
-            // Here we are working with a DBContext, not our own PlutoContext. So we don't have DbSet's
+            // Here we are working with a DBContext, not our own SBSDatabaseContext. So we don't have DbSet's
             // Such as CurrentAccountDbSet or LoginDbSet, and we need to use the generic Set() method to access them.
 
             return Context.Set<TEntity>().Find(id);

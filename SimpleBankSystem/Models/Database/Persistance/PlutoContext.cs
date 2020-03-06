@@ -1,36 +1,35 @@
-﻿using SimpleBankSystem.Core.Domain;
+﻿
+using SimpleBankSystem.Models.Database.Core.Domain;
 using SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfiguration;
-using SimpleBankSystem.Models.Database.EntityConfiguratioin.SaveAccountTableConfiguration;
-using SimpleBankSystem.Persistance.EntityConfiguratioin.CreditCardTableConfiguration;
+using SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin;
 using System.Data.Entity;
 
 namespace SimpleBankSystem.Persistance
 {
-    public partial class PlutoContext : DbContext
+    partial class SBSDatabaseContext : DbContext
     {
-        public virtual DbSet<LoginToTable> LoginDbSet { get; set; }
-        public virtual DbSet<CreditCardTable> CreditCardDbSet { get; set; }
-        public virtual DbSet<CurrentAccountTable> CurrentAccountDbSet { get; set; }
-        public virtual DbSet<SaveAccountTable> SaveAccountDbSet { get; set; }
-        public virtual DbSet<InfoTable> InfoDBSet { get; set; }
-        public virtual DbSet<InvestmentTable> InvestmentDbSetSet { get; set; }
+        public  DbSet<LoginToTable> LoginDbSet { get; set; }
+        public  DbSet<InfoTable> InfoTableDbSet { get; set; }
+        //public virtual DbSet<TypeOfAcount> TypeOfAcountDbSet { get; set; }
+        public  DbSet<UserTable> UserTableDbSet { get; set; }
+        public  DbSet<AccountHistoryTable> AccountHistoryTableDbSet { get; set; }
+        public  DbSet<Account> AccountDbSet { get; set; } 
      
 
-        public PlutoContext()
+        public SBSDatabaseContext()
             : base(nameOrConnectionString: "DefaultConnection")
         {
-            // wylacza lazy loading
+            // Lazy loading off
             this.Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new LoginToTableConfiguration());
-            modelBuilder.Configurations.Add(new InfoTableConfiguration());
-            modelBuilder.Configurations.Add(new SaveAccountTableConfiguration());
-            modelBuilder.Configurations.Add(new InvestmentTableConfiguration());
-            modelBuilder.Configurations.Add(new CurrentAccountTableConfiguration());
-            modelBuilder.Configurations.Add(new CreditCardTableConfiguration());
+            modelBuilder.Configurations.Add(entityTypeConfiguration: new LoginToTableConfiguration());
+            modelBuilder.Configurations.Add(entityTypeConfiguration: new InfoTableConfiguration());
+            modelBuilder.Configurations.Add(entityTypeConfiguration: new AccountConfiguration());
+            modelBuilder.Configurations.Add(entityTypeConfiguration: new AccountHistoryTableConfiguration());
+            modelBuilder.Configurations.Add(entityTypeConfiguration: new UserTableConfiguration());
         }
 
 

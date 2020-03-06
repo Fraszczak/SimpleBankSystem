@@ -5,67 +5,31 @@ namespace SimpleBankSystem.ViewModels
 {
     public sealed partial class InfoViewModel
     {
-        private string accesibilityWindowTitle = "SimpleBankSystem - Info";
+        private static readonly UnitOfWork unitOfWork = new UnitOfWork(new SBSDatabaseContext());
 
-        private static UnitOfWork unitOfWork = new UnitOfWork(new PlutoContext());
-        private string _accessibility = unitOfWork.Info.GetData("Accessibility");
-        private string _seciurity = unitOfWork.Info.GetData("Seciurity");
-        private string _legalInfo = unitOfWork.Info.GetData("Legal Info");
-
-        
-
+        private string _accessibilityWindowTitle = unitOfWork.Info.GetData("InfoWindowTitle");
         public string AccesibilityWindowTitle
         {
-            get
-            {
-                return this.accesibilityWindowTitle;
-            }
-            set
-            {
-                this.accesibilityWindowTitle = value;
-                this.OnPropertyChanged();
-            }
+            get => _accessibilityWindowTitle;
+            private set => OnPropertyChanged();
         }
-        
+        private string _accessybilityDescryption = unitOfWork.Info.GetData("Accessibility");
         public string Accessibility
         {
-            get
-            {
-                return this._accessibility;
-            }
-            set
-            {
-                this._accessibility = value;
-                unitOfWork.Complete();
-                this.OnPropertyChanged();
-            }
+            get => _accessybilityDescryption;
+            private set => OnPropertyChanged();
         }
-        
+        private string _seciurityDescryption =  unitOfWork.Info.GetData("Seciurity");
         public string Seciurity
         {
-            get
-            {
-                return this._seciurity;
-            }
-            set
-            {
-                this._seciurity = value;
-                this.OnPropertyChanged();
-            }
-        }
-        
+            get => _seciurityDescryption;
+            private set => OnPropertyChanged();
+        } 
+        private string _legalInfoDescryption = unitOfWork.Info.GetData("Legal Info");
         public string LegalInfo
         {
-            get
-            {
-                return this._legalInfo;
-            }
-            set
-            {
-                this._legalInfo = value;
-                this.OnPropertyChanged();
-            }
-        }
-
+            get => _legalInfoDescryption;
+            private set => OnPropertyChanged();
+        } 
     }
 }

@@ -31,7 +31,6 @@ namespace SimpleBankSystem.ViewModels
             }
             private set => BackCommand = value;
         }
-
         public ICommand RegistryCommand
         {
             get

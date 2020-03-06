@@ -7,12 +7,10 @@ namespace SimpleBankSystem.ViewModels
     {
         public MainWindowViewModel()
         {
-            WindowState = WindowState.Minimized;
-            //this.DataContext = new CurrentAccountViewModel();
-           
+            
         }
 
-        public WindowState WindowState { get; }
+        
     }
 
    

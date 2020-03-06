@@ -16,7 +16,7 @@
         
         mc:Ignorable="d"
         BorderThickness="0" WindowStyle="None" ResizeMode="NoResize"
-        Title="{Binding LoginWindowWindowTitle, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Height="600" Width="400" 
+        Height="600" Width="400" 
         WindowState="Normal" WindowStartupLocation="CenterScreen"
         >
     <Window.DataContext>

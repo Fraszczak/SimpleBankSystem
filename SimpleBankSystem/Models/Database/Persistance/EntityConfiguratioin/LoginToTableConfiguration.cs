@@ -1,9 +1,9 @@
-﻿using SimpleBankSystem.Core.Domain;
+﻿using SimpleBankSystem.Models.Database.Core.Domain;
 using System.Data.Entity.ModelConfiguration;
 
 namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfiguration
 {
-    public class LoginToTableConfiguration : EntityTypeConfiguration<LoginToTable>
+    class LoginToTableConfiguration : EntityTypeConfiguration<LoginToTable>
     {
         public LoginToTableConfiguration()
         {
@@ -11,11 +11,7 @@ namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfigura
             ToTable("LoginToTable");
 
             // Configure the primary key
-            HasKey(c => c.ID);
-
-            // Configure the property ID
-            Property(c => c.ID)
-                .IsRequired();
+            HasKey(c => c.Id);
 
             // Configure the property Login
             Property(c => c.Login)
@@ -27,8 +23,10 @@ namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfigura
                 .IsRequired()
                 .HasMaxLength(50);
 
-            // Map one-to-zero or one relationship
-           // HasRequired(c => c.Login);
+            // Configure the relationship one to one between UserTable and LoginToTable. Is enoght if one of them has this option in their configuration file
+            HasRequired(c => c.UserTable)
+                .WithRequiredPrincipal(c => c.LoginTo)
+                .WillCascadeOnDelete(true);
         }
     }
 }

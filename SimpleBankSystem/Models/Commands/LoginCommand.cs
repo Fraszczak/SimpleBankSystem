@@ -48,7 +48,7 @@ namespace SimpleBankSystem.Commands
             try
             {
 
-                if (new UnitOfWork(new PlutoContext()).LoginTo.LoginToApp(login, password))
+                if (new UnitOfWork(new SBSDatabaseContext()).LoginTo.LoginToApp(login, password))
                 {
                     var mainWindow = new MainWindow();
 

@@ -7,7 +7,7 @@
         xmlns:helpers="clr-namespace:SimpleBankSystem.Helpers"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding CreateAccountWindowWindowTitle}" 
+        Title="{Binding CreateAccountWindowTitle}" 
         Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
         IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" >
 
@@ -109,7 +109,7 @@
         </Grid>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                   Background="#2e2f41" Content="{Binding CreateAccountWindowWindowTitle}"
+                   Background="#2e2f41" Content="{Binding CreateAccountWindowTitle}"
                    FontSize="11" FontWeight="Bold" FontFamily="Arial" Foreground="WhiteSmoke"
                    Grid.Row="1" Grid.Column="3">
         </Label>

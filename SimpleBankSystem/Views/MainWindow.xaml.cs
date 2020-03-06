@@ -13,10 +13,9 @@ namespace SimpleBankSystem.Views
         {
             InitializeComponent();
             
-            
         }
 
-        //private PlutoContext _context = new PlutoContext();
+        //private SBSDatabaseContext _context = new SBSDatabaseContext();
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)
         //{

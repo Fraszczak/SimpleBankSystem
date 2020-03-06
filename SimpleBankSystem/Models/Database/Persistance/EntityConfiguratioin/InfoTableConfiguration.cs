@@ -1,9 +1,9 @@
-﻿using SimpleBankSystem.Core.Domain;
+﻿using SimpleBankSystem.Models.Database.Core.Domain;
 using System.Data.Entity.ModelConfiguration;
 
 namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfiguration
 {
-    public class InfoTableConfiguration : EntityTypeConfiguration<InfoTable>
+    class InfoTableConfiguration : EntityTypeConfiguration<InfoTable>
     {
         public InfoTableConfiguration()
         {
@@ -11,7 +11,7 @@ namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfigura
             ToTable("InfoTable");
 
             // Configure the primary key
-            HasKey(c => c.ID);
+            HasKey(c => c.Id);
 
             // Configure the property Name
             Property(c => c.Name)
@@ -21,9 +21,6 @@ namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfigura
             Property(c => c.Description)
                 .HasMaxLength(2000);
 
-            // Map one-to-zero or one relationship
-          //  HasRequired(c => c.Name);
         }
-
     }
 }

@@ -6,7 +6,7 @@ using System.Windows;
 namespace SimpleBankSystem.Views
 {
     /// <summary>
-    /// Interaction logic for InfoWindow.xaml
+    /// Interaction logic for InfoTable.xaml
     /// </summary>
     public partial class InfoWindow : Window
     {
@@ -15,19 +15,6 @@ namespace SimpleBankSystem.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

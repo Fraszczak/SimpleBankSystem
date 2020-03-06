@@ -1,22 +1,22 @@
-﻿using SimpleBankSystem.Core.Domain;
-using SimpleBankSystem.Core.IRepositories;
+﻿using SimpleBankSystem.Core.IRepositories;
+using SimpleBankSystem.Models.Database.Core.Domain;
 using System.Linq;
 
 namespace SimpleBankSystem.Persistance.Repository
 {
-    public class InfoRepository : Repository<InfoTable>, IInfoRepository
+    class InfoRepository : Repository<InfoTable>, IInfoRepository
     {
-        public InfoRepository(PlutoContext context) : base(context)
+        public InfoRepository(SBSDatabaseContext context) : base(context)
         {
 
         }
-        public PlutoContext PlutoContext
+        public SBSDatabaseContext PlutoContext
         {
-            get { return Context as PlutoContext; }
+            get { return Context as SBSDatabaseContext; }
         }
         public string GetData(string whatKindOf)
         {
-            var query = from c in PlutoContext.InfoDBSet
+            var query = from c in PlutoContext.InfoTableDbSet
                         where c.Name == whatKindOf
                         select c.Description;
 

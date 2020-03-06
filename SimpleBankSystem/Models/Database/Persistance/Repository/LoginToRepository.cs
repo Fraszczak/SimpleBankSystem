@@ -1,27 +1,27 @@
-﻿using SimpleBankSystem.Core.Domain;
-using SimpleBankSystem.Core.IRepositories;
+﻿using SimpleBankSystem.Core.IRepositories;
+using SimpleBankSystem.Models.Database.Core.Domain;
 using System;
 using System.Linq;
 using System.Windows;
 
 namespace SimpleBankSystem.Persistance.Repository
 {
-   public class LoginToRepository : Repository<LoginToTable>, ILoginToRepository
+    class LoginToRepository : Repository<LoginToTable>, ILoginToRepository
     {
-        public LoginToRepository(PlutoContext context) 
+        public LoginToRepository(SBSDatabaseContext context) 
             : base(context)
         {
         }
-        public PlutoContext PlutoContext
+        public SBSDatabaseContext PlutoContext
         {
-            get { return Context as PlutoContext; }
+            get { return Context as SBSDatabaseContext; }
         }
 
         public void CreateUser(string login, string password)
         {
             var table = new LoginToTable
             {
-                ID = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 Login = login,
                 Password = password
             };
