@@ -13,13 +13,13 @@ namespace SimpleBankSystem.Persistance
         {
             _context = context;
 
-            LoginTo = new LoginToRepository(_context);
+            UserRepository = new UserRepository(_context);
             Info = new InfoRepository(_context);
             Repository = new Repository<dynamic>(_context);
         }
 
 
-        public ILoginToRepository LoginTo { get; private set; }
+        public IUserRepository UserRepository { get; private set; }
         public IInfoRepository Info { get; private set; }
         public IRepository<dynamic> Repository { get; private set; }
         public int Complete()

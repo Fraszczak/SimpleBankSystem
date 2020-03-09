@@ -18,8 +18,7 @@ namespace SimpleBankSystem.Models.Database.Core.Domain
         public string Login { get; set; }
         public string Password { get; set; }
         
-        public virtual LoginToTable LoginTo { get; set; }
-        
+
         public virtual ObservableCollection<Account> Accounts {get; set;}
     }
 }

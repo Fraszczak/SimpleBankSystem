@@ -13,7 +13,7 @@ namespace SimpleBankSystem.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003060744186_InitialComponents"; }
+            get { return "202003061422524_InitialComponents"; }
         }
         
         string IMigrationMetadata.Source

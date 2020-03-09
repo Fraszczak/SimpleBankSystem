@@ -5,7 +5,7 @@ namespace SimpleBankSystem.Core
 {
     interface IUnitOfWork : IDisposable
     {
-        ILoginToRepository LoginTo { get; }
+        IUserRepository UserRepository { get; }
         IInfoRepository Info { get; }
         IRepository<dynamic> Repository {get;}
         int Complete();

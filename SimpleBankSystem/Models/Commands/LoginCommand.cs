@@ -36,19 +36,13 @@ namespace SimpleBankSystem.Commands
             BlurEffectOwn blurEffectOwn = new BlurEffectOwn(Application.Current.MainWindow);
             blurEffectOwn.LoadingEffect();
             await LoginTo(login, password);
-
-            
-            
-           
-
         }
 
         private async Task LoginTo(string login, string password)
         {
             try
             {
-
-                if (new UnitOfWork(new SBSDatabaseContext()).LoginTo.LoginToApp(login, password))
+                if (new UnitOfWork(new SBSDatabaseContext()).UserRepository.LoginToApp(login, password))
                 {
                     var mainWindow = new MainWindow();
 

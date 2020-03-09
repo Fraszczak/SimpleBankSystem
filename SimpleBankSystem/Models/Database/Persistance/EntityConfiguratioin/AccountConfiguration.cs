@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
 {
-    class AccountConfiguration : EntityTypeConfiguration<Account>
+    public class AccountConfiguration : EntityTypeConfiguration<Account>
     {
         public AccountConfiguration()
         {
@@ -23,10 +23,7 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
             Property(c => c.Type)
                .IsRequired();
 
-          
-            HasRequired(c => c.User)
-                .WithMany(c => c.Accounts)
-                .WillCascadeOnDelete(true);
+      
         }
     }
 }

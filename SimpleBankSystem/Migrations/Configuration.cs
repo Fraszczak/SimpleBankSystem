@@ -28,7 +28,6 @@ namespace SimpleBankSystem.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
             #region Add Info Table
             var infos = new Dictionary<string, InfoTable>
                         {
@@ -50,7 +49,6 @@ namespace SimpleBankSystem.Migrations
             foreach (var info in infos.Values)
                 context.InfoTableDbSet.AddOrUpdate(t => t.Id, info);
             #endregion
-
         }
     }
 }

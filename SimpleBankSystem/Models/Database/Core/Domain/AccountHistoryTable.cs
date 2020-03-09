@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace SimpleBankSystem.Models.Database.Core.Domain
 {
@@ -13,7 +12,6 @@ namespace SimpleBankSystem.Models.Database.Core.Domain
 
        
         public virtual Account Account { get; set; }
-
         
     }
 }

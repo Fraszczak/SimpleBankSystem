@@ -8,7 +8,7 @@ namespace SimpleBankSystem.Persistance
 {
     partial class SBSDatabaseContext : DbContext
     {
-        public  DbSet<LoginToTable> LoginDbSet { get; set; }
+        
         public  DbSet<InfoTable> InfoTableDbSet { get; set; }
         //public virtual DbSet<TypeOfAcount> TypeOfAcountDbSet { get; set; }
         public  DbSet<UserTable> UserTableDbSet { get; set; }
@@ -25,7 +25,7 @@ namespace SimpleBankSystem.Persistance
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(entityTypeConfiguration: new LoginToTableConfiguration());
+           
             modelBuilder.Configurations.Add(entityTypeConfiguration: new InfoTableConfiguration());
             modelBuilder.Configurations.Add(entityTypeConfiguration: new AccountConfiguration());
             modelBuilder.Configurations.Add(entityTypeConfiguration: new AccountHistoryTableConfiguration());

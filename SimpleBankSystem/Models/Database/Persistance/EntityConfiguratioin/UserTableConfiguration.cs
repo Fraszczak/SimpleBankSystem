@@ -41,9 +41,7 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
                 .IsRequired()
                 .HasMaxLength(50);
 
-            HasMany(c => c.Accounts)
-                .WithRequired(c => c.User)
-                .WillCascadeOnDelete(true);
+   
             
         }
     }

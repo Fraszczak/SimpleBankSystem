@@ -10,13 +10,13 @@ namespace SimpleBankSystem.Persistance.Repository
         {
 
         }
-        public SBSDatabaseContext PlutoContext
+        public SBSDatabaseContext SBSDatabaseContext
         {
             get { return Context as SBSDatabaseContext; }
         }
         public string GetData(string whatKindOf)
         {
-            var query = from c in PlutoContext.InfoTableDbSet
+            var query = from c in SBSDatabaseContext.InfoTableDbSet
                         where c.Name == whatKindOf
                         select c.Description;
 

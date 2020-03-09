@@ -1,5 +1,6 @@
 ﻿namespace SimpleBankSystem.ViewModels
 {
+    using System;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Runtime.CompilerServices;
@@ -25,7 +26,8 @@
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
             {
                 string msg = "Invalid property name: " + propertyName;
-                Debug.Fail(msg);
+               
+                    Debug.Fail(msg);
             }
         }
        

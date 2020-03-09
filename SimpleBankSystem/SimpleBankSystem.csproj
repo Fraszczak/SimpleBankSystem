@@ -84,9 +84,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202003060744186_InitialComponents.cs" />
-    <Compile Include="Migrations\202003060744186_InitialComponents.Designer.cs">
-      <DependentUpon>202003060744186_InitialComponents.cs</DependentUpon>
+    <Compile Include="Migrations\202003061422524_InitialComponents.cs" />
+    <Compile Include="Migrations\202003061422524_InitialComponents.Designer.cs">
+      <DependentUpon>202003061422524_InitialComponents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Commands\LogoutCommand.cs" />
@@ -100,17 +100,15 @@
     <Compile Include="Models\Database\Core\Domain\TypeOfAcount.cs" />
     <Compile Include="Models\Database\Core\Domain\UserTable.cs" />
     <Compile Include="Models\Database\Core\IUnitOfWork.cs" />
-    <Compile Include="Models\Database\Core\Repositories\ILoginToRepository.cs" />
+    <Compile Include="Models\Database\Core\Repositories\IUserRepository.cs" />
     <Compile Include="Models\Database\Core\Repositories\IInfoRepository.cs" />
     <Compile Include="Models\Database\Core\Repositories\IRepository.cs" />
     <Compile Include="Models\Database\Persistance\EntityConfiguratioin\AccountConfiguration.cs" />
     <Compile Include="Models\Database\Persistance\EntityConfiguratioin\AccountHistoryTableConfiguration.cs" />
-    <Compile Include="Models\Database\Persistance\EntityConfiguratioin\LoginToTableConfiguration.cs" />
     <Compile Include="Models\Database\Persistance\EntityConfiguratioin\InfoTableConfiguration.cs" />
-    <Compile Include="Models\Database\Core\Domain\LoginToTable.cs" />
     <Compile Include="Models\Database\Persistance\EntityConfiguratioin\UserTableConfiguration.cs" />
     <Compile Include="Models\Database\Persistance\PlutoContext.cs" />
-    <Compile Include="Models\Database\Persistance\Repository\LoginToRepository.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\UserRepository.cs" />
     <Compile Include="Models\Database\Persistance\Repository\InfoRepository.cs" />
     <Compile Include="Models\Database\Persistance\Repository\Repository.cs" />
     <Compile Include="Models\Database\Persistance\UnitOfWork.cs" />
@@ -209,8 +207,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202003060744186_InitialComponents.resx">
-      <DependentUpon>202003060744186_InitialComponents.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003061422524_InitialComponents.resx">
+      <DependentUpon>202003061422524_InitialComponents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

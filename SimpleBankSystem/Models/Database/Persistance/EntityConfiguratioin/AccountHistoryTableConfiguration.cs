@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
 {
-    class AccountHistoryTableConfiguration : EntityTypeConfiguration<AccountHistoryTable>
+    public class AccountHistoryTableConfiguration : EntityTypeConfiguration<AccountHistoryTable>
     {
         public AccountHistoryTableConfiguration()
         {
@@ -21,6 +21,8 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
 
             Property(c => c.TransactionName)
                 .IsRequired();
+
+            
 
             HasRequired(c => c.Account)
                 .WithRequiredPrincipal(c => c.AccountHistory)

@@ -14,10 +14,9 @@ namespace SimpleBankSystem.Models.Database.Core.Domain
        
         
         public virtual AccountHistoryTable AccountHistory { get; set; }
-        
        
         public virtual UserTable User { get; set; }
-       
+        public virtual Guid UserTableId { get; set; }
 
         
     }
