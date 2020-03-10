@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace SimpleBankSystem.Commands.Tests
 {
-    [TestClass()]
-    public class LogoutFromInvestmentWindowCommandTests
-    {
-        [TestMethod()]
-        public void CanExecuteTest_CanExecute_ReturnTrue()
-        {
-            var value = new LogoutFromInvestmentWindowCommand();
+//    [TestClass()]
+//    public class LogoutFromInvestmentWindowCommandTests
+//    {
+//        [TestMethod()]
+//        public void CanExecuteTest_CanExecute_ReturnTrue()
+//        {
+//            var value = new LogoutFromInvestmentWindowCommand();
 
-            var result = value.CanExecute(value);
+//            var result = value.CanExecute(value);
 
-            Assert.IsTrue(result);
+//            Assert.IsTrue(result);
 
-        }
+//        }
 
-        [TestMethod()]
-        public void ExecuteTest()
-        { 
+//        [TestMethod()]
+//        public void ExecuteTest()
+//        { 
 
-        }
-    }
-}
+//        }
+//    }
+//}

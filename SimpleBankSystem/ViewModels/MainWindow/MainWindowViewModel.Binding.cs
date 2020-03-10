@@ -23,37 +23,37 @@ namespace SimpleBankSystem.ViewModels
         public string MainWindowTitle
         {
             get => _mainWindowTitle;
-            private set => OnPropertyChanged();
+            set => OnPropertyChanged();
         }
         //public decimal CurrentAccountBallance
         //{
         //    get => _currentAccountBalance;
-        //    private set => OnPropertyChanged();
+        //    set => OnPropertyChanged();
         //}
         //public decimal SaveAccountBalance
         //{
         //    get => _saveAccountBallance;
-        //    private set => OnPropertyChanged();
+        //    set => OnPropertyChanged();
         //}
         //public decimal CreditCardAccountBallance
         //{
         //    get => _creditCardAccountBallance;
-        //    private set => OnPropertyChanged();
+        //    set => OnPropertyChanged();
         //}
         //public ObservableCollection<dynamic> CurrentAccountTable
         //{
         //    get => _currentAccountTable;
-        //    private set => OnPropertyChanged();
+        //    set => OnPropertyChanged();
         //}
         //public ObservableCollection<dynamic> SaveAccountTable
         //{
         //    get => _saveAccountTable;
-        //    private set => OnPropertyChanged();
+        //    set => OnPropertyChanged();
         //}
         //public ObservableCollection<dynamic> CreditAccountTable
         //{
         //    get => _creditAccountTable;
-        //    private set => OnPropertyChanged();
+        //    set => OnPropertyChanged();
         //}
 
     }

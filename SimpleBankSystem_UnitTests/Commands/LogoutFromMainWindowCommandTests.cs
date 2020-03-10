@@ -22,10 +22,3 @@ namespace SimpleBankSystem.Commands.Tests
 
         //}
 
-        //[TestMethod()]
-        //public void ExecuteTest()
-        //{
-        
-        //}
-    }
-}

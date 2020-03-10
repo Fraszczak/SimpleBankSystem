@@ -6,25 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleBankSystem.Tests
-{
-    [TestClass()]
-    public class BackToCommandTests
-    {
-        [TestMethod()]
-        public void CanExecuteTest_CanExecute_ReturnTrue()
-        {
-            var value = new BackToCommand();
+//namespace SimpleBankSystem.Tests
+//{
+//    [TestClass()]
+//    public class BackToCommandTests
+//    {
+//        [TestMethod()]
+//        public void CanExecuteTest_CanExecute_ReturnTrue()
+//        {
+//            var value = new BackToCommand();
 
-            var result = value.CanExecute(value);
+//            var result = value.CanExecute(value);
 
-            Assert.IsTrue(result);
-        }
+//            Assert.IsTrue(result);
+//        }
 
-        [TestMethod()]
-        public void ExecuteTest_CanExecute_ReturnTrue()
-        {
+//        [TestMethod()]
+//        public void ExecuteTest_CanExecute_ReturnTrue()
+//        {
             
-        }
-    }
-}
+//        }
+//    }
+//}

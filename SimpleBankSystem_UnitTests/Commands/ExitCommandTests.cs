@@ -5,6 +5,9 @@ namespace SimpleBankSystem.Commands.Tests
     [TestFixture]
     public class ExitCommandTests
     {
+
+        // Do not test private methods
+
         [Test]
         public void CanExecuteTest_CanExecute_ReturnTrue()
         {

@@ -11,25 +11,25 @@ namespace SimpleBankSystem.ViewModels
         public string AccesibilityWindowTitle
         {
             get => _accessibilityWindowTitle;
-            private set => OnPropertyChanged();
+            set => OnPropertyChanged();
         }
         private string _accessybilityDescryption = unitOfWork.Info.GetData("Accessibility");
         public string Accessibility
         {
             get => _accessybilityDescryption;
-            private set => OnPropertyChanged();
+            set => OnPropertyChanged();
         }
         private string _seciurityDescryption =  unitOfWork.Info.GetData("Seciurity");
         public string Seciurity
         {
             get => _seciurityDescryption;
-            private set => OnPropertyChanged();
+            set => OnPropertyChanged();
         } 
         private string _legalInfoDescryption = unitOfWork.Info.GetData("Legal Info");
         public string LegalInfo
         {
             get => _legalInfoDescryption;
-            private set => OnPropertyChanged();
+            set => OnPropertyChanged();
         } 
     }
 }

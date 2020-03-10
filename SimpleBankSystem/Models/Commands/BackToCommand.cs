@@ -6,6 +6,10 @@ using System.Windows.Input;
 
 namespace SimpleBankSystem
 {
+
+    //Is it goot solution? RelayCommand?  
+
+
     public class BackToCommand : ICommand
     {
         public event EventHandler CanExecuteChanged

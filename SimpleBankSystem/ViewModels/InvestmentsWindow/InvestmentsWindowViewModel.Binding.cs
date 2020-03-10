@@ -9,7 +9,7 @@ namespace SimpleBankSystem.ViewModels
         public string InvestmentsWindowitle
         {
             get => _investmentWindowTitle;
-            private set => OnPropertyChanged();
+            set => OnPropertyChanged();
         } 
         
     }

@@ -166,11 +166,21 @@
         <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="3" Background="#2e2f41">
 
             <StackPanel>
+
                 <TextBlock Height="30" Text="Registry form" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <WrapPanel HorizontalAlignment="Center" Width="540">
                     <TextBlock Text="Forename: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
                     <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
-                             Height="30" Width="200" Name="Forename" />
+                             Height="30" Width="200" Name="Forename">
+                        <TextBox.Text>
+                            <Binding Path="PhoneNumber" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule></ExceptionValidationRule>
+                                    <DataErrorValidationRule></DataErrorValidationRule>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
 
                     <TextBlock Text="Lastname: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
                     <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 

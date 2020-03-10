@@ -8,23 +8,16 @@ using System.Threading.Tasks;
 
 namespace SimpleBankSystem.Commands.Tests
 {
-    [TestClass()]
-    public class ShowAccountWindowCommandTests
-    {
-        [TestMethod()]
-        public void CanExecuteTest_CanExecute_ReturnTrue()
-        {
-            var value = new ShowAccountWindowCommand();
+//    [TestClass()]
+//    public class ShowAccountWindowCommandTests
+//    {
+//        [TestMethod()]
+//        public void CanExecuteTest_CanExecute_ReturnTrue()
+//        {
+//            var value = new ShowAccountWindowCommand();
 
-            var result = value.CanExecute(value);
+//            var result = value.CanExecute(value);
 
-            Assert.IsTrue(result);
-        }
+//            Assert.IsTrue(result);
+//        }
 
-        [TestMethod()]
-        public void ExecuteTest()
-        {
-     
-        }
-    }
-}

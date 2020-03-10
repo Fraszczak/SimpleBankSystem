@@ -25,9 +25,9 @@ namespace SimpleBankSystem.Commands
 
         public void Execute(object parameter)
         {
+            UnitOfWork unitOfWork;
 
             var values = (object[])parameter;
-            var startVariable = false;
 
             var Forename = values[0] as TextBox;
             var forename = Forename.Text;
@@ -50,7 +50,10 @@ namespace SimpleBankSystem.Commands
             var Password = values[6] as TextBox;
             var password = Password.Text;
 
-            if ( CreateUser(forename, lastname, title, phone, email, login, password))
+
+            unitOfWork = new UnitOfWork(new SBSDatabaseContext());
+
+            if ( unitOfWork.UserRepository.CreateUser(forename, lastname, title, phone, email, login, password))
             {
                 foreach (Window window in System.Windows.Application.Current.Windows)
                 {
@@ -58,46 +61,10 @@ namespace SimpleBankSystem.Commands
                     {
                         new LoginWindow().Show();
                         window.Close();
-
                     }
                 }
             }
-          
-
         }
-
        
-
-        private bool CreateUser(string forename, string lastname, string title, string phone, string email, string login, string password)
-        {
-            UnitOfWork unitOfWork;
-            var startVariable = false;
-            try
-            {
-               unitOfWork = new UnitOfWork(new SBSDatabaseContext());
-
-                while (startVariable == false)
-                {
-                    
-                    startVariable = unitOfWork.UserRepository.CreateUser(forename, lastname, title, phone, email, login, password);
-
-                    if (startVariable == false)
-                    {
-                        MessageBox.Show("Something goes wrong, try again");
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }  
-
-                return true;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Outer exception: "+ex.Message);
-                return false;
-            }
-        }
     }
 }
