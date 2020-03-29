@@ -130,7 +130,7 @@
         </Grid>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="2"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-                   Background="#2e2f41"  Content="{Binding AccesibilityWindowTitle}"
+                   Background="#2e2f41"  Content="{Binding InfoWindowTitle}"
                    FontSize="11" FontWeight="Bold" FontFamily="Arial" Foreground="WhiteSmoke"
                    Grid.Row="1" Grid.Column="3"/>
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="4"/>
@@ -174,7 +174,7 @@
         <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
         <Canvas Background="#262732"  Grid.Row="3" Grid.Column="3">
             <Label Background="#262732"  Grid.Row="3" Grid.Column="1"
-               Content="Seciurity"
+               Content="Security"
                Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
                VerticalContentAlignment="Center" Canvas.Top="29"/>
         </Canvas>
@@ -220,7 +220,7 @@
                    Foreground="WhiteSmoke" FontFamily="Times New Roman" 
                    FontSize="13" FontStyle="Italic" Padding="15">
                 <Label.Content>
-                    <AccessText TextWrapping="Wrap" Text="{Binding Seciurity}" />
+                    <AccessText TextWrapping="Wrap" Text="{Binding Security}" />
                 </Label.Content>
 
             </Label>

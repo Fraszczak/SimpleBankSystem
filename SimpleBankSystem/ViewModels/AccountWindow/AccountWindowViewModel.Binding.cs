@@ -11,7 +11,7 @@ namespace SimpleBankSystem.ViewModels
         public string AccountWindowTitle
         {
          get => _accountWindowTitle;
-         set => OnPropertyChanged();  
+         set => OnPropertyChanged("AccountWindowTitle");  
         }
 
 

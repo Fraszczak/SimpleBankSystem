@@ -1,4 +1,6 @@
-﻿using SimpleBankSystem.Commands;
+﻿using System.Windows;
+using SimpleBankSystem.Commands;
+using SimpleBankSystem.ViewModels.Commands;
 using System.Windows.Input;
 
 namespace SimpleBankSystem.ViewModels
@@ -42,5 +44,7 @@ namespace SimpleBankSystem.ViewModels
             }
             private set => RegistryCommand = value;
         }
+
+
     }
 }

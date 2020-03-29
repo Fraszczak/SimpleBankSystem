@@ -89,11 +89,12 @@
       <DependentUpon>202003061422524_InitialComponents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Commands\LogoutCommand.cs" />
-    <Compile Include="Models\Commands\RegistryCommand.cs" />
-    <Compile Include="Models\Commands\ShowAccountWindowCommand.cs" />
-    <Compile Include="Models\Commands\ShowInfoWindowCommand.cs" />
-    <Compile Include="Models\Commands\TranserFounds.cs" />
+    <Compile Include="ViewModels\Commands\LogoutCommand.cs" />
+    <Compile Include="ViewModels\Commands\RegistryCommand.cs" />
+    <Compile Include="ViewModels\Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\Commands\ShowAccountWindowCommand.cs" />
+    <Compile Include="ViewModels\Commands\ShowInfoWindowCommand.cs" />
+    <Compile Include="ViewModels\Commands\TranserFounds.cs" />
     <Compile Include="Models\Database\Core\Domain\Account.cs" />
     <Compile Include="Models\Database\Core\Domain\AccountHistoryTable.cs" />
     <Compile Include="Models\Database\Core\Domain\InfoTable.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Models\Database\Persistance\Repository\Repository.cs" />
     <Compile Include="Models\Database\Persistance\UnitOfWork.cs" />
     <Compile Include="Models\Helpers\IEnumerableToObservableCollectionClass.cs" />
+    <Compile Include="ViewModels\ValidationHelper.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
     </Compile>
@@ -139,11 +141,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Commands\BackToCommand.cs" />
-    <Compile Include="Models\Commands\ExitCommand.cs" />
-    <Compile Include="Models\Commands\LoginCommand.cs" />
-    <Compile Include="Models\Commands\ShowCreateAccountWindowCommand.cs" />
-    <Compile Include="Models\Commands\ShowInvestmentWindowCommand.cs" />
+    <Compile Include="ViewModels\Commands\BackToCommand.cs" />
+    <Compile Include="ViewModels\Commands\ExitCommand.cs" />
+    <Compile Include="ViewModels\Commands\LoginCommand.cs" />
+    <Compile Include="ViewModels\Commands\ShowCreateAccountWindowCommand.cs" />
+    <Compile Include="ViewModels\Commands\ShowInvestmentWindowCommand.cs" />
     <Compile Include="Models\Extras\Effects\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>

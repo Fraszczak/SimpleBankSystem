@@ -34,7 +34,7 @@ namespace SimpleBankSystem.Migrations
                             {"Legal Info", new InfoTable{Id = Guid.NewGuid(), Name = "Legal Info", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                             when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
-                            {"Seciurity", new InfoTable{Id = Guid.NewGuid(), Name = "Seciurity", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            {"Security", new InfoTable{Id = Guid.NewGuid(), Name = "Security", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                             when an unknown printer took a galley of type and scrambled it to make a type specimen book." } },
                             {"Accessibility", new InfoTable{Id = Guid.NewGuid(), Name = "Accessibility", Description = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
@@ -49,6 +49,11 @@ namespace SimpleBankSystem.Migrations
             foreach (var info in infos.Values)
                 context.InfoTableDbSet.AddOrUpdate(t => t.Id, info);
             #endregion
+
+
+
+           
+
         }
     }
 }

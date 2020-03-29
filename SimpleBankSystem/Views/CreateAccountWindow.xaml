@@ -14,8 +14,8 @@
     <Window.DataContext>
         <vm:CreateAccountWindowViewModel />
     </Window.DataContext>
-    <Grid Background="#262732">
 
+    <Grid Background="#262732">
         <!--  GRID COLUMN DEFINITION 0-6  -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -151,6 +151,7 @@
         <Label Background="#262732"  Grid.Row="3" Grid.Column="2"/>
         <Label Background="#262732"  Grid.Row="3" Grid.Column="3"/>
         <Label Background="#262732"  Grid.Row="3" Grid.Column="4"/>
+
         <Grid Background="#262732"  Grid.Row="3" Grid.Column="5">
             <!-- GetBackToMainWindow button-->
             <WrapPanel HorizontalAlignment="Right" Margin="125,0,0,0">
@@ -161,79 +162,88 @@
                         Command="{Binding BackCommand}"/>
             </WrapPanel>
         </Grid>
+
         <Label Background="#FF272833"  Grid.Row="3" Grid.Column="6"/>
-        
+
         <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="3" Background="#2e2f41">
+            <TextBlock Height="30" Text="Registry form" Foreground="WhiteSmoke" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+           
+            <Label Height="60" Width="540" />
 
-            <StackPanel>
+            <WrapPanel HorizontalAlignment="Center" Width="540">
+               
+                <TextBlock Text="Forename: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                             Height="30" Width="200" x:Name="Forename"
+                    Text="{Binding Forename, Mode=TwoWay,
+                    ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                  
+                <TextBlock Text="Lastname: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                             Height="30" Width="200" Name="Lastname" 
+                             Text="{Binding Lastname, Mode=TwoWay,
+                    ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock Height="30" Text="Registry form" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <WrapPanel HorizontalAlignment="Center" Width="540">
-                    <TextBlock Text="Forename: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
-                             Height="30" Width="200" Name="Forename">
-                        <TextBox.Text>
-                            <Binding Path="PhoneNumber" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    <ExceptionValidationRule></ExceptionValidationRule>
-                                    <DataErrorValidationRule></DataErrorValidationRule>
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                <Label Height="60" Width="540" />
 
-                    <TextBlock Text="Lastname: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             Height="30" Width="200" Name="Lastname" />
+                <TextBlock Text="Title: " Foreground="WhiteSmoke" Height="30" Width="40" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                             Name="Title" Height="30" Width="80"
+                             Text="{Binding Title, Mode=TwoWay,
+                    ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <Label Height="30" Width="540" />
-                    <TextBlock Text="Title: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             Height="30" Width="50" Name="Title" />
-                    <TextBlock Text="Phone no.: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             Height="30" Width="120" Name="Phone" />
+                <TextBlock Text="Phone: " Foreground="WhiteSmoke" Height="30" Width="60" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="120" Name="Phone" 
+                             Text="{Binding PhoneNumber, Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+                   
 
-                    <TextBlock Text="E-mail: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             Height="30" Width="160" Name="Email" />
-                    <Label Height="30" Width="540" />
+                <TextBlock Text="E-mail: " Foreground="WhiteSmoke" Height="30" Width="80" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="160" Name="Email" 
+                             Text="{Binding Email, Mode=TwoWay,
+                    ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Login: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             Height="30" Width="200" Name="Login" />
+                <Label Height="60" Width="540" />
 
-                    <TextBlock Text="Password: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
-                    <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             Height="30" Width="200" Name="Password" />
+                <TextBlock Text="Login: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="Login" 
+                             Text="{Binding Login, Mode=TwoWay,
+                    ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                   
 
-                </WrapPanel>
-                <Label Height="30" Width="540" />
+                <TextBlock Text="Password: " Foreground="WhiteSmoke" Height="30" Width="70" Padding="5"/>
+                <TextBox Foreground="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                             Height="30" Width="200" Name="Password" 
+                             Text="{Binding Password, Mode=TwoWay,
+                    ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <StackPanel.Resources>
-                        <helpers:MyConverter x:Key="myConverter" />
-                    </StackPanel.Resources>
+            </WrapPanel>
+            <Label Height="30" Width="540" />
 
-                    <Button  Height="30" Width="200" Content="Registry" Command="{Binding RegistryCommand}" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+                <StackPanel.Resources>
+                    <helpers:MyConverter x:Key="MyConverter" />
+                </StackPanel.Resources>
 
+                <Button  Height="30" Width="200" Content="Registry" Command="{Binding command1}" >
                     <Button.CommandParameter>
-                        <MultiBinding Converter="{StaticResource myConverter}">
-                                <Binding Path="" ElementName="Forename"/>
-                                <Binding Path="" ElementName="Lastname"/>
-                                <Binding Path="" ElementName="Title"/>
-                                <Binding Path="" ElementName="Phone"/>
-                                <Binding Path="" ElementName="Email"/>
-                                <Binding Path="" ElementName="Login"/>
-                                <Binding Path="" ElementName="Password"/>
-                            </MultiBinding>
+                        <MultiBinding Converter="{StaticResource MyConverter}">
+                            <Binding Path="" ElementName="Forename"/>
+                            <Binding Path="" ElementName="Lastname"/>
+                            <Binding Path="" ElementName="Title"/>
+                            <Binding Path="" ElementName="Phone"/>
+                            <Binding Path="" ElementName="Email"/>
+                            <Binding Path="" ElementName="Login"/>
+                            <Binding Path="" ElementName="Password"/>
+                        </MultiBinding>
                     </Button.CommandParameter>
-                    </Button>
-
-                </StackPanel>
+                </Button>
             </StackPanel>
-
-            <!-- footer-->
         </StackPanel>
     </Grid>
 </Window>

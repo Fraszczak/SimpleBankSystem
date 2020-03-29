@@ -23,7 +23,7 @@ namespace SimpleBankSystem.ViewModels
         public string MainWindowTitle
         {
             get => _mainWindowTitle;
-            set => OnPropertyChanged();
+            set => OnPropertyChanged("MainWindowTitle");
         }
         //public decimal CurrentAccountBallance
         //{

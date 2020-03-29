@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using MVVM_WPF_BankApp.Models;
 using SimpleBankSystem.Persistance;
+using SimpleBankSystem.ViewModels;
 using SimpleBankSystem.Views;
 using SimpleBankSystem.Views.Effects;
 using static System.Net.Mime.MediaTypeNames;
@@ -20,6 +21,7 @@ namespace SimpleBankSystem.Commands
 
         public bool CanExecute(object parameter)
         {
+
             return true;
         }
 
@@ -50,10 +52,11 @@ namespace SimpleBankSystem.Commands
             var Password = values[6] as TextBox;
             var password = Password.Text;
 
-
+            
+       
             unitOfWork = new UnitOfWork(new SBSDatabaseContext());
 
-            if ( unitOfWork.UserRepository.CreateUser(forename, lastname, title, phone, email, login, password))
+            if (unitOfWork.UserRepository.CreateUser(forename, lastname, title, phone, email, login, password))
             {
                 foreach (Window window in System.Windows.Application.Current.Windows)
                 {

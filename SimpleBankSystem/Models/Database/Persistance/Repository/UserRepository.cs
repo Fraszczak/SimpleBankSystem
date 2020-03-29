@@ -3,8 +3,10 @@ using SimpleBankSystem.Models.Database.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows;
+using SimpleBankSystem.ViewModels;
 
 namespace SimpleBankSystem.Persistance.Repository
 {
@@ -31,23 +33,6 @@ namespace SimpleBankSystem.Persistance.Repository
         {
             try
             {
-
-                //var listOfLetter = new List<char>()
-                //{
-                //    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-                //    'm', 'n', 'o', 'p', 'r', 's', 't', 'q', 'u', 'w', 'x', 'y',
-                //    'z'
-                //};
-                //var listOfChar = new List<char>() {
-                //    ',', '.', '?', ';', ':', '\'', '\\', '[', ']', '{', '}',
-                //    '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-',
-                //    '+', '~', '|', '/', '?', '1', '2', '3', '4', '5', '6', '7',
-                //    '8', '9', '0'
-                //};
-
-                ////var query = from p in DatabaseContex.UserTableDbSet
-                ////            select p;
-
                 var userTable = new UserTable
                 {
                     Id = Guid.NewGuid(),
@@ -60,32 +45,17 @@ namespace SimpleBankSystem.Persistance.Repository
                     Password = password
                 };
 
-                //foreach (var single in listOfChar)
-                //{
-                //    if (userTable.FirstName.Contains(single) || userTable.FirstName.Length.Equals(0)
-                //        || userTable.LastName.Contains(single) || userTable.LastName.Length.Equals(0)
-                //        || userTable.Title.Contains(single) || userTable.Title.Length.Equals(0))
-                //    {
-                //        return false;
-                //    }
-                //}
+                if (true)
+                {
+                    DatabaseContex.UserTableDbSet.Add(userTable);
+                    DatabaseContex.SaveChanges();
 
-                ////Przyda sie jeszcze sprawdzanie zdublowanych loginow
-                //foreach (var single in listOfLetter)
-                //{
-                //    if (userTable.PhoneNumber.Contains(single) || userTable.PhoneNumber.Length.Equals(0)
-                //        || userTable.Login.Length.Equals(0))
-                //    {
-                //        return false;
-                //    }
-                //}
+                    return true;
+                }
+
+                return false;
 
 
-
-                DatabaseContex.UserTableDbSet.Add(userTable);
-                DatabaseContex.SaveChanges();
-
-                return true;
             }
             catch (Exception ex)
             {
@@ -116,9 +86,50 @@ namespace SimpleBankSystem.Persistance.Repository
 
         }
 
+        public void CreateAccount(string user)
+        {
+            Dictionary<string, Account> account;
+
+            account = new Dictionary<string, Account>()
+            {
+                {
+                    user,
+                    new Account()
+                    {
+                        Id = Guid.NewGuid(), Balance = 0, DateTime = new DateTime(2000, 10, 10),
+                        Type = TypeOfAcount.Main,
+                        AccountHistory = new AccountHistoryTable(){Id = Guid.NewGuid(), Value = 100, TransactionDate = new DateTime(2000,11,12), TransactionName = "Car insurance" }
+                    }
+                }
+            };
 
 
 
-       
+
+
+
+
+
+
+
+            //#region Add Account Histor Table
+            //var accHistory = new Dictionary<string, AccountHistoryTable>
+            //{
+            //    { "First transaction", new AccountHistoryTable(){Id = Guid.NewGuid(), Value = 100, TransactionDate = new DateTime(2000,11,12), TransactionName = "Car insurance" , Account = MainAccount[user]}},
+            //    { "Second transaction", new AccountHistoryTable(){Id = Guid.NewGuid(), Value = 200, TransactionDate = new DateTime(2003,11,12), TransactionName = "Bike insurance", Account = MainAccount[user]}},
+            //    { "Third transaction", new AccountHistoryTable(){Id = Guid.NewGuid(), Value = 150, TransactionDate = new DateTime(2002,11,12), TransactionName = "Home insurance", Account = MainAccount[user]}},
+            //    { "Fourth transaction", new AccountHistoryTable(){Id = Guid.NewGuid(), Value = 400, TransactionDate = new DateTime(2001,11,12), TransactionName = "Wife insurance", Account = MainAccount[user]}},
+
+            //};
+            //foreach (var single in accHistory.Values)
+            //    DatabaseContex.AccountHistoryTableDbSet.AddOrUpdate(t => t.Id, single);
+            //#endregion
+
+
+
+        }
+
+
+
     }
 }
