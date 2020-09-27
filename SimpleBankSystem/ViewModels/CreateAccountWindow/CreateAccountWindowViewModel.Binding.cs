@@ -1,10 +1,7 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Policy;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.CommandWpf;
 using SimpleBankSystem.Persistance;
+using SimpleBankSystem.ViewModels.Commands;
 
 namespace SimpleBankSystem.ViewModels
 {
@@ -20,14 +17,10 @@ namespace SimpleBankSystem.ViewModels
             set => OnPropertyChanged("CreateAccountWindowTitle");
         }
 
-        private ICommand _command1;
-        public ICommand command1 => _command1 ?? (_command1 = new RelayCommand(() => CreateUser(), () => HasErrors ));
+        //private ICommand _command1;
+        //public ICommand command1 => _command1 ?? (_command1 = new RelayCommand(p => CreateUser(), p =>  ));
 
-        public void CreateUser()
-        {
-
-            MessageBox.Show(" --- ___ --- ");
-        }
+       
 
       
 

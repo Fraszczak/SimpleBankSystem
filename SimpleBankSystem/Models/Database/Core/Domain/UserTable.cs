@@ -4,11 +4,6 @@ namespace SimpleBankSystem.Models.Database.Core.Domain
 {
     public class UserTable
     {
-        public UserTable()
-        {
-            Accounts = new ObservableCollection<Account>();
-        }
-
         public System.Guid Id { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
@@ -17,8 +12,6 @@ namespace SimpleBankSystem.Models.Database.Core.Domain
         public string PhoneNumber { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        
 
-        public virtual ObservableCollection<Account> Accounts {get; set;}
     }
 }

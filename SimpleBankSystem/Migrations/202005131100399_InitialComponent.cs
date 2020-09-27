@@ -1,41 +1,41 @@
-namespace SimpleBankSystem.Migrations
+﻿namespace SimpleBankSystem.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialComponents : DbMigration
+    public partial class InitialComponent : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.AccountTable",
+                "Account.Tab",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
                         Balance = c.Decimal(nullable: false, precision: 4, scale: 2),
-                        DateTime = c.DateTime(nullable: false),
-                        Type = c.Int(nullable: false),
+                        Currency = c.String(nullable: false),
                         UserTableId = c.Guid(nullable: false),
+                        AccountHistoryId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AccountHistoryTable", t => t.Id, cascadeDelete: true)
-                .ForeignKey("dbo.UserTable", t => t.UserTableId, cascadeDelete: true)
-                .Index(t => t.Id)
-                .Index(t => t.UserTableId);
+                .ForeignKey("AccountHistory.Tab", t => t.AccountHistoryId, cascadeDelete: true)
+                .ForeignKey("User.Tab", t => t.UserTableId, cascadeDelete: true)
+                .Index(t => t.UserTableId)
+                .Index(t => t.AccountHistoryId);
             
             CreateTable(
-                "dbo.AccountHistoryTable",
+                "AccountHistory.Tab",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        Value = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         TransactionDate = c.DateTime(nullable: false),
                         TransactionName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.UserTable",
+                "User.Tab",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -50,7 +50,7 @@ namespace SimpleBankSystem.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.InfoTable",
+                "Info.Tab",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -63,14 +63,14 @@ namespace SimpleBankSystem.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.AccountTable", "UserTableId", "dbo.UserTable");
-            DropForeignKey("dbo.AccountTable", "Id", "dbo.AccountHistoryTable");
-            DropIndex("dbo.AccountTable", new[] { "UserTableId" });
-            DropIndex("dbo.AccountTable", new[] { "Id" });
-            DropTable("dbo.InfoTable");
-            DropTable("dbo.UserTable");
-            DropTable("dbo.AccountHistoryTable");
-            DropTable("dbo.AccountTable");
+            DropForeignKey("Account.Tab", "UserTableId", "User.Tab");
+            DropForeignKey("Account.Tab", "AccountHistoryId", "AccountHistory.Tab");
+            DropIndex("Account.Tab", new[] { "AccountHistoryId" });
+            DropIndex("Account.Tab", new[] { "UserTableId" });
+            DropTable("Info.Tab");
+            DropTable("User.Tab");
+            DropTable("AccountHistory.Tab");
+            DropTable("Account.Tab");
         }
     }
 }

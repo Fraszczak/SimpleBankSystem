@@ -7,7 +7,7 @@
         xmlns:helpers="clr-namespace:SimpleBankSystem.Helpers"
         xmlns:vm="clr-namespace:SimpleBankSystem.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding}" 
+        Title="{Binding AccountWindowTitle}" 
         Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
         IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" >
 
@@ -159,7 +159,7 @@
                         BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
                         VerticalAlignment="Center" HorizontalAlignment="Right"
                         Content="{materialDesign:PackIcon Kind=AccountArrowRightOutline, Size=30}" 
-                        Command="{Binding BackCommand}"/>
+                        Command="{Binding BackToCommand}"/>
             </WrapPanel>
         </Grid>
 
@@ -230,7 +230,10 @@
                     <helpers:MyConverter x:Key="MyConverter" />
                 </StackPanel.Resources>
 
-                <Button  Height="30" Width="200" Content="Registry" Command="{Binding command1}" >
+
+
+
+                <Button  Height="30" Width="200" Content="Registry" Command="{Binding RegistryCommand}" >
                     <Button.CommandParameter>
                         <MultiBinding Converter="{StaticResource MyConverter}">
                             <Binding Path="" ElementName="Forename"/>

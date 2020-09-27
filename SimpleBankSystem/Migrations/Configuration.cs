@@ -1,3 +1,6 @@
+using System.Windows.Data;
+using SimpleBankSystem.Models;
+
 namespace SimpleBankSystem.Migrations
 {
     using SimpleBankSystem.Models.Database.Core.Domain;
@@ -50,9 +53,16 @@ namespace SimpleBankSystem.Migrations
                 context.InfoTableDbSet.AddOrUpdate(t => t.Id, info);
             #endregion
 
+            #region Accounts
+
+            var acc = new Dictionary<string, Account>(
+            {
+                "Current", 
+            });
+
+            #endregion
 
 
-           
 
         }
     }

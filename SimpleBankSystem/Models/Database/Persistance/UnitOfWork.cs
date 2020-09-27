@@ -5,7 +5,7 @@ using SimpleBankSystem.Persistance.Repository;
 
 namespace SimpleBankSystem.Persistance
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly SBSDatabaseContext _context;
 
@@ -19,9 +19,9 @@ namespace SimpleBankSystem.Persistance
         }
 
 
-        public IUserRepository UserRepository { get; private set; }
-        public IInfoRepository Info { get; private set; }
-        public IRepository<dynamic> Repository { get; private set; }
+        public IUserRepository UserRepository { get; }
+        public IInfoRepository Info { get; }
+        public IRepository<dynamic> Repository { get; }
         public int Complete()
         {
             return _context.SaveChanges();

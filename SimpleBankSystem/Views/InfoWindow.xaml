@@ -6,7 +6,7 @@
         xmlns:vm1="clr-namespace:SimpleBankSystem.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="{Binding AccesibilityWindowTitle}" 
+        Title="{Binding InfoWindowTitle}" 
         Height="600" Width="800" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" 
         IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" >
 
@@ -181,7 +181,7 @@
         <Label Background="#262732"  Grid.Row="3" Grid.Column="4"/>
         <Canvas Background="#262732"  Grid.Row="3" Grid.Column="5">
             <Label Background="#262732"  Grid.Row="3" Grid.Column="1"
-               Content="Accessibility"
+               Content="Legal Info"
                Foreground="WhiteSmoke" FontSize="25" FontWeight="Bold"
                VerticalContentAlignment="Center" Canvas.Left="4" Canvas.Top="29"/>
             <WrapPanel HorizontalAlignment="Right" Margin="165,0,0,0">

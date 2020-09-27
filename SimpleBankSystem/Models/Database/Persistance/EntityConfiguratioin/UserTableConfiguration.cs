@@ -8,7 +8,7 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
         public UserTableConfiguration()
         {
             // Configure the table name
-            ToTable("UserTable");
+            ToTable("User.Tab");
 
             // Configure the primary key
             HasKey(c => c.Id);

@@ -2,7 +2,7 @@
 
 namespace SimpleBankSystem.Core.IRepositories
 {
-    interface IUserRepository : IRepository<UserTable>
+    public interface IUserRepository : IRepository<UserTable>
     {
         bool CreateUser(
             string forename, string lastname,

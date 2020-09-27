@@ -11,7 +11,7 @@
         Height="600" Width="800" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" 
         IsTabStop="True" Topmost="True" WindowStyle="None" WindowState="Normal" >
     <!--Loaded="Window_Loaded">-->
-    
+
     <Window.Resources>
 
         <Style TargetType="{x:Type ToggleButton}" x:Key="OnOffButton">
@@ -27,7 +27,7 @@
 
         <!--<CollectionViewSource x:Key="currentAccountViewSource" 
                               d:DesignSource="{d:DesignInstance {x:Type Domain:MainAccountTable}, CreateList=True}"/>-->
-        
+
     </Window.Resources>
 
     <Window.DataContext>
@@ -70,7 +70,7 @@
         <Grid Background="#2e2f41" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="140,0,0,-3">
             <!-- Border menu-->
             <StackPanel Orientation="Horizontal" >
-                
+
                 <Button Command="{Binding ShowAccountWindowCommand}" 
                         Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
                         BorderBrush="{x:Null}" Background="{x:Null}" Foreground="WhiteSmoke"
@@ -112,8 +112,9 @@
         <!-- SECOND ROW OF GRID STRUCTURE-->
         <Label Background="#2e2f41" Grid.Row="1" Grid.Column="0"/>
         <Grid Background="#2e2f41" Grid.Row="1" Grid.Column="1" >
+
             <!-- Menu button -->
-            <StackPanel Width="107" Margin="-50,0">
+            <StackPanel Width="107" Margin="-50,10">
                 <StackPanel.Resources>
 
                     <Style TargetType="{x:Type ToggleButton}" x:Key="OnOffButton">
@@ -300,24 +301,24 @@
             <WrapPanel>
                 <Grid Background="WhiteSmoke" Width="190" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="I want to transfer..." FontWeight="Bold" Width="150" FontSize="12"/>
-                    <TextBox Margin="0,35,1,19" Width="150" Text="{Binding OperationAmount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Margin="0,35,1,19" Width="150" Text="{Binding OperationAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 
                 </Grid>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="From this account..." FontWeight="Bold" Width="150" FontSize="12"/>
-                    <ComboBox Margin="0,8" Width="150" Name="ComboBox1" >
-                        <ComboBoxItem Content="Saving Account"></ComboBoxItem>
-                        <ComboBoxItem Content="Current Account"></ComboBoxItem>
-                        <ComboBoxItem IsSelected="True" Content="Credit Card"></ComboBoxItem>
+                    <ComboBox Margin="20,8" Width="150" x:Name="FromThisAccount" >
+                        <ComboBoxItem Content="Saving Account" IsSelected="{Binding FromSavingAccountIsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <ComboBoxItem Content="Current Account" IsSelected="{Binding FromCurrentAccountIsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <ComboBoxItem Content="Credit Card" IsSelected="{Binding FromCreditAccountIsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="200" MaxWidth="190" Height="80" MaxHeight="80">
                     <Label Content="To this account" FontWeight="Bold" Width="150" FontSize="12"/>
-                    <ComboBox Margin="0,8" Width="150" Name="ComboBox2">
-                        <ComboBoxItem Content="Saving Account" />
-                        <ComboBoxItem Content="Current Account" />
-                        <ComboBoxItem Content="Credit Card"  IsSelected="True" />
+                    <ComboBox Margin="0,8" Width="150" Name="ToThisAccount">
+                        <ComboBoxItem Content="Saving Account" IsSelected="{Binding ToSavingAccountIsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <ComboBoxItem Content="Current Account" IsSelected="{Binding ToCurrentAccountIsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <ComboBoxItem Content="Credit Card"  IsSelected="{Binding ToCreditAccountIsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Background="WhiteSmoke" Width="110" MaxWidth="110" Height="80" MaxHeight="80" HorizontalAlignment="Center">
@@ -356,8 +357,9 @@
 
         </Label>
 
-        <Grid Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="51,0,5,0">
-           
+        <Grid Background="#f5f5f5"  Grid.Row="6" Grid.ColumnSpan="2" Margin="51,0,5,0"
+              DataContext="">
+
             <!-- Current Account-->
             <DataGrid x:Name="CurrentAccountTable" AutoGenerateColumns="False" EnableRowVirtualization="True"
                                RowDetailsVisibilityMode="VisibleWhenSelected"

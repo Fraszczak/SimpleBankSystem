@@ -8,7 +8,7 @@ namespace SimpleBankSystem.Models.Database.EntityConfiguratioin.LoginToConfigura
         public InfoTableConfiguration()
         {
             // Configure the table name
-            ToTable("InfoTable");
+            ToTable("Info.Tab");
 
             // Configure the primary key
             HasKey(c => c.Id);

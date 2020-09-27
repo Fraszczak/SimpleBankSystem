@@ -19,19 +19,24 @@
         Height="600" Width="400" 
         WindowState="Normal" WindowStartupLocation="CenterScreen"
         >
+
     <Window.DataContext>
         <vm:LoginWindowViewModel />
     </Window.DataContext>
 
-    <Grid>
-        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+    <Grid Background="#FF272833">
+        <StackPanel Margin="35,115,35,240">
             <StackPanel.Background>
-                <ImageBrush ImageSource="C:\Users\Piecia\source\repos\BankApp_WPF_MVVM\img\login_window.jpg"/>
+
+                <ImageBrush ImageSource="C:\Users\lenovo\source\repos\SimpleBankSystem\SimpleBankSystem\login_img.png"/>
             </StackPanel.Background>
-           
+        </StackPanel>
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+
             <Border Padding="0">
-                <StackPanel>
-                    
+                <StackPanel >
+
                     <!-- Border menu-->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                         <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
@@ -48,18 +53,18 @@
                         </Button>
                     </StackPanel>
                     <!-- -->
-                    <Label Padding="0,30,0,10" VerticalAlignment="Center" Foreground="WhiteSmoke" HorizontalAlignment="Center">
+                    <Label Padding="0,30,0,10" VerticalAlignment="Center" Foreground="GreenYellow" HorizontalAlignment="Center">
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" >
                            Welcome in SimplyBankSystem
                         </TextBlock>
                     </Label>
 
-                    <Label Padding="0,5,0,250"  VerticalAlignment="Center" Foreground="WhiteSmoke" HorizontalAlignment="Center">
+                    <Label Padding="0,5,0,250"  VerticalAlignment="Center" Foreground="GreenYellow" HorizontalAlignment="Center">
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" >
                            Login to proceed
                         </TextBlock>
                     </Label>
-                   
+
                     <!-- Grid deffinition  -->
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -73,9 +78,9 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <!-- Login form  -->
-                        <Label Foreground="WhiteSmoke" Margin="0,0,-50,0"
+                        <Label Foreground="Red" Margin="0,0,-50,0"
                                Grid.Row="0" Grid.Column="0"  
-                                FontSize="20"
+                                FontSize="30" FontWeight="Bold"
                                HorizontalContentAlignment="Right" VerticalContentAlignment="Center" >
                             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="5">
                                 User:
@@ -86,40 +91,44 @@
                                  Name="LoginBox"
                                  Margin="10,10,10,10" Width="150" Height="30" BorderBrush="RosyBrown" 
                                  VerticalAlignment="Center" HorizontalAlignment="Center"
-                                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                 Text="{Binding Login, Mode=TwoWay,ValidatesOnNotifyDataErrors=True, 
+                                 UpdateSourceTrigger=PropertyChanged}"/>
 
                         <!---->
-                    <Label Foreground="WhiteSmoke" Margin="0,10,-50,0"
+                        <Label Foreground="Red" Margin="0,10,-50,0"
                            Grid.Row="1" Grid.Column="0" 
-                            FontSize="20"
+                            FontSize="30" FontWeight="Bold"
                            HorizontalContentAlignment="Right" >
-                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="5">
+                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="5">
                             Password:
-                        </TextBlock>
-                    </Label>
-                    <PasswordBox Background="Silver" Foreground="Black" 
+                            </TextBlock>
+                        </Label>
+                        <TextBox Background="Silver" Foreground="Black" 
                                  Margin="10,10,10,10" Height="30" Width="150" BorderBrush="RosyBrown"
                                  Grid.Row="1" Grid.Column="1"
                                  Name="PasswordBox" 
                                  VerticalAlignment="Center" HorizontalAlignment="Center"
-                                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                        
-                    <!--      StackPanel with two buttons, Login and Close       -->
+                                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                 Text="{Binding Password, Mode=TwoWay,
+                                 ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <!--      StackPanel with two buttons, Login and Close       -->
                         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
                             <StackPanel.Resources>
                                 <pbh:MyConverter x:Key="myConverter" />
                             </StackPanel.Resources>
-                            
+
                             <Button Background="Silver" Foreground="White"
                                     Margin="30,20,0,0" Width="150" Height="30"
                                     Command="{Binding LoginCommand}"
-                                    BorderBrush="RosyBrown" FontWeight="Bold" FontSize="20"
+                                    BorderBrush="DarkGreen" FontWeight="Bold" FontSize="20"
                                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
 
-                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">
+                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Foreground="GreenYellow">
                                     Login
                                 </TextBlock>
-                                
+
                                 <Button.CommandParameter>
                                     <MultiBinding Converter="{StaticResource myConverter}">
                                         <Binding Path="" ElementName="LoginBox"/>
@@ -128,11 +137,11 @@
                                 </Button.CommandParameter>
                             </Button>
 
-                            <Button Background="Silver" Foreground="White" Margin="30,20,0,0" BorderBrush="RosyBrown"
+                            <Button Background="Silver" Foreground="White" Margin="30,20,0,0" BorderBrush="DarkGreen"
                                     Width="150" Height="30"
                                     FontWeight="Bold" FontSize="20"
                                     Command="{Binding ExitCommand}">
-                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">
+                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Foreground="Red">
                                      Close
                                 </TextBlock>
                             </Button>
@@ -140,18 +149,17 @@
                     </Grid>
                 </StackPanel>
             </Border>
-            <Label>
-                
+            <Label Background="{x:Null}">
+
                 <!-- footer -->
-                <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="20" Foreground="WhiteSmoke">
+                <StackPanel Orientation="Horizontal" Height="48">
+                    <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="20" Foreground="GreenYellow"
+                           >
                     You have no account yet?
-                </TextBlock>
+                    </TextBlock>
                     <Button Command="{Binding ShowCreateAccountWindowCommand}"  
-                             Background="{x:Null}" BorderBrush="{x:Null}" >
-                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"  Background="{x:Null}" Foreground="Purple" >
-                    Create it!
-                </TextBlock>
+                            Background="{x:Null}" BorderBrush="{x:Null}" Width="208" >
+                        <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"  Background="{x:Null}" Foreground="Purple" ><Run Text="Create it!"/></TextBlock>
                     </Button>
                 </StackPanel>
             </Label>

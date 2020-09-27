@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace SimpleBankSystem.Persistance
 {
-    partial class SBSDatabaseContext : DbContext
+    public class SBSDatabaseContext : DbContext
     {
         
         public  DbSet<InfoTable> InfoTableDbSet { get; set; }
@@ -19,6 +19,17 @@ namespace SimpleBankSystem.Persistance
         public SBSDatabaseContext()
             : base(nameOrConnectionString: "DefaultConnection")
         {
+
+
+
+                    // Seting initializer
+                    // Database.SetInitializer<SBSDatabaseContext>(new CreateDatabaseIfNotExists<SBSDatabaseContext>());
+
+                     //Database.SetInitializer<SBSDatabaseContext>(new DropCreateDatabaseAlways<SBSDatabaseContext>() );
+                     //Database.SetInitializer<SBSDatabaseContext>(new DropCreateDatabaseIfModelChanges<SBSDatabaseContext>());<SBSDatabaseContext>());
+
+                     // Custom initializer 
+                     //Database.SetInitializer<SBSDatabaseContext>(new SBSDatabaseContexInitializer>());
             // Lazy loading off
             this.Configuration.LazyLoadingEnabled = false;
         }

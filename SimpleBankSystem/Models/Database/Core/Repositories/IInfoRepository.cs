@@ -2,7 +2,7 @@
 
 namespace SimpleBankSystem.Core.IRepositories
 {
-    interface IInfoRepository : IRepository<InfoTable>
+    public interface IInfoRepository : IRepository<InfoTable>
     {
         string GetData(string whatKindOf);
     }

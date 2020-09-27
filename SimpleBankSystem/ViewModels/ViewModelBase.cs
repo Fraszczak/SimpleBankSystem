@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -16,39 +17,43 @@ namespace SimpleBankSystem.ViewModels
     using System.Runtime.CompilerServices;
     using System.Windows.Controls;
 
-    public abstract class ViewModelBase : INotifyDataErrorInfo, INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         #region INotifyPropertyChanged
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-                Validate();
             }
+
+            Validate();
         }
-       
+
+
         #endregion
+
         #region INotifyDataErrorInfo
+
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         public void OnPropertyErrorsChanged(string propertyName)
         {
+            if (ErrorsChanged == null)
+            {
+                var arg = new DataErrorsChangedEventArgs(propertyName);
+                ErrorsChanged.Invoke(this, arg);
+            }
 
-            EventHandler<DataErrorsChangedEventArgs> handler = ErrorsChanged;
-            if (handler == null) return;
-
-            var arg = new DataErrorsChangedEventArgs(propertyName);
-            handler.Invoke(this, arg);
-            
         }
 
         public IEnumerable GetErrors(string propertyName)
         {
             List<string> errors = new List<string>();
-            
+
             if (propertyName != null)
             {
                 _errors.TryGetValue(propertyName, out errors);
@@ -77,13 +82,15 @@ namespace SimpleBankSystem.ViewModels
                 }
             }
         }
+
         #endregion
 
         #region DataInputValidation
+
         private Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
         private object _lock = new object();
 
-        private void Validate()
+        public void Validate()
         {
             double WaitSecondsBeforeValidation = 1;
             Task waitTask = new Task(() => Thread.Sleep(
@@ -92,6 +99,12 @@ namespace SimpleBankSystem.ViewModels
             waitTask.Start();
         }
 
+
+
+
+
+
+
         private void RealValidation()
         {
             lock (_lock)
@@ -99,23 +112,23 @@ namespace SimpleBankSystem.ViewModels
                 List<string> errorList;
 
                 //Validate Forename
-
                 if (!_errors.TryGetValue("Forename", out errorList))
                     errorList = new List<string>();
                 else errorList.Clear();
 
                 if (string.IsNullOrEmpty(Forename))
-                    errorList.Add("The name can't be null or empty.");
+                    errorList.Add("This field can't be null or empty.");
                 else if (Forename.Length > 50 || Forename.Length < 2)
-                    errorList.Add("The Forename must be between 2 and 50 characters long");
+                    errorList.Add("This field must be between 2 and 50 characters long");
                 else if (!Regex.IsMatch(Forename, @"^[a-zA-Z]+$"))
-                    errorList.Add("The Forename must only contain letters (a-z A-Z).");
+                    errorList.Add("Field must only contain letters (a-z A-Z).");
 
                 _errors["Forename"] = errorList;
                 if (errorList.Count > 0) OnPropertyErrorsChanged("Forename");
 
 
-                //Validate Lastname
+
+                // Validate Lastname
 
                 if (!_errors.TryGetValue("Lastname", out errorList))
                     errorList = new List<string>();
@@ -125,7 +138,7 @@ namespace SimpleBankSystem.ViewModels
                     errorList.Add("The Lastname can't be null or empty.");
                 else if (Lastname.Length > 50 || Lastname.Length < 2)
                     errorList.Add("The Lastname must be between 2 and 50 characters long");
-                else if (!Regex.IsMatch(Forename, @"^[a-zA-Z]+$"))
+                else if (!Regex.IsMatch(Lastname, @"^[a-zA-Z]+$"))
                     errorList.Add("The Lastname must only contain letters (a-z A-Z).");
 
                 _errors["Lastname"] = errorList;
@@ -140,10 +153,10 @@ namespace SimpleBankSystem.ViewModels
 
                 if (string.IsNullOrEmpty(Title))
                     errorList.Add("The Title can't be null or empty.");
-                else if (!Title.Contains("Mr") || !Title.Contains("Ms") || !Title.Contains("Mis"))
-                    errorList.Add("Wrong title, the right one are \"Mr\", \"Ms\", \"Mis\"");
-                else if (!Regex.IsMatch(Title, @"^[a-zA-Z]+$"))
-                    errorList.Add("The Forename must only contain letters (a-z A-Z).");
+                //else if (!Title.Contains("Mr") || !Title.Contains("Ms") || !Title.Contains("Mis"))
+                //    errorList.Add("Wrong title, the right one are \"Mr\", \"Ms\", \"Mis\"");
+                //else if (!Regex.IsMatch(Title, @"^[a-zA-Z]+$"))
+                //    errorList.Add("The Forename must only contain letters (a-z A-Z).");
 
                 _errors["Title"] = errorList;
                 if (errorList.Count > 0) OnPropertyErrorsChanged("Title");
@@ -157,7 +170,7 @@ namespace SimpleBankSystem.ViewModels
 
                 if (string.IsNullOrEmpty(PhoneNumber))
                     errorList.Add("The Phone number can't be null or empty.");
-                else if (PhoneNumber.Length > 13 || PhoneNumber.Length < 9)
+                else if (PhoneNumber.Length > 13 || PhoneNumber.Length <= 9)
                     errorList.Add("Phone number must be between 9 and 13 numbers long");
                 else if (!Regex.IsMatch(PhoneNumber, @"^[1-9]+$"))
                     errorList.Add("The Phone number must only contain numbers.");
@@ -174,7 +187,7 @@ namespace SimpleBankSystem.ViewModels
 
                 if (string.IsNullOrEmpty(Email))
                     errorList.Add("The Email number can't be null or empty.");
-                else if (Email.Contains('@') || !Email.Contains('.'))
+                else if (!Email.Contains('@') || !Email.Contains('.'))
                     errorList.Add("Email have to contain \'@\' and \'.\'");
                 else if (Email.Length > 50 || Email.Length < 6)
                     errorList.Add("Email must be between 6 and 50 numbers long");
@@ -185,22 +198,17 @@ namespace SimpleBankSystem.ViewModels
 
                 //Validate Login
 
-
-
                 if (!_errors.TryGetValue("Login", out errorList))
                     errorList = new List<string>();
                 else errorList.Clear();
 
                 if (string.IsNullOrEmpty(Login))
-                    errorList.Add("The Login number can't be null or empty.");
+                    errorList.Add("The Login can't be null or empty.");
                 else if (!Regex.IsMatch(Login, @"^[1-9]+$"))
-                    errorList.Add("The Login number must only contain numbers.");
+                    errorList.Add("The Login  must  contain numbers.");
                 else if (Login.Length > 50 || Login.Length < 6)
                     errorList.Add("The Login must be between 6 and 50 numbers long");
-                else if (!Login.Contains('0') || !Login.Contains('1') || !Login.Contains('2') || !Login.Contains('3')
-                         || !Login.Contains('4') || !Login.Contains('5') || !Login.Contains('6') || !Login.Contains('7') 
-                         || !Login.Contains('8') || !Login.Contains('9'))
-                    errorList.Add("The Login have to contain one number (1-9)");
+
                 _errors["Login"] = errorList;
                 if (errorList.Count > 0) OnPropertyErrorsChanged("Login");
 
@@ -212,26 +220,27 @@ namespace SimpleBankSystem.ViewModels
                 else errorList.Clear();
 
                 if (string.IsNullOrEmpty(Password))
-                    errorList.Add("The Password number can't be null or empty.");
-                else if (Email.Contains('@') || !Password.Contains('.'))
-                    errorList.Add("The Password have to contain \'@\' and \'.\'");
-                else if (Email.Length > 50 || Password.Length < 6)
+                    errorList.Add("The Password can't be null or empty.");
+                else if (Password.Length > 50 || Password.Length < 6)
                     errorList.Add("The Password must be between 6 and 50 numbers long");
 
                 _errors["Password"] = errorList;
                 if (errorList.Count > 0) OnPropertyErrorsChanged("Password");
             }
         }
-        #endregion
+        #endregion // Data input validation
 
-        #region CreateAccountWindow  -  Variables
-        private string _forename;
+        #region Fields for Create Account Window
+
+        private string _forename = "";
         private string _lastname;
         private string _title;
         private string _phoneNumber;
         private string _email;
         private string _login;
         private string _password;
+
+
 
         public string Forename
         {
@@ -287,6 +296,7 @@ namespace SimpleBankSystem.ViewModels
                 OnPropertyChanged("Login");
             }
         }
+
         public string Password
         {
             get => _password;
@@ -296,14 +306,14 @@ namespace SimpleBankSystem.ViewModels
                 OnPropertyChanged("Password");
             }
         }
-        #endregion
+        #endregion // Create Account Window Fields
 
-        #region LoginWindow  -  Variables
 
-        
 
-        #endregion
     }
+
+
+
 }
 
 

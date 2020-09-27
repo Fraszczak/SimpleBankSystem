@@ -25,7 +25,7 @@ namespace SimpleBankSystem
 
         public void Execute(object parameter)
         {
-            Window newWindow = null;
+            Window newWindow;
 
             foreach (Window window in Application.Current.Windows)
             {

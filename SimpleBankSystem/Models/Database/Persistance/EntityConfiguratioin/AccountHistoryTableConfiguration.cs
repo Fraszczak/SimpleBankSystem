@@ -8,12 +8,12 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
         public AccountHistoryTableConfiguration()
         {
             // Configure the table name
-            ToTable("AccountHistoryTable");
+            ToTable("AccountHistory.Tab");
 
             // Configure the primary key
             HasKey(c => c.Id);
 
-            Property(c => c.Value)
+            Property(c => c.Price)
                 .IsRequired();
 
             Property(c => c.TransactionDate)
@@ -24,9 +24,9 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
 
             
 
-            HasRequired(c => c.Account)
-                .WithRequiredPrincipal(c => c.AccountHistory)
-                .WillCascadeOnDelete(true);
+            //HasRequired(c => c.Account)
+            //    .WithRequiredPrincipal(c => c.AccountHistory)
+            //    .WillCascadeOnDelete(true);
         }
     }
 }

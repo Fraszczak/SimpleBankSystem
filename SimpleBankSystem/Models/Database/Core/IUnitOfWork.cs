@@ -3,7 +3,7 @@ using System;
 
 namespace SimpleBankSystem.Core
 {
-    interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         IUserRepository UserRepository { get; }
         IInfoRepository Info { get; }

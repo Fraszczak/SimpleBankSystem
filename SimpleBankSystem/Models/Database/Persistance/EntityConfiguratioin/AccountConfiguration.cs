@@ -8,20 +8,17 @@ namespace SimpleBankSystem.Models.Database.Persistance.EntityConfiguratioin
         public AccountConfiguration()
         {
             // Configure the table name
-            ToTable("AccountTable");
+            ToTable("Account.Tab");
 
             // Configure the primary key
             HasKey(c => c.Id);
 
             Property(c => c.Balance)
                 .IsRequired()
-                .HasPrecision(4, 2);
+                .HasPrecision(30, 20);
 
-            Property(c => c.DateTime)
+            Property(c => c.Currency)
                 .IsRequired();
-
-            Property(c => c.Type)
-               .IsRequired();
 
       
         }

@@ -27,7 +27,7 @@ namespace SimpleBankSystem.Commands
 
         public void Execute(object parameter)
         {
-            UnitOfWork unitOfWork;
+             
 
             var values = (object[])parameter;
 
@@ -54,7 +54,7 @@ namespace SimpleBankSystem.Commands
 
             
        
-            unitOfWork = new UnitOfWork(new SBSDatabaseContext());
+             var unitOfWork = new UnitOfWork(new SBSDatabaseContext());
 
             if (unitOfWork.UserRepository.CreateUser(forename, lastname, title, phone, email, login, password))
             {

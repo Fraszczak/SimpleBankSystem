@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,14 +39,14 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net46\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -54,11 +57,11 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=1.2.4.1361, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.4\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.1.1361, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.1.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -84,21 +87,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202003061422524_InitialComponents.cs" />
-    <Compile Include="Migrations\202003061422524_InitialComponents.Designer.cs">
-      <DependentUpon>202003061422524_InitialComponents.cs</DependentUpon>
+    <Compile Include="Migrations\202005131100399_InitialComponent.cs" />
+    <Compile Include="Migrations\202005131100399_InitialComponent.designer.cs">
+      <DependentUpon>202005131100399_InitialComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005131133311_InitialComponent1.cs" />
+    <Compile Include="Migrations\202005131133311_InitialComponent1.designer.cs">
+      <DependentUpon>202005131133311_InitialComponent1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="ViewModels\Commands\LogoutCommand.cs" />
-    <Compile Include="ViewModels\Commands\RegistryCommand.cs" />
-    <Compile Include="ViewModels\Commands\RelayCommand.cs" />
-    <Compile Include="ViewModels\Commands\ShowAccountWindowCommand.cs" />
-    <Compile Include="ViewModels\Commands\ShowInfoWindowCommand.cs" />
-    <Compile Include="ViewModels\Commands\TranserFounds.cs" />
+    <Compile Include="ViewModels\AccountWindowViewModel.cs" />
+    <Compile Include="Models\Helpers\RelayCommand.cs" />
     <Compile Include="Models\Database\Core\Domain\Account.cs" />
     <Compile Include="Models\Database\Core\Domain\AccountHistoryTable.cs" />
     <Compile Include="Models\Database\Core\Domain\InfoTable.cs" />
-    <Compile Include="Models\Database\Core\Domain\TypeOfAcount.cs" />
     <Compile Include="Models\Database\Core\Domain\UserTable.cs" />
     <Compile Include="Models\Database\Core\IUnitOfWork.cs" />
     <Compile Include="Models\Database\Core\Repositories\IUserRepository.cs" />
@@ -114,6 +116,9 @@
     <Compile Include="Models\Database\Persistance\Repository\Repository.cs" />
     <Compile Include="Models\Database\Persistance\UnitOfWork.cs" />
     <Compile Include="Models\Helpers\IEnumerableToObservableCollectionClass.cs" />
+    <Compile Include="ViewModels\CreateAccountWindowViewModel.cs" />
+    <Compile Include="ViewModels\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ValidationHelper.cs" />
     <Compile Include="Views\AccountWindow.xaml.cs">
       <DependentUpon>AccountWindow.xaml</DependentUpon>
@@ -133,7 +138,7 @@
     <Compile Include="Views\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Models\Extras\Effects\Loading.xaml">
+    <Page Include="Views\Effects\Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,34 +146,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\Commands\BackToCommand.cs" />
-    <Compile Include="ViewModels\Commands\ExitCommand.cs" />
-    <Compile Include="ViewModels\Commands\LoginCommand.cs" />
-    <Compile Include="ViewModels\Commands\ShowCreateAccountWindowCommand.cs" />
-    <Compile Include="ViewModels\Commands\ShowInvestmentWindowCommand.cs" />
-    <Compile Include="Models\Extras\Effects\Loading.xaml.cs">
+    <Compile Include="Views\Effects\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extras\Effects\BlurEffect.cs" />
+    <Compile Include="Views\Effects\BlurEffect.cs" />
     <Compile Include="Models\Helpers\MyConverter.cs" />
-    <Compile Include="ViewModels\InfoViewModel\InfoViewModel.Binding.cs" />
-    <Compile Include="ViewModels\InfoViewModel\InfoViewModel.Command.cs" />
-    <Compile Include="ViewModels\InfoViewModel\InfoViewModel.cs" />
-    <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\AccountWindow\AccountWindowViewModel.cs" />
-    <Compile Include="ViewModels\CreateAccountWindow\CreateAccountWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\CreateAccountWindow\CreateAccountWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\CreateAccountWindow\CreateAccountWindowViewModel.cs" />
-    <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\InvestmentsWindow\InvestmentsWindowViewModel.cs" />
-    <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.Command.cs" />
-    <Compile Include="ViewModels\LoginWindow\LoginWindowViewModel.cs" />
-    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.Binding.cs" />
-    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.Commands.cs" />
-    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\InfoViewModel.cs" />
+    <Compile Include="ViewModels\InvestmentsWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="Views\AccountWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -209,22 +193,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202003061422524_InitialComponents.resx">
-      <DependentUpon>202003061422524_InitialComponents.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005131100399_InitialComponent.resx">
+      <DependentUpon>202005131100399_InitialComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005131133311_InitialComponent1.resx">
+      <DependentUpon>202005131133311_InitialComponent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.CreditCardTable.datasource" />
     <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.CurrentAccountTable.datasource" />
     <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.InfoTable.datasource" />
     <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.InvestmentTable.datasource" />
     <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.LoginToTable.datasource" />
     <None Include="Properties\DataSources\SimpleBankSystem.Core.Domain.SaveAccountTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Models.Database.Core.Domain.Account.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Models.Database.Core.Domain.AccountHistoryTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Models.Database.Core.Domain.InfoTable.datasource" />
+    <None Include="Properties\DataSources\SimpleBankSystem.Models.Database.Core.Domain.UserTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -235,4 +224,14 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets')" />
 </Project>

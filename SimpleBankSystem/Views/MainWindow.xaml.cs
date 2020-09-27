@@ -15,6 +15,8 @@ namespace SimpleBankSystem.Views
             
         }
 
+
+
         //private SBSDatabaseContext _context = new SBSDatabaseContext();
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -32,5 +34,9 @@ namespace SimpleBankSystem.Views
         //    _context.Dispose();
         //}
 
+        private void UIElement_OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
