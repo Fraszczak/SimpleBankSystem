@@ -52,18 +52,6 @@ namespace SimpleBankSystem.Migrations
             foreach (var info in infos.Values)
                 context.InfoTableDbSet.AddOrUpdate(t => t.Id, info);
             #endregion
-
-            #region Accounts
-
-            var acc = new Dictionary<string, Account>(
-            {
-                "Current", 
-            });
-
-            #endregion
-
-
-
         }
     }
 }

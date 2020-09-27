@@ -53,13 +53,13 @@
                         </Button>
                     </StackPanel>
                     <!-- -->
-                    <Label Padding="0,30,0,10" VerticalAlignment="Center" Foreground="GreenYellow" HorizontalAlignment="Center">
+                    <Label Padding="0,30,0,10" VerticalAlignment="Center" Foreground="Gold" HorizontalAlignment="Center">
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" >
                            Welcome in SimplyBankSystem
                         </TextBlock>
                     </Label>
 
-                    <Label Padding="0,5,0,250"  VerticalAlignment="Center" Foreground="GreenYellow" HorizontalAlignment="Center">
+                    <Label Padding="0,5,0,250"  VerticalAlignment="Center" Foreground="Gold" HorizontalAlignment="Center">
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" >
                            Login to proceed
                         </TextBlock>
@@ -78,7 +78,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <!-- Login form  -->
-                        <Label Foreground="Red" Margin="0,0,-50,0"
+                        <Label Foreground="Gold" Margin="0,0,-30,0"
                                Grid.Row="0" Grid.Column="0"  
                                 FontSize="30" FontWeight="Bold"
                                HorizontalContentAlignment="Right" VerticalContentAlignment="Center" >
@@ -96,7 +96,7 @@
                                  UpdateSourceTrigger=PropertyChanged}"/>
 
                         <!---->
-                        <Label Foreground="Red" Margin="0,10,-50,0"
+                        <Label Foreground="Gold" Margin="0,10,-30,0"
                            Grid.Row="1" Grid.Column="0" 
                             FontSize="30" FontWeight="Bold"
                            HorizontalContentAlignment="Right" >
@@ -151,7 +151,7 @@
             </Border>
             <Label Background="{x:Null}">
 
-                <!-- footer -->
+                <!-- footer --><!--
                 <StackPanel Orientation="Horizontal" Height="48">
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Padding="20" Foreground="GreenYellow"
                            >
@@ -161,7 +161,7 @@
                             Background="{x:Null}" BorderBrush="{x:Null}" Width="208" >
                         <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"  Background="{x:Null}" Foreground="Purple" ><Run Text="Create it!"/></TextBlock>
                     </Button>
-                </StackPanel>
+                </StackPanel>-->
             </Label>
         </StackPanel>
     </Grid>
