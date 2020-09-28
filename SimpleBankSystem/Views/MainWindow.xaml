@@ -263,9 +263,8 @@
                                RowDetailsVisibilityMode="VisibleWhenSelected"
                               ItemsSource="{Binding SaveAccountTable}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="SaveAccountNameColumn" Binding="{Binding Name}" Header="Name" Width="auto"/>
-                    <DataGridTextColumn x:Name="SaveAccountDateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="auto" />
-                    <DataGridTextColumn x:Name="SaveAccountValueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
+                    <DataGridTextColumn x:Name="SaveAccountNameColumn" Binding="{Binding Name, Mode=OneWay}" Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="SaveAccountValueColumn" Binding="{Binding Value, Mode=OneWay}" Header="Amound" Width="auto"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -278,9 +277,8 @@
                                RowDetailsVisibilityMode="VisibleWhenSelected"
                               ItemsSource="{Binding CreditAccountTable}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="CreditAccountNameColumn" Binding="{Binding Name}" Header="Name" Width="auto"/>
-                    <DataGridTextColumn x:Name="CreditAccountDateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="auto" />
-                    <DataGridTextColumn x:Name="CreditAccountValueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
+                    <DataGridTextColumn x:Name="CreditAccountNameColumn" Binding="{Binding Name, Mode=OneWay}" Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="CreditAccountValueColumn" Binding="{Binding Value, Mode=OneWay}" Header="Amound" Width="auto"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -362,12 +360,10 @@
 
             <!-- Current Account-->
             <DataGrid x:Name="CurrentAccountTable" AutoGenerateColumns="False" EnableRowVirtualization="True"
-                               RowDetailsVisibilityMode="VisibleWhenSelected"
-                              ItemsSource="{Binding CurrentAccountTable}">
+                               RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="CurrentAccountNameColumn" Binding="{Binding Name}" Header="Name" Width="auto"/>
-                    <DataGridTextColumn x:Name="CurrentAccountDateColumn" Binding="{Binding DataTime}" Header="DateTime" Width="auto" />
-                    <DataGridTextColumn x:Name="CurrentAccountValueColumn" Binding="{Binding Value}" Header="Amound" Width="auto"/>
+                    <DataGridTextColumn x:Name="CurrentAccountNameColumn" Binding="{Binding XXX, Mode=OneWay}" Header="Name" Width="auto"/>
+                    <DataGridTextColumn x:Name="CurrentAccountValueColumn" Binding="{Binding CurrentValue, Mode=OneWay}" Header="Amound" Width="auto"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

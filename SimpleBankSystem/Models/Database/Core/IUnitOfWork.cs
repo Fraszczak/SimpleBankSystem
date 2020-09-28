@@ -8,6 +8,7 @@ namespace SimpleBankSystem.Core
         IUserRepository UserRepository { get; }
         IInfoRepository Info { get; }
         IRepository<dynamic> Repository {get;}
+        IOperations Operations { get; }
         int Complete();
     }
 }

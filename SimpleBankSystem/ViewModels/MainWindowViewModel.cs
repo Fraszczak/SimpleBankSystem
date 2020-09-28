@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
@@ -33,6 +34,18 @@ namespace SimpleBankSystem.ViewModels
 
         #region Title
         public string MainWindowTitle { get; } = unitOfWork.Info.GetData("MainWindowTitle");
+
+        #endregion
+
+        #region Variables
+
+        private IQueryable<AccountHistoryTable> _accountHistory;
+
+        public IQueryable<AccountHistoryTable> AccountHistory
+        {
+            get => _accountHistory;
+            set => _accountHistory = unitOfWork.Operations.GetDataColection();
+        }
 
         #endregion
 

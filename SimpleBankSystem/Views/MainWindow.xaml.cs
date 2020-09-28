@@ -1,6 +1,7 @@
 ﻿
 using SimpleBankSystem.Persistance;
 using System.Windows;
+using SimpleBankSystem.ViewModels;
 
 namespace SimpleBankSystem.Views
 {
@@ -9,10 +10,13 @@ namespace SimpleBankSystem.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static readonly UnitOfWork unitOfWork = new UnitOfWork(new SBSDatabaseContext());
+
         public MainWindow()
         {
             InitializeComponent();
-            
+            //CurrentAccountTable.ItemsSource = unitOfWork.Operations.GetDataColection();
+
         }
 
 
@@ -25,7 +29,7 @@ namespace SimpleBankSystem.Views
         //    System.Windows.Data.CollectionViewSource currentAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("currentAccountViewSource")));
 
         //    currentAccountViewSource.Source = _context.CurrentAccountDbSet.Local;
-          
+
         //}
         //protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         //{
@@ -34,9 +38,6 @@ namespace SimpleBankSystem.Views
         //    _context.Dispose();
         //}
 
-        private void UIElement_OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }

@@ -96,6 +96,8 @@
       <DependentUpon>202005131133311_InitialComponent1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Database\Core\Repositories\IOperations.cs" />
+    <Compile Include="Models\Database\Persistance\Repository\Operations.cs" />
     <Compile Include="ViewModels\AccountWindowViewModel.cs" />
     <Compile Include="Models\Helpers\RelayCommand.cs" />
     <Compile Include="Models\Database\Core\Domain\Account.cs" />
